@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="homepage.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+	<header>
+		<h2>Salisbury University</h2>
+	</header>
+
+	<nav class="sidebar">
+		<ul>
+			<li><a href="#">Dashboard</a></li>
+			<li>
+				<a href="#" class="sch-btn">Schedule <span class="fas fa-caret-down first"></span></a>
+				<ul class="sch-show">
+					<li><a href="#">New</a></li>
+					<li><a href="#">View</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#" class="prog-btn">Progress Report <span class="fas fa-caret-down second"></span> </a>
+				<ul class="prog-show">
+					<li><a href="#">Four Year Plan</a></li>
+					<li><a href="#">Course History</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Contact info</a></li>
+			<li><a href="#">Sign Out</a></li>
+		</ul>
+	</nav>
+
+	<script>
+		$('.sch-btn').click(function(){
+			$('nav ul .sch-show').toggleClass("sch");
+			$('nav ul .first').toggleClass("rotate");
+		});
+		$('.prog-btn').click(function(){
+			$('nav ul .prog-show').toggleClass("prog");
+			$('nav ul .second').toggleClass("rotate");
+		});
+		$('nav ul li').click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+	</script>
+	
+</body>
