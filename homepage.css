@@ -130,3 +130,25 @@ nav ul li a span.rotate {
 }
 
 /*  */
+
+input { 
+    text-align: center; 
+}
+
+#programplanningworksheet {
+	outline: 2px solid black;
+	padding: 2%;
+}
+
+#programplanningworksheet > * {
+	margin: 5px
+}
+
+.schedule-new table {
+	border-collapse: collapse;
+	width: 90%;
+}
+
+.schedule-new table, td, th {
+	border: 1px solid black;
+}
