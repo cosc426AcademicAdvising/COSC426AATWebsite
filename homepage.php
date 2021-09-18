@@ -3,11 +3,15 @@
 	<link rel="stylesheet" href="homepage.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<?php require 'vendor/autoload.php'; ?>
+
 </head>
 
 <body>
 	<header>
 		<h2>Salisbury University</h2>
+
+		
 	</header>
 
 	<div class="flexbox">
@@ -45,17 +49,29 @@
 					<label for="studentid">Id: </label>
 					<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8">
 					<br>
-					
 					<label for="major">Major: </label>
 					<select id="major" id="major">
-						<!-- TO-DO -->
+					<?php 
+						include_once 'DepartmentFunctions.php'; 
+						$schools = getSchools();
+						$cnt = count($schools);					
+						for($i=0;$i<$cnt;$i++){
+							echo '<option value='.$schools[$i].'>'.$schools[$i].'</option>';
+						}
+					?>
 					</select>
-
 					<label for="minor">Minor: </label>
 					<select id="minor" name="minor">
-						<!-- TO-DO -->
+					<?php 
+						include_once 'DepartmentFunctions.php'; 
+						$schools = getSchools();
+						$cnt = count($schools);					
+						for($i=0;$i<$cnt;$i++){
+							echo '<option value='.$schools[$i].'>'.$schools[$i].'</option>';
+						}
+					?>
 					</select>
-
+					
 					<br>
 
 					<span>Registering for</span>
@@ -107,7 +123,6 @@
 					<label for="memo">Memo: </label><br>
 					<textarea rows="8" cols="50" name="memo" form="programplanningworksheet"></textarea>
 					<br>
-
 					<input type="submit" value="Submit">
 
 				</form>
@@ -130,10 +145,6 @@
 	</div>
 
 	<script>
-		$(document).ready(function () {
-			$('#content > *').not(':first').hide();
-			//$('#content > *').not('.schedule-new').hide();
-		});
 
 		// nav bar sub menu
 		$('.schedule-btn').click(function(){
