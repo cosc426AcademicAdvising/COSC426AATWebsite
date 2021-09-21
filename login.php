@@ -7,16 +7,16 @@
       <div class = "container form-signin">
          
          <?php
+		 error_reporting(0);
 			require 'vendor/autoload.php';
 			include_once 'StudentFunctions.php';
             $msg = '';
-			$stud = getStudent('1234123');
+			$stud = getStudent($_POST['username']);
 			$hash = $stud['passHash'];
             if (isset($_POST['login']) && !empty($_POST['username']) 
                && !empty($_POST['password'])) {
 				
-               if ($_POST['username'] == '1234123' && 
-                  password_verify($_POST['password'], $hash)) {
+               if (password_verify($_POST['password'], $hash)) {
                   
                   $url='homepage.php';
 		  echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
@@ -37,7 +37,7 @@
 	    </h4>
 			<div type="inputs">
 				<input type = "uname" name = "username" placeholder = "Student ID" required autofocus><br>
-				<input type = "password" name = "password" placeholder = "password = passtest" required><br>
+				<input type = "password" name = "password" placeholder = "password" required><br>
 				<button type = "submit" name = "login">Log in</button>
 			</div>
          </form>
