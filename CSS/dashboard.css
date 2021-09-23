@@ -1,0 +1,112 @@
+* {
+	user-select: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family:  "Avenir Next LT W01 Demi", Helvetica, Arial, sans-serif;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+body {
+	min-height:100%;
+}
+header {
+	/* position: fixed; */
+	background-color: #8a0000;
+	color: #ffff;
+	width: 100%;
+	left: 0;
+	top: 0;
+	height: 75px;
+}
+
+header h2 {
+	text-align: center;
+	padding: 22px;
+}
+h3 {
+	text-align: center;
+	margin: auto;
+	width: 60%;
+	border-style: solid;
+	border-radius: 30px;
+	padding: 5px;
+}
+
+h4 {
+	text-align: center;
+	margin: auto;
+	width: 80%;
+}
+td {
+	text-align: center;
+	width: auto;
+	margin: auto;
+	border-spacing: 0;
+}
+tr {
+	text-align: center;
+	width: auto;
+	margin: auto;
+	border-spacing: 0;
+}
+th {
+	text-align: center;
+	width: auto;
+	margin: auto;
+	border-spacing: 0;
+}
+
+.container {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 50% 40% 10%;
+	
+}
+
+.schedule {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	padding: 5px;
+}
+.plan {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	padding: 5px;
+}
+.personal_info {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	padding: 5px;
+}
+.personal_info_fill {
+	margin: 10px auto;
+}
+.progress_bar {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	padding: 5px;
+}
+.schedule_table {
+	width: 100%;
+	display: table;
+	margin: 10px auto;
+	padding: 5px;
+	border-collapse: collapse;
+}
+.schedule_row {
+	width: 100%;
+
+}

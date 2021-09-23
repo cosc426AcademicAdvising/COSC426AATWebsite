@@ -20,7 +20,7 @@
             if (!empty($_POST['username']) && !empty($_POST['password'])) {
                 if (password_verify($_POST['password'], $hash)) {
 					$_SESSION['valid'] = true;
-					$_SESSION['username'] = $stud;
+					$_SESSION['username'] = $stud['s_id'];
 					$url='dashboard.php';
 					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
                }else {

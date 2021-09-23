@@ -33,7 +33,7 @@ header h2 {
 
 .flexbox {
 	display: flex; 
-	/*flex-flow: row wrap;*/
+	flex-flow: row wrap;
 	height: calc(100% - 75px);
 	align-items: stretch;
 }
@@ -129,9 +129,26 @@ nav ul li a span.rotate {
 	transform: translateY(-50%) rotate(-180deg);
 }
 
-button {
-	border-radius: 8px;
-	text-align: center;
-	padding: 5px 10px;
-	width: 80px;
+/*  */
+
+input { 
+    text-align: center; 
+}
+
+#programplanningworksheet {
+	outline: 2px solid black;
+	padding: 2%;
+}
+
+#programplanningworksheet > * {
+	margin: 5px
+}
+
+.schedule-new table {
+	border-collapse: collapse;
+	width: 90%;
+}
+
+.schedule-new table, td, th {
+	border: 1px solid black;
 }
