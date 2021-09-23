@@ -15,13 +15,20 @@ $( document ).ready(function(){
 });
 
 // schedule new functions
-function scheduleAddCourse(subj, ttl, cr, typ) {
+function scheduleAddCourse(subj, ttl, cr, prog) {
 	// console.log(subj, ttl, cr, typ);
 	if (subj != "" && ttl != "" && cr != "") {
-		// but = '<button type="button" onclick="">Delete</botton>'
-		text = "<tr><th>" + subj + "</th><th>" + ttl + "</th><th>" + cr + "</th><th>" + typ 
-			+ "</th><th><button type='button' onclick=''>Remove</button></th></tr>";
+		rmbutton = '<button type="button" onclick="removeCourse()">Remove</botton>'
+		text = "<tr><td>" + subj.toUpperCase() + "</td><td>" + ttl.toUpperCase() + "</td><td>" + cr + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton +"</td></tr>";
 		$('#schedulecoursetable').append(text);
 		$("#schedulecoursetable :input").val("");
+
+		$("#schedulecoursenumb").focus();
 	}
+}
+
+function removeCourse() {
+	var td = event.target.parentNode;
+	var tr = td.parentNode; // the row to be removed
+	tr.parentNode.removeChild(tr);
 }

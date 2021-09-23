@@ -50,17 +50,17 @@
 						<table id="schedulecoursetable">
 							<tr>
 								<b>
-									<th>Course Number</th>
-									<th>Title</th>
-									<th>Credit</th>
-									<th><a title="Major, minor, gen ed">Program</a></th>
+									<th style="width:10%px;">Course Number</th>
+									<th style="width:50%;">Title</th>
+									<th style="width:5%;">Credits</th>
+									<th style="width:20%;"><a title="Major, minor, gen ed">Program</a></th>
 									<th></th>
 								</b>
 							</tr>
 							<tr id="schedule-course-entry">
-								<th><input type='text' id="schedulecoursenumb" name="schedulecoursenumb" style="text-transform:uppercase"></th>
-								<th><input type='text' id="schedulecoursetitle" name="schedulecoursetitle"></th>
-								<th><input type='text' id="schedulecoursecredit" name="schedulecoursecredit"></th>
+								<th><input type='text' id="schedulecoursenumb" name="schedulecoursenumb" size="10" maxlength="8"></th>
+								<th><input type='text' id="schedulecoursetitle" name="schedulecoursetitle" size="50"></th>
+								<th><input type='text' id="schedulecoursecredit" name="schedulecoursecredit" size="3" maxlength="3"></th>
 								<th><input type='text' id="schedulecoursetype" name="schedulecoursetype"></th>
 								<th><button type='button' onclick="scheduleAddCourse(schedulecoursenumb.value, schedulecoursetitle.value, schedulecoursecredit.value, schedulecoursetype.value)">Add</button></th>
 								<!-- scheduleAddCourse(schedule-coursenumb.value, schedule-coursetitle.value, schedule-coursecredit.value, schedule-coursetype.value)" -->

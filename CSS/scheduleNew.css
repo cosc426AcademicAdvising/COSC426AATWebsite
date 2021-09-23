@@ -16,6 +16,14 @@ input {
 	width: 90%;
 }
 
-.schedule-new table, td, th {
+.schedule-new table, th, td {
 	border: 1px solid black;
+}
+
+.schedule-new td {
+	text-align: center;
+}
+
+#schedule-course-entry input {
+	text-transform: uppercase;
 }
