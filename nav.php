@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<head>
-	<!-- for caret -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	
-	<link rel="stylesheet" href="CSS/index.css">
-	<link rel="stylesheet" href="CSS/scheduleNew.css">
-
-	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-	<script src="JS/index.js"></script>
-
-</head>
-
-<body>
 	<header>
 		<h2>Salisbury University</h2>
 	</header>
@@ -35,9 +21,24 @@
 					</ul>
 				</li>
 				<li><a href="info.php" class="contact-info-btn">Contact info</a></li>
-				<li><a href="">Sign Out</a></li>
+				<li><a href="signout.php">Sign Out</a></li>
 			</ul>
 		</nav>
 
-		<div id="content">
+		<script>
+			$( document ).ready(function(){
+				$('.schedule-btn').click(function () {
+					$('nav ul .schedule-show').toggleClass("sch");
+					$('nav ul .first').toggleClass("rotate");
+				});
+				$('.progress-btn').click(function () {
+					$('nav ul .progress-show').toggleClass("prog");
+					$('nav ul .second').toggleClass("rotate");
+				});
+				$('nav ul li').click(function () {
+					$(this).addClass("active").siblings().removeClass("active");
+				});
+
+			});
+		</script>
 			

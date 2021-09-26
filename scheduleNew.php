@@ -1,7 +1,30 @@
-<?php 
-	include 'index.php';
-?>
-			<!-- content goes here -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Academic Planar</title>
+	<meta charset="UTF-8">
+	<!-- for caret -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<link rel="stylesheet" href="CSS/nav.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+	<link rel="stylesheet" href="CSS/scheduleNew.css">
+	<script src="JS/schedule.js"></script>
+
+	<?php
+		ob_start();
+		session_start();
+		require 'vendor/autoload.php';
+	?>
+</head>
+
+<body>
+	<?php
+		include 'nav.php';
+	?>
+
+		<div id="content">
+			
 			<div class="schedule-new">
 				<form action="" id="programplanningworksheet">
 					<h3 style="text-align: center; margin-bottom:20px;">Program Planning Worksheet</h3>
@@ -12,14 +35,9 @@
 					<br>
 					
 					
-					<label for="major">Major: </label>
-						<!-- TO-DO -->
-						<!-- simply display information -->
-					</select>
-
-					<label for="minor">Minor: </label>
-						<!-- TO-DO -->
-					</select>
+					<div for="affliation">
+						<p>Major(s): <span id="major"></span> Minor(s):  <span id="minor"></span> </p>
+					</div>
 
 					<br>
 
@@ -82,3 +100,4 @@
 </div> <!-- flexbox div ends -->
 
 </body>
+</html>

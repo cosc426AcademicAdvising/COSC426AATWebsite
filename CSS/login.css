@@ -1,19 +1,57 @@
-input[type=uname], input[type=password]{
-	width: 20%;
-	padding: 12px 15px;
-	margin: 8px;
-	border: 1px solid #ccc
+* {
+	user-select: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family:  "Avenir Next LT W01 Demi", Helvetica, Arial, sans-serif;
 }
 
-.container{
+header {
+	/* position: fixed; */
+	background-color: #8a0000;
+	color: #ffff;
+	width: 100%;
+	left: 0;
+	top: 0;
+	height: 75px;
+}
+
+body {
+	text-align: center;
+}
+
+header h2 {
+	text-align: center;
+	padding: 22px;
+}
+
+#block {
+	outline: 0px solid black;
 	margin: auto;
-	border: 4px #bd1536;
+	width: 30%;
+	margin-top: 10%;
+	padding: 1%;
+	border-radius: 8px;
+	background-color: #f0eeea;
+}
+
+input[type=uname], input[type=password]{
+	width: 80%;
+	padding: 12px 15px;
+	margin: 8px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
 }
 
 button {
 	background-color: #bd1536;
 	color: white;
 	width: 20%;
+
+	border-radius: 8px;
+	text-align: center;
+	padding: 5px 10px;
+	/* width: 80px; */
 }
 
 button:hover {

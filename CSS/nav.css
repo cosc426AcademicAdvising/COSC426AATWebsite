@@ -128,10 +128,3 @@ nav ul li a span {
 nav ul li a span.rotate {
 	transform: translateY(-50%) rotate(-180deg);
 }
-
-button {
-	border-radius: 8px;
-	text-align: center;
-	padding: 5px 10px;
-	width: 80px;
-}
