@@ -1,7 +1,11 @@
 	<header>
 		<h2>Salisbury University</h2>
 	</header>
-
+	<?php
+		if(empty($_SESSION)){
+			header("Location: /login.php");
+		}
+	?>
 	<div class="flexbox">
 		<nav class="sidebar">
 			<ul>
