@@ -1,0 +1,11 @@
+.t1{
+	width: 50%;
+	float: left;
+}
+.t2{
+	width: 50%;
+	float: right;
+}
+.container{
+	overflow: hidden;
+}
