@@ -12,6 +12,8 @@
 		ob_start();
 		session_start();
 		require 'vendor/autoload.php';
+		include_once 'funcs/StudentFunctions.php';
+		$student = getStudent($_SESSION['username']);
 	?>
 </head>
 
@@ -21,8 +23,21 @@
 	?>
 
 		<div id="content">
-			
-
+			<table>
+				<?php
+					for($n=1;$n<=count($student['course_taken'][0]);$n++){
+						echo "<td> Semester ".$n.'</td>';
+						for($i=0;$i<count($student['course_taken'][0]['semester_'.$n]);$i++){
+							echo "<tr>";
+							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
+							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
+							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
+							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['grade'].'</td>';
+							echo '</tr>';
+						}
+					}
+				?>
+			</table>
 		</div>
 </div> <!-- flexbox div ends -->
 
