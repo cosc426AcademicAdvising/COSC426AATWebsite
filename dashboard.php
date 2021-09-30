@@ -17,6 +17,7 @@
 
 		include_once 'funcs/StudentFunctions.php';
 		include_once 'funcs/FourYearFunctions.php';
+
 		$student = getStudent($_SESSION['username']);
 		$plan = getFourYearbyMajor($student['major'][0]['title']);
 		$semester_plan = "semester_".$student['semester'];
@@ -134,7 +135,7 @@
 					</div>
 				</div>
 				<div class="advisor_info">
-					<h3>Enrollment Info </h3>
+					<h3> Enrollment Info </h3>
 					<div class="info_area">
 						<div class="dash_info">
 							<?php 
