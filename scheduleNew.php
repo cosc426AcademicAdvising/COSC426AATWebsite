@@ -85,6 +85,7 @@
 							</tr>
 						</table>
 					</div>
+
 					<br>
 
 					<label for="memo">Memo: </label><br>
@@ -98,6 +99,18 @@
 
 		</div>
 </div> <!-- flexbox div ends -->
+
+<script>
+	$(document).ready(function () {
+
+		$(document).on('input', '#schedulecoursenumb', function () {
+			if (schedulecoursenumb.value.length > 7 ) {
+				console.log( schedulecoursenumb.value.toUpperCase() );
+			}
+		});
+
+	});
+</script>
 
 </body>
 </html>

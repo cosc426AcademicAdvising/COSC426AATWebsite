@@ -16,3 +16,13 @@ function removeCourse() {
 	var tr = td.parentNode; // the row to be removed
 	tr.parentNode.removeChild(tr);
 }
+
+// $(document).ready(function () {
+
+// 	$(document).on('input', '#schedulecoursenumb', function () {
+// 		if (schedulecoursenumb.value.length > 7 ) {
+// 			console.log( schedulecoursenumb.value.toUpperCase() );
+// 		}
+// 	});
+
+// });
