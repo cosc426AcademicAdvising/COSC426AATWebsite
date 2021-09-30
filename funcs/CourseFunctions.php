@@ -27,7 +27,7 @@ function getCoursebySubCat($sub, $cat){
 
 function getCoursebyRegex($sub, $cat, $title, $cred){
     global $token;
-    $url = 'http://localhost:5000/api/Course/Regex';
+    $url = 'https://cosc426restapi.herokuapp.com/api/Course/Regex';
     $headers = array('Content-Type' => 'application/json', 'auth-token' => $token);
     $param = array( 'subject' => $sub, 'catalog' => $cat, 'title' => $title, 'credit' => $cred );
     $response = Requests::post($url, $headers, json_encode($param));
