@@ -1,3 +1,9 @@
+:root {
+	--primary: #8a0000;
+	--secondary: #fbfa6e;
+	--tertiary: #ffff;
+	--black: black;
+}
 * {
 	user-select: none;
 	box-sizing: border-box;
@@ -29,11 +35,9 @@ header h2 {
 }
 h3 {
 	text-align: center;
-	margin: auto;
-	width: 60%;
-	border-style: solid;
-	border-radius: 30px;
+	width: 100%;
 	padding: 5px;
+	color: var(--tertiary);
 }
 
 h4 {
@@ -56,57 +60,135 @@ tr {
 th {
 	text-align: center;
 	width: auto;
+	height: 50px;
+	padding: 5px;
 	margin: auto;
 	border-spacing: 0;
+	background-color: var(--secondary);
 }
 
 .container {
 	display: grid;
 	width: 100%;
-	grid-template-columns: 50% 50%;
-	grid-template-rows: 50% 40% 10%;
+	height: 100%;
+	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+	grid-template-rows: 50% 30% 20%;
+	padding: 5px;
 	
 }
 
 .schedule {
+	width: 95%;
+	height: 85%;
 	grid-column-start: 1;
-	grid-column-end: 2;
+	grid-column-end: 4;
 	grid-row-start: 1;
 	grid-row-end: 2;
-	padding: 5px;
+	padding: 0px;
+	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: var(--primary);
+	margin: 20px 10px 50px 10px;
+	border-radius: 10px;
 }
 .plan {
-	grid-column-start: 2;
-	grid-column-end: 3;
+	width: 95%;
+	height: 85%;
+	grid-column-start: 4;
+	grid-column-end: 7;
 	grid-row-start: 1;
 	grid-row-end: 2;
-	padding: 5px;
+	padding: 0px;
+	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: var(--primary);
+	margin: 20px 10px 50px 10px;
+	border-radius: 10px;
 }
 .personal_info {
+	width: 95%;
+	height: 95%;
 	grid-column-start: 1;
 	grid-column-end: 3;
 	grid-row-start: 2;
 	grid-row-end: 3;
-	padding: 5px;
+	padding: 0px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: var(--primary);
+	margin: 0 10px 20px 10px;
+	border-radius: 10px;
 }
-.personal_info_fill {
-	margin: 10px auto;
+.credit_info {
+	width: 95%;
+	height: 95%;
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	padding: 0px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: var(--primary);
+	margin: 0 10px 20px 10px;
+	border-radius: 10px;
+}
+.advisor_info {
+	width: 95%;
+	height: 95%;
+	grid-column-start: 5;
+	grid-column-end: 7;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	padding: 0px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: var(--primary);
+	margin: 0 10px 20px 10px;
+	border-radius: 10px;
 }
 .progress_bar {
 	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-end: 7;
 	grid-row-start: 3;
 	grid-row-end: 4;
 	padding: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: var(--primary);
+	margin: 20px 10px;
+	border-radius: 10px;
 }
 .schedule_table {
 	width: 100%;
+	height: 100%;
 	display: table;
-	margin: 10px auto;
-	padding: 5px;
+	padding: 0px;
 	border-collapse: collapse;
+	background-color: var(--tertiary);
+	border-radius: 10px;
 }
 .schedule_row {
 	width: 100%;
 
+}
+.dash_info {
+	width: 100%;
+	height: 100%;
+	background-color: var(--tertiary);
+	border-radius: 10px;
+}
+.table_area {
+	height: 80%;
+	width: 98%;
+	margin: auto;
+}
+.info_area {
+	height: 70%;
+	width: 98%;
+	margin: auto;
+}
+.progress {
+	background-color: var(--secondary);
+	color: var(--black);
+	padding: 1%;
+	justify-content: center;
+	text-align: right;
+	font-size: 15px;
+	border-radius: 10px;
+	height: 60%;
 }
