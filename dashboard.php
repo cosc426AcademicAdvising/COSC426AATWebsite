@@ -7,8 +7,8 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 		<link rel="stylesheet" href="CSS/nav.css">
 		<script src="https://code.jquery.com/jquery-3.4.1.js">
-
-
+			
+			
 		</script>
 
 		<link rel="stylesheet" href="CSS/dashboard.css">
@@ -18,23 +18,8 @@
 			session_start();
 			require 'vendor/autoload.php';
 
-		include_once 'funcs/StudentFunctions.php';
-		include_once 'funcs/FourYearFunctions.php';
-
-		$student = getStudent($_SESSION['username']);
-		$plan = getFourYearbyMajor($student['major'][0]['title']);
-		$semester_plan = "semester_".$student['semester'];
-		$progress = $student['credits'];
-		$progress_percent = intval(100 * ($progress / 120));
-		$progress_percent_str = strval($progress_percent)."%";
-		$progress_width = 'width: '.$progress_percent.'%;';
-	?>
-	<style>
-			.progress {
-				<?php echo $progress_width; ?>;
-			}
-	</style>
-</head>
+			include_once 'funcs/StudentFunctions.php';
+			include_once 'funcs/FourYearFunctions.php';
 
 			$student = getStudent($_SESSION['username']);
 			$plan = getFourYearbyMajor($student['major'][0]['title']);
@@ -107,7 +92,7 @@
 					<h3> Personal Information </h3>
 					<div class="info_area">
 						<div class="dash_info">
-							<?php
+							<?php 
 								echo "<h4> Name: ".$student['name']."</h4>";
 								echo "<h4> Student ID: ".$student['s_id']."</h4>";
 								$cnt = count($student['major']);
@@ -138,13 +123,13 @@
 							<?php
 								echo "<h4> Current Year: ".$student['year']."</h4>";
 								echo "<h4> Current Semester: ".$student['semester']."</h4>";
-
+								
 								$credits = 0;
 								for($i=0;$i<count($student['taking_course']);$i++)
 									$credits = $credits+$student['taking_course'][$i]['cred'];
-
-								echo "<h4> Credits Registered For: ".$credits."</h4>";
-								echo "<h4> Total Credits: ".$student['credits']."</h4>";
+								
+								echo "<h4> Credits Registered For: ".$credits."</h4>"; 
+								echo "<h4> Total Credits: ".$student['credits']."</h4>"; 
 							?>
 						</div>
 					</div>
@@ -153,8 +138,8 @@
 					<h3> Enrollment Info </h3>
 					<div class="info_area">
 						<div class="dash_info">
-							<?php
-								echo "<h4> Advisor Email: ".$student['advisor_mail']."</h4>";
+							<?php 
+								echo "<h4> Advisor Email: ".$student['advisor_mail']."</h4>"; 
 								echo "<h4> Enrollment Date: ".$student['enrll']."</h4>";
 								echo "<h4> Registering For: ".$student['registering_for']."</h4>";
 							?>
@@ -176,25 +161,25 @@
 		function setSize() {
 				var w = window.innerWidth;
 				var h = window.innerHeight;
-				document.getElementById("schedule").style.minWidth=w/2.15-100+"px";
+				document.getElementById("schedule").style.minWidth=w/2.15-100+"px"; 
 				document.getElementById("schedule").style.maxHeight=h/1.5-75+"px";
 
-				document.getElementById("plan").style.minWidth=w/2.15-100+"px";
-				document.getElementById("plan").style.maxHeight=h/1.5-75+"px";
+				document.getElementById("plan").style.minWidth=w/2.15-100+"px"; 
+				document.getElementById("plan").style.maxHeight=h/1.5-75+"px"; 
 
-				document.getElementById("personal_info").style.minWidth=w/3.25-75+"px";
-				document.getElementById("personal_info").style.maxHeight=h/2.75-75+"px";
+				document.getElementById("personal_info").style.minWidth=w/3.25-75+"px"; 
+				document.getElementById("personal_info").style.maxHeight=h/2.75-75+"px"; 
 
-				document.getElementById("advisor_info").style.minWidth=w/3.25-75+"px";
-				document.getElementById("advisor_info").style.maxHeight=h/2.75-75+"px";
+				document.getElementById("advisor_info").style.minWidth=w/3.25-75+"px"; 
+				document.getElementById("advisor_info").style.maxHeight=h/2.75-75+"px"; 
 
-				document.getElementById("credit_info").style.minWidth=w/3.25-75+"px";
-				document.getElementById("credit_info").style.maxHeight=h/2.75-75+"px";
+				document.getElementById("credit_info").style.minWidth=w/3.25-75+"px"; 
+				document.getElementById("credit_info").style.maxHeight=h/2.75-75+"px"; 
 
-				document.getElementById("progress_bar").style.minWidth=w*.85-100+"px";
-				document.getElementById("progress_bar").style.maxHeight=h/5-75+"px";
+				document.getElementById("progress_bar").style.minWidth=w*.85-100+"px"; 
+				document.getElementById("progress_bar").style.maxHeight=h/5-75+"px"; 
 			}
-	</script>
+	</script>	
 	</body>
-
+	
 </html>
