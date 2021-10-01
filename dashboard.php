@@ -32,14 +32,14 @@
 	</style>
 </head>
 
-<body>
+<body onload="setSize();">
 	<?php
 		include 'nav.php';
 	?>
 
-		<div id="content">
-			<div class="container">
-				<div class="schedule">
+		<div id="content" style="overflow: auto">
+			<div class="container" id="container">
+				<div class="schedule" id="schedule">
 					<h3> Upcoming Schedule </h3>
 					<div class="table_area">
 						<table class="schedule_table">
@@ -64,7 +64,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="plan">
+				<div class="plan" id="plan">
 					<h3> Major Plan Schedule</h3>
 					<div class="table_area">
 						<table class="schedule_table">
@@ -87,7 +87,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="personal_info">
+				<div class="personal_info" id="personal_info">
 					<h3> Personal Information </h3>
 					<div class="info_area">
 						<div class="dash_info">
@@ -115,7 +115,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="credit_info">
+				<div class="credit_info" id="credit_info">
 					<h3> Credit Info </h3>
 					<div class="info_area">
 						<div class="dash_info">
@@ -133,7 +133,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="advisor_info">
+				<div class="advisor_info" id="advisor_info">
 					<h3>Enrollment Info </h3>
 					<div class="info_area">
 						<div class="dash_info">
@@ -145,7 +145,7 @@
 						</div>
 					</div>
 				</div>
-					<div class="progress_bar">
+					<div class="progress_bar" id="progress_bar">
 						<h4 style="color: white;">Credits Progress</h4>
 						<div class="progress">
 							<?php
@@ -156,5 +156,35 @@
 				</div>
 			</div>
 		</div>
+		<script>
+		function setSize() {
+				var w = window.innerWidth;
+				var h = window.innerHeight;
+
+				var cont_w = w*.8;
+				var cont_h = h-75;
+
+				document.getElementById("container").style.width=w*.8+"px";
+				document.getElementById("container").style.height=h-75+"px";
+
+				document.getElementById("schedule").style.width=cont_w*.475+"px";
+				document.getElementById("schedule").style.height=cont_h*.325+"px";
+
+				document.getElementById("plan").style.width=cont_w*.475+"px";
+				document.getElementById("plan").style.height=cont_h*.325+"px";
+
+				document.getElementById("personal_info").style.width=cont_w*.3075+"px";
+				document.getElementById("personal_info").style.height=cont_h*.325+"px";
+
+				document.getElementById("advisor_info").style.width=cont_w*.3075+"px";
+				document.getElementById("advisor_info").style.height=cont_h*.325+"px";
+
+				document.getElementById("credit_info").style.width=cont_w*.3075+"px";
+				document.getElementById("credit_info").style.height=cont_h*.325+"px";
+
+				document.getElementById("progress_bar").style.width=cont_w*.975+"px";
+				document.getElementById("progress_bar").style.height=cont_h*.15+"px";
+			}
+		</script>
 	</body>
 	</html>
