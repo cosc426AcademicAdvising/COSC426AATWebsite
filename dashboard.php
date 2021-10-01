@@ -125,7 +125,7 @@
 					</div>
 					<div class="info_area">
 						<div class="dash_info">
-							<?php 
+							<?php
 								echo "<div class='row_odd'>";
 								echo "<div class='row_odd_field'>";
 								echo "<h4> Name </h4>";
@@ -160,7 +160,7 @@
 								echo "<div class='row_odd'>";
 								echo "<div class='row_odd_field'>";
 								echo $major_field_print;
-								echo "</div>";	
+								echo "</div>";
 								echo "<div class='row_odd_value'>";
 								echo $major_value_print;
 								echo "</div>";
@@ -226,16 +226,16 @@
 								echo "<h4> Credits Registered For</h4>";
 								echo "</div>";
 								echo "<div class='row_odd_value'>";
-								echo "<h4>".$credits."</h4>"; 
+								echo "<h4>".$credits."</h4>";
 								echo "</div>";
 								echo "</div>";
-								
+
 								echo "<div class='row_even' style='border-radius: 0px 0px 10px 10px;'>";
 								echo "<div class='row_even_field' style='border-bottom: none'>";
 								echo "<h4> Total Credits</h4>";
 								echo "</div>";
 								echo "<div class='row_even_value' style='border-bottom: none'>";
-								echo "<h4>".$student['credits']."</h4>"; 
+								echo "<h4>".$student['credits']."</h4>";
 								echo "</div>";
 								echo "</div>";
 							?>
@@ -248,16 +248,16 @@
 					</div>
 					<div class="info_area">
 						<div class="dash_info">
-							<?php 
+							<?php
 								echo "<div class='row_odd'>";
 								echo "<div class='row_odd_field'>";
 								echo "<h4> Advisor Email</h4>";
 								echo "</div>";
 								echo "<div class='row_odd_value'>";
-								echo "<h4>".$student['advisor_mail']."</h4>"; 
+								echo "<h4>".$student['advisor_mail']."</h4>";
 								echo "</div>";
 								echo "</div>";
-								
+
 								echo "<div class='row_even'>";
 								echo "<div class='row_even_field'>";
 								echo "<h4> Enrollment Date</h4>";
@@ -266,7 +266,7 @@
 								echo "<h4>".$student['enrll']."</h4>";
 								echo "</div>";
 								echo "</div>";
-								
+
 								echo "<div class='row_odd' style='border-radius: 0px 0px 10px 10px;'>";
 								echo "<div class='row_odd_field' style='border-bottom: none'>";
 								echo "<h4> Registering For</h4>";

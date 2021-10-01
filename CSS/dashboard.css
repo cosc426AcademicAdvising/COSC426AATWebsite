@@ -71,13 +71,13 @@ th {
 }
 
 .container {
-	display: grid; 
+	display: grid;
 	width: 100%;
 	height: 100%;
 	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
 	grid-template-rows: 35% 35% 30%;
 	padding: 0px;
-	
+
 }
 
 .schedule {
