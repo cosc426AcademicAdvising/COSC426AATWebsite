@@ -5,7 +5,7 @@
 	session_start();
 ?>	
 <head>
-	<title>Academic Planner</title>
+	<title>Academic Planar</title>
 	<meta charset="UTF-8">
 
 	<link rel="stylesheet" href="CSS\login.css">
