@@ -26,39 +26,180 @@
 		include 'nav.php';
 	?>
 
-		<div id="content">
-			<div class=t1>
-				<table>
-					<?php
-						for ($n=1;$n<=4;$n++){
-							echo "<td> Semester ".$n.'</td>';
-							for ($i=0;$i<count($fyp["semester_".$n]);$i++){
-								echo "<tr>";
-								echo '<td>'.$fyp["semester_".$n][$i]['subject'].' '.$fyp['semester_'.$n][$i]['catalog'].'</td>';
-								echo '<td>'.$fyp['semester_'.$n][$i]['title'].'</td>';
-								echo '<td>'.$fyp['semester_'.$n][$i]['cred'].'</td>';
-								echo "\n";
-							}
-							echo "<tr></tr>";
-						}
-					?>
-				</table>
-			</div>
-			<div class=t2;>
-				<table>
-					<?php
-						for ($n=5;$n<=8;$n++){
-							echo "<td> Semester ".$n.'</td>';
-							for ($i=0;$i<count($fyp["semester_".$n]);$i++){
-								echo "<tr>";
-								echo '<td>'.$fyp["semester_".$n][$i]['subject'].' '.$fyp['semester_'.$n][$i]['catalog'].'</td>';
-								echo '<td>'.$fyp['semester_'.$n][$i]['title'].'</td>';
-								echo '<td>'.$fyp['semester_'.$n][$i]['cred'].'</td>';
-							}
-							echo "<tr></tr>";
-						}
-					?>
-				</table>
+		<div id="content" style="overflow: auto">
+			<div id="container" class="container">
+				<div class='year1' id='year1'>
+					<div class='fyp_header'>
+						<h3>Year 1</h3>
+					</div>
+					<div class='table_area'>
+						<table class='schedule_table'>
+							<thead>
+								<tr>
+									<th style="border-radius: 10px 0px 0px 0px;">Course Number</th>
+									<th>Title</th>
+									<th style="border-radius: 0px 10px 0px 0px;">Credits</th>
+								</tr>
+							</thead>
+							<?php
+								for ($n=1;$n<=2;$n++){
+									if($n+1 == $n) {
+										$style_subject = 'border-left: none; border-bottom: none;';
+										$style_title = 'border-bottom: none;';
+										$style_credit = 'border-right: none; border-bottom: none;';
+									}
+									else {
+										$style_subject = 'border-left: none;';
+										$style_title = '';
+										$style_credit = 'border-right: none;';
+									}
+									
+									for ($i=0;$i<count($fyp["semester_".$n]);$i++){
+										if( $i % 2 != 0) {
+											$style_subject = $style_subject.'background-color: #c9c9c9';
+											$style_title = $style_title.'background-color: #c9c9c9';
+											$style_credit = $style_credit.'background-color: #c9c9c9';
+										}
+										echo "<tr>";
+										echo "<td style='$style_subject'>".$fyp["semester_".$n][$i]['subject'].' '.$fyp['semester_'.$n][$i]['catalog'].'</td>';
+										echo "<td style='$style_title'>".$fyp['semester_'.$n][$i]['title'].'</td>';
+										echo "<td style='$style_credit'>".$fyp['semester_'.$n][$i]['cred'].'</td>';
+										echo '</tr>';
+									}
+								}
+							?>
+						</table>
+					</div>
+				</div>
+				<div class='year2' id='year2'>
+					<div class='fyp_header'>
+						<h3>Year 2</h3>
+					</div>
+					<div class='table_area'>
+						<table class='schedule_table'>
+							<thead>
+								<tr>
+									<th style="border-radius: 10px 0px 0px 0px;">Course Number</th>
+									<th>Title</th>
+									<th style="border-radius: 0px 10px 0px 0px;">Credits</th>
+								</tr>
+							</thead>
+							<?php
+								for ($n=3;$n<=4;$n++){
+									if($n+1 == $n) {
+										$style_subject = 'border-left: none; border-bottom: none;';
+										$style_title = 'border-bottom: none;';
+										$style_credit = 'border-right: none; border-bottom: none;';
+									}
+									else {
+										$style_subject = 'border-left: none;';
+										$style_title = '';
+										$style_credit = 'border-right: none;';
+									}
+									
+									for ($i=0;$i<count($fyp["semester_".$n]);$i++){
+										if( $i % 2 != 0) {
+											$style_subject = $style_subject.'background-color: #c9c9c9';
+											$style_title = $style_title.'background-color: #c9c9c9';
+											$style_credit = $style_credit.'background-color: #c9c9c9';
+										}
+										echo "<tr>";
+										echo "<td style='$style_subject'>".$fyp["semester_".$n][$i]['subject'].' '.$fyp['semester_'.$n][$i]['catalog'].'</td>';
+										echo "<td style='$style_title'>".$fyp['semester_'.$n][$i]['title'].'</td>';
+										echo "<td style='$style_credit'>".$fyp['semester_'.$n][$i]['cred'].'</td>';
+										echo '</tr>';
+									}
+								}
+							?>
+						</table>
+					</div>
+				</div>
+				<div class='year3' id='year3'>
+					<div class='fyp_header'>
+						<h3>Year 3</h3>
+					</div>
+					<div class='table_area'>
+						<table class='schedule_table'>
+							<thead>
+								<tr>
+									<th style="border-radius: 10px 0px 0px 0px;">Course Number</th>
+									<th>Title</th>
+									<th style="border-radius: 0px 10px 0px 0px;">Credits</th>
+								</tr>
+							</thead>
+							<?php
+								for ($n=3;$n<=4;$n++){
+									if($n+1 == $n) {
+										$style_subject = 'border-left: none; border-bottom: none;';
+										$style_title = 'border-bottom: none;';
+										$style_credit = 'border-right: none; border-bottom: none;';
+									}
+									else {
+										$style_subject = 'border-left: none;';
+										$style_title = '';
+										$style_credit = 'border-right: none;';
+									}
+									
+									for ($i=0;$i<count($fyp["semester_".$n]);$i++){
+										if( $i % 2 != 0) {
+											$style_subject = $style_subject.'background-color: #c9c9c9';
+											$style_title = $style_title.'background-color: #c9c9c9';
+											$style_credit = $style_credit.'background-color: #c9c9c9';
+										}
+										echo "<tr>";
+										echo "<td style='$style_subject'>".$fyp["semester_".$n][$i]['subject'].' '.$fyp['semester_'.$n][$i]['catalog'].'</td>';
+										echo "<td style='$style_title'>".$fyp['semester_'.$n][$i]['title'].'</td>';
+										echo "<td style='$style_credit'>".$fyp['semester_'.$n][$i]['cred'].'</td>';
+										echo '</tr>';
+									}
+								}
+							?>
+						</table>
+					</div>
+				</div>
+				<div class='year4' id='year4'>
+					<div class='fyp_header'>
+						<h3>Year 4</h3>
+					</div>
+					<div class='table_area'>
+						<table class='schedule_table'>
+							<thead>
+								<tr>
+									<th style="border-radius: 10px 0px 0px 0px;">Course Number</th>
+									<th>Title</th>
+									<th style="border-radius: 0px 10px 0px 0px;">Credits</th>
+								</tr>
+							</thead>
+							<?php
+								for ($n=3;$n<=4;$n++){
+									if($n+1 == $n) {
+										$style_subject = 'border-left: none; border-bottom: none;';
+										$style_title = 'border-bottom: none;';
+										$style_credit = 'border-right: none; border-bottom: none;';
+									}
+									else {
+										$style_subject = 'border-left: none;';
+										$style_title = '';
+										$style_credit = 'border-right: none;';
+									}
+									
+									for ($i=0;$i<count($fyp["semester_".$n]);$i++){
+										if( $i % 2 != 0) {
+											$style_subject = $style_subject.'background-color: #c9c9c9';
+											$style_title = $style_title.'background-color: #c9c9c9';
+											$style_credit = $style_credit.'background-color: #c9c9c9';
+										}
+										echo "<tr>";
+										echo "<td style='$style_subject'>".$fyp["semester_".$n][$i]['subject'].' '.$fyp['semester_'.$n][$i]['catalog'].'</td>';
+										echo "<td style='$style_title'>".$fyp['semester_'.$n][$i]['title'].'</td>';
+										echo "<td style='$style_credit'>".$fyp['semester_'.$n][$i]['cred'].'</td>';
+										echo '</tr>';
+									}
+								}
+							?>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 </div> <!-- flexbox div ends -->
