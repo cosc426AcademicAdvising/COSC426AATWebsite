@@ -76,7 +76,7 @@ th {
 }
 
 #content {
-	padding: auto;
+	padding: 0;
 }
 
 .container {
@@ -85,10 +85,10 @@ th {
 	height: 100%;
 	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
 	grid-template-rows: 35% 35% 30%;
-	/* padding: 0px; */
+	padding: 0px;
 
 	grid-gap: 50px 0px;
-	/* transform: scale(0.95); */
+	transform: scale(0.92);
 }
 
 .schedule {
