@@ -36,28 +36,32 @@
 	</style>
 </head>
 
-<body onload="setSize();">
+<body>
 	<?php
 		include 'nav.php';
 	?>
 
 		<div id="content" style="overflow: auto">
 			<div class="container" id="container">
+				
 				<div class="schedule" id="schedule">
-					<div class="dash_header">
-						<h3> Upcoming Schedule </h3>
-					</div>
 					<div class="tabs_area">
 						<div class="tabs">
-						<form method="post">
+						<form method="post" action="scheduleNew.php">
 						<?php
-								echo "<button class='fyp_tabs' name='new' value='new'>New</button>";
+								echo "<button style='border-radius: 10px 0 0 0; border-right: solid;' class='fyp_tabs' name='new' value='new'>New</button>";
 								echo "<button class='fyp_tabs' name='edit' value='edit'>Edit</button>";
-								echo "<button class='fyp_tabs' name='view' value='view'>View</button>";
+								echo "</form>";
+								echo "<form method='post' action='scheduleView.php'>";
+								echo "<button style='border-radius: 0 10px 0 0; border-left: solid;' class='fyp_tabs' name='view' value='view'>View</button>";
 						?>
 						</form>
 						</div>
 					</div>	
+					<div class="dash_header">
+						<h3> Upcoming Schedule </h3>
+					</div>
+					
 					<div class="table_area">
 						<table class="schedule_table">
 							<thead>
@@ -95,21 +99,32 @@
 					</div>
 				</div>
 				<div class="plan" id="plan">
+					<div class="tabs_area">
+						<div class="tabs">
+						<form method="post">
+						<?php
+								if(count($majors) == 1) {
+									echo "<button class='fyp_tabs' style='border-radius: 10px 10px 0 0; width: 100%;' name='major' value=".$majors[0].">".$majors[0]."</button>";
+								}
+								else if(count($majors) == 2) {
+									echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; width: 50%; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
+									echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; width: 50%;' name='major' value=".$majors[1].">".$majors[1]."</button>";
+								}
+								else if(count($majors) == 3) {
+									echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
+									echo "<button class='fyp_tabs' name='major' value=".$majors[1].">".$majors[1]."</button>";
+									echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; border-left: solid;' name='major' value=".$majors[2].">".$majors[2]."</button>";
+								}
+						?>
+						</form>
+						</div>
+					</div>
 					<div class="dash_header">
 						<h3> Recommended Courses</h3>
 					
 					
 					</div>
-					<div class="tabs_area">
-						<div class="tabs">
-						<form method="post">
-						<?php
-							for($i=0;$i<count($majors);$i++)
-								echo "<button class='fyp_tabs' name='major' value=".$majors[$i].">".$majors[$i]."</button>";
-						?>
-						</form>
-						</div>
-					</div>
+					
 					<div class="table_area">
 						<table class="schedule_table">
 							
@@ -119,13 +134,15 @@
 									$plan = getFourYearbyMajor($_POST['major']);
 								if($plan != "")
 									displayFourYearSemester($plan, $semester_plan);
+								else
+									echo "<h3>No Four Year Plan Found For".$_POST['major']."</h3>";
 							?>
 						</table>
 						
 					</div>
 				</div>
 				<div class="personal_info" id="personal_info">
-					<div class="dash_header">
+					<div class="dash_header_info">
 						<h3> Personal Information </h3>
 					</div>
 					<div class="info_area">
@@ -198,7 +215,7 @@
 					</div>
 				</div>
 				<div class="credit_info" id="credit_info">
-					<div class="dash_header">
+					<div class="dash_header_info">
 						<h3> Credit Info </h3>
 					</div>
 					<div class="info_area">
@@ -248,7 +265,7 @@
 					</div>
 				</div>
 				<div class="advisor_info" id="advisor_info">
-					<div class="dash_header">
+					<div class="dash_header_info">
 						<h3>Enrollment Info </h3>
 					</div>
 					<div class="info_area">
@@ -285,211 +302,25 @@
 					</div>
 				</div>
 					<div class="progress_bar" id="progress_bar">
-						<div class="dash_header">
+						<div class="dash_header_progress">
 							<h4 style="color: white; text-align: center;">Credits Progress</h4>
 						</div>
 						<div class="progress_background">
 							<div class="progress">
+								<div class="progress_text">
 								<?php
 									echo $progress_percent_str;
 								?>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<script>
-		function setSize() {
-				var w = window.innerWidth;
-				var h = window.innerHeight;
-
-				var cont_w = w*.8;
-				var cont_h = h-75;
-
-				if(w > 1280 || h > 720) {
-					document.getElementById("container").style.width=w*.8+"px";
-					document.getElementById("container").style.height=h-75+"px";
-
-					document.getElementById("schedule").style.width=cont_w*.475+"px";
-					document.getElementById("schedule").style.height=cont_h*.4+"px";
-
-					document.getElementById("plan").style.width=cont_w*.475+"px";
-					document.getElementById("plan").style.height=cont_h*.4+"px";
-
-					document.getElementById("personal_info").style.width=cont_w*.3075+"px";
-					document.getElementById("personal_info").style.height=cont_h*.25+"px";
-
-					document.getElementById("advisor_info").style.width=cont_w*.3075+"px";
-					document.getElementById("advisor_info").style.height=cont_h*.25+"px";
-
-					document.getElementById("credit_info").style.width=cont_w*.3075+"px";
-					document.getElementById("credit_info").style.height=cont_h*.25+"px";
-
-					document.getElementById("progress_bar").style.width=cont_w*.975+"px";
-					document.getElementById("progress_bar").style.height=cont_h*.15+"px";
-
-					var evf = document.getElementsByClassName("row_even_field");
-					var l = evf.length;
-					for(var i=0;i<l;i++)
-						evf[i].style.fontSize='14px';
-					var evv = document.getElementsByClassName("row_even_value");
-					var l = evv.length;
-					for(var i=0;i<l;i++)
-						evv[i].style.fontSize='14px';
-					var odf = document.getElementsByClassName("row_odd_field");
-					var l = odf.length;
-					for(var i=0;i<l;i++)
-						odf[i].style.fontSize='14px';
-					var odv = document.getElementsByClassName("row_odd_value");
-					var l = odv.length;
-					for(var i=0;i<l;i++)
-						odv[i].style.fontSize='14px';
-				}
-				else {
-					var w_tmp = 1280;
-					var h_tmp = 720;
-
-					var cont_w = w_tmp*.8;
-					var cont_h = h_tmp-75;
-
-					document.getElementById("container").style.width=w_tmp*.8+"px";
-					document.getElementById("container").style.height=h_tmp-75+"px";
-
-					document.getElementById("schedule").style.width=cont_w*.475+"px";
-					document.getElementById("schedule").style.height=cont_h*.4+"px";
-
-					document.getElementById("plan").style.width=cont_w*.475+"px";
-					document.getElementById("plan").style.height=cont_h*.4+"px";
-
-					document.getElementById("personal_info").style.width=cont_w*.3075+"px";
-					document.getElementById("personal_info").style.height=cont_h*.25+"px";
-
-					document.getElementById("advisor_info").style.width=cont_w*.3075+"px";
-					document.getElementById("advisor_info").style.height=cont_h*.25+"px";
-
-					document.getElementById("credit_info").style.width=cont_w*.3075+"px";
-					document.getElementById("credit_info").style.height=cont_h*.25+"px";
-
-					document.getElementById("progress_bar").style.width=cont_w*.975+"px";
-					document.getElementById("progress_bar").style.height=cont_h*.15+"px";
-
-					var evf = document.getElementsByClassName("row_even_field");
-					var l = evf.length;
-					for(var i=0;i<l;i++)
-						evf[i].style.fontSize='12px';
-					var evv = document.getElementsByClassName("row_even_value");
-					var l = evv.length;
-					for(var i=0;i<l;i++)
-						evv[i].style.fontSize='12px';
-					var odf = document.getElementsByClassName("row_odd_field");
-					var l = odf.length;
-					for(var i=0;i<l;i++)
-						odf[i].style.fontSize='12px';
-					var odv = document.getElementsByClassName("row_odd_value");
-					var l = odv.length;
-					for(var i=0;i<l;i++)
-						odv[i].style.fontSize='12px';
-
-				}
-			}
-
-			window.onresize = function() {
-				var w = window.innerWidth;
-				var h = window.innerHeight;
-
-				var cont_w = w*.8;
-				var cont_h = h-75;
-				
-				if(w > 1700) {
-					document.getElementById("container").style.width=w*.8+"px";
-					document.getElementById("schedule").style.width=cont_w*.475+"px";
-					document.getElementById("plan").style.width=cont_w*.475+"px";
-					document.getElementById("personal_info").style.width=cont_w*.3075+"px";
-					document.getElementById("advisor_info").style.width=cont_w*.3075+"px";
-					document.getElementById("credit_info").style.width=cont_w*.3075+"px";
-					document.getElementById("progress_bar").style.width=cont_w*.975+"px";
-
-					var evf = document.getElementsByClassName("row_even_field");
-					var l = evf.length;
-					for(var i=0;i<l;i++)
-						evf[i].style.fontSize='14px';
-					var evv = document.getElementsByClassName("row_even_value");
-					var l = evv.length;
-					for(var i=0;i<l;i++)
-						evv[i].style.fontSize='14px';
-					var odf = document.getElementsByClassName("row_odd_field");
-					var l = odf.length;
-					for(var i=0;i<l;i++)
-						odf[i].style.fontSize='14px';
-					var odv = document.getElementsByClassName("row_odd_value");
-					var l = odv.length;
-					for(var i=0;i<l;i++)
-						odv[i].style.fontSize='14px';
-				}
-				else {
-					var evf = document.getElementsByClassName("row_even_field");
-					var l = evf.length;
-					for(var i=0;i<l;i++)
-						evf[i].style.fontSize='12px';
-					var evv = document.getElementsByClassName("row_even_value");
-					var l = evv.length;
-					for(var i=0;i<l;i++)
-						evv[i].style.fontSize='12px';
-					var odf = document.getElementsByClassName("row_odd_field");
-					var l = odf.length;
-					for(var i=0;i<l;i++)
-						odf[i].style.fontSize='12px';
-					var odv = document.getElementsByClassName("row_odd_value");
-					var l = odv.length;
-					for(var i=0;i<l;i++)
-						odv[i].style.fontSize='12px';
-				}
-				if(h > 720) {
-					document.getElementById("container").style.height=h-75+"px";
-					document.getElementById("schedule").style.height=cont_h*.4+"px";
-					document.getElementById("plan").style.height=cont_h*.4+"px";
-					document.getElementById("personal_info").style.height=cont_h*.25+"px";
-					document.getElementById("advisor_info").style.height=cont_h*.25+"px";
-					document.getElementById("credit_info").style.height=cont_h*.25+"px";
-					document.getElementById("progress_bar").style.height=cont_h*.15+"px";
-
-					var evf = document.getElementsByClassName("row_even_field");
-					var l = evf.length;
-					for(var i=0;i<l;i++)
-						evf[i].style.fontSize='14px';
-					var evv = document.getElementsByClassName("row_even_value");
-					var l = evv.length;
-					for(var i=0;i<l;i++)
-						evv[i].style.fontSize='14px';
-					var odf = document.getElementsByClassName("row_odd_field");
-					var l = odf.length;
-					for(var i=0;i<l;i++)
-						odf[i].style.fontSize='14px';
-					var odv = document.getElementsByClassName("row_odd_value");
-					var l = odv.length;
-					for(var i=0;i<l;i++)
-						odv[i].style.fontSize='14px';
-				}
-				else {
-					var evf = document.getElementsByClassName("row_even_field");
-					var l = evf.length;
-					for(var i=0;i<l;i++)
-						evf[i].style.fontSize='14px';
-					var evv = document.getElementsByClassName("row_even_value");
-					var l = evv.length;
-					for(var i=0;i<l;i++)
-						evv[i].style.fontSize='14px';
-					var odf = document.getElementsByClassName("row_odd_field");
-					var l = odf.length;
-					for(var i=0;i<l;i++)
-						odf[i].style.fontSize='14px';
-					var odv = document.getElementsByClassName("row_odd_value");
-					var l = odv.length;
-					for(var i=0;i<l;i++)
-						odv[i].style.fontSize='14px';
-				}
-			}
-		</script>
+		
 	</body>
 	</html>
+<?php
+// Width < 720 causes table overflow
+?>
