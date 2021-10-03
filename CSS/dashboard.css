@@ -59,8 +59,6 @@ tr {
 	width: auto;
 	margin: auto;
 	border-spacing: 0;
-
-	border: 1px solid black;
 }
 th {
 	text-align: center;
@@ -70,25 +68,18 @@ th {
 	margin: auto;
 	border-spacing: 0;
 	background-color: var(--secondary);
-
-	border-left: none;
-  	border-right: none;
-}
-
-#content {
-	padding: 0;
 }
 
 .container {
-	display: grid;
+	display: grid; 
 	width: 100%;
 	height: 100%;
 	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
-	grid-template-rows: 35% 35% 30%;
+	grid-template-rows: 45% 30% 20%;
 	padding: 0px;
-
-	grid-gap: 50px 0px;
-	transform: scale(0.92);
+	grid-gap: 10px 0px;
+	transform: scale(0.95);
+	
 }
 
 .schedule {
@@ -99,7 +90,7 @@ th {
 	padding-top: 6px;
 	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
-	border-radius: 10px;
+	border-radius: 30px;
 	margin: 0 auto;
 }
 .plan {
@@ -110,7 +101,7 @@ th {
 	padding-top: 6px;
 	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
-	border-radius: 10px;
+	border-radius: 30px;
 	margin: 0 auto;
 }
 .personal_info {
@@ -119,9 +110,9 @@ th {
 	grid-row-start: 2;
 	grid-row-end: 3;
 	padding-top: 6px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
-	border-radius: 10px;
+	border-radius: 30px;
 	margin: 0 auto;
 }
 .credit_info {
@@ -130,9 +121,9 @@ th {
 	grid-row-start: 2;
 	grid-row-end: 3;
 	padding-top: 6px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
-	border-radius: 10px;
+	border-radius: 30px;
 	margin: 0 auto;
 }
 .advisor_info {
@@ -141,9 +132,9 @@ th {
 	grid-row-start: 2;
 	grid-row-end: 3;
 	padding-top: 6px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
-	border-radius: 10px;
+	border-radius: 30px;
 	margin: 0 auto;
 }
 .progress_bar {
@@ -152,9 +143,9 @@ th {
 	grid-row-start: 3;
 	grid-row-end: 4;
 	padding: 5px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
-	border-radius: 10px;
+	border-radius: 30px;
 	margin: 0 auto;
 }
 .schedule_table {
@@ -164,7 +155,8 @@ th {
 	padding: 0px;
 	border-collapse: collapse;
 	background-color: var(--tertiary);
-	border-radius: 10px;
+	border-radius: 0px 0px 10px 10px;
+	overflow: hidden;
 }
 .schedule_row {
 	width: 100%;
@@ -183,6 +175,7 @@ th {
 .table_area {
 	height: 90%;
 	margin: auto;
+	height: 81.85%;
 }
 .info_area {
 	height: 100%;
@@ -209,12 +202,12 @@ th {
 	grid-template-columns: 50% 50%;
 }
 .row_odd_field {
-	padding: 5px;
+	padding: 3px;
 	border-right: solid;
 	border-bottom: solid;
 }
 .row_odd_value {
-	padding: 5px;
+	padding: 3px;
 	border-bottom: solid;
 }
 .row_even {
@@ -223,12 +216,30 @@ th {
 	grid-template-columns: 50% 50%;
 }
 .row_even_field {
-	padding: 5px;
+	padding: 3px;
 	border-right: solid;
 	border-bottom: solid;
 }
 .row_even_value {
-	padding: 5px;
+	padding: 3px;
 	border-bottom: solid;
 
+}
+.tabs_area {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+.tabs {
+	text-align: center;
+	margin: 0 auto;
+	
+}
+.fyp_tabs {
+	width: 33.33%;
+	border-radius: 75px 75px 0px 0px;
+	font-size: x-large;
+	border-style: none;
+}
+.fyp_tabs:hover {
+	background-color: #5c5c5c;
 }
