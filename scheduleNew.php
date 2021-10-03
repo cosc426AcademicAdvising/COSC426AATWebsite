@@ -23,7 +23,7 @@
 		include 'nav.php';
 	?>
 
-		<div id="content">
+		<div id="content" style="overflow: scroll;">
 			
 			<div class="schedule-new">
 				<form action="" id="programplanningworksheet">

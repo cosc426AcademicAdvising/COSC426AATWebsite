@@ -56,6 +56,8 @@ tr {
 	width: auto;
 	margin: auto;
 	border-spacing: 0;
+
+	border: 1px solid black;
 }
 th {
 	text-align: center;
@@ -65,6 +67,9 @@ th {
 	margin: auto;
 	border-spacing: 0;
 	background-color: var(--secondary);
+
+	border-left: none;
+  	border-right: none;
 }
 
 .container {

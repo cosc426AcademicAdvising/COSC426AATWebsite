@@ -20,6 +20,11 @@ input {
 	border: 1px solid black;
 }
 
+.schedule-new table th {
+	border-left: none;
+  	border-right: none;
+}
+
 .schedule-new td {
 	text-align: center;
 }

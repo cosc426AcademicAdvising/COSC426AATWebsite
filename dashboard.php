@@ -37,7 +37,7 @@
 		include 'nav.php';
 	?>
 
-		<div id="content">
+		<div id="content" style="overflow: scroll;">
 			<div class="container">
 				<div class="schedule">
 					<h3> Upcoming Schedule </h3>
