@@ -26,7 +26,7 @@
 		<div id="content">
 			<div id='table_area' class='table_area'>
 				<div id='histor_header' class='history_header'>
-					<h4 style='color: white; text-align: center;'>Course History</h4>
+					<h4 style='color: white; text-align: center; padding: 10px;'>Course History</h4>
 				</div>
 				<table class='history_table' id='history_table'>
 					<thead>
@@ -41,10 +41,10 @@
 						for($n=1;$n<=count($student['course_taken'][0]);$n++){
 							for($i=0;$i<count($student['course_taken'][0]['semester_'.$n]);$i++){
 								echo "<tr>";
-								echo "<td id='left'>".$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
-								echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
-								echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
-								echo "<td id='right'>".$student['course_taken'][0]['semester_'.$n][$i]['grade'].'</td>';
+								echo "<td id='left' class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
+								echo "<td class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
+								echo "<td class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
+								echo "<td id='right' class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['grade'].'</td>';
 								echo '</tr>';
 							}
 						}
