@@ -81,6 +81,10 @@ th{
 	background-color: var(--tertiary);
 	border-radius: 10px;
 }
+.data{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 #history_table tr:last-child td{
 	border-bottom: 0;
 }
