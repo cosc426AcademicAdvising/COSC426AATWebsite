@@ -6,6 +6,7 @@
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	<link rel="stylesheet" href="CSS/nav.css">
+	<link rel="stylesheet" href="CSS/courseHistory.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
@@ -23,21 +24,33 @@
 	?>
 
 		<div id="content">
-			<table>
-				<?php
-					for($n=1;$n<=count($student['course_taken'][0]);$n++){
-						echo "<td> Semester ".$n.'</td>';
-						for($i=0;$i<count($student['course_taken'][0]['semester_'.$n]);$i++){
-							echo "<tr>";
-							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
-							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
-							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
-							echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['grade'].'</td>';
-							echo '</tr>';
+			<div id='table_area' class='table_area'>
+				<div id='histor_header' class='history_header'>
+					<h4 style='color: white; text-align: center;'>Course History</h4>
+				</div>
+				<table class='history_table' id='history_table'>
+					<thead>
+						<tr>
+							<th style='border-radius: 10px 0px 0px 0px;'>Course Number</th>
+							<th>Title</th>
+							<th>Credits</th>
+							<th style='border-radius: 0px 10px 0px 0px'>Grade</th>
+						</tr>
+					</thead>
+					<?php
+						for($n=1;$n<=count($student['course_taken'][0]);$n++){
+							for($i=0;$i<count($student['course_taken'][0]['semester_'.$n]);$i++){
+								echo "<tr>";
+								echo "<td id='left'>".$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
+								echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
+								echo '<td>'.$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
+								echo "<td id='right'>".$student['course_taken'][0]['semester_'.$n][$i]['grade'].'</td>';
+								echo '</tr>';
+							}
 						}
-					}
-				?>
-			</table>
+					?>
+				</table>
+			</div>
 		</div>
 </div> <!-- flexbox div ends -->
 
