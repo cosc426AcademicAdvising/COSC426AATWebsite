@@ -66,9 +66,9 @@
 						<table class="schedule_table">
 							<thead>
 								<tr>
-									<th style="border-radius: 0px 0px 0px 0px;">Course Number</th>
-									<th>Title</th>
-									<th style="border-radius: 0px 0px 0px 0px;">Credit</th>
+									<th style="border-radius: 0px 0px 0px 0px; border-bottom: solid; border-right: solid;">Course Number</th>
+									<th style="border-bottom: solid; border-right: solid;">Title</th>
+									<th style="border-radius: 0px 0px 0px 0px; border-bottom: solid;">Credit</th>
 								</tr>
 							</thead>
 							<?php
@@ -147,70 +147,71 @@
 					</div>
 					<div class="info_area">
 						<div class="dash_info">
-							<?php 
-								echo "<div class='row_odd'>";
-								echo "<div class='row_odd_field' id='row_odd_field'>";
-								echo "<h4> Name </h4>";
-								echo "</div>";
-								echo "<div class='row_odd_value' id='row_odd_value'>";
-								echo "<h4>".$student['name']."</h4>";
-								echo "</div>";
-								echo "</div>";
+							
+								<div class='row_odd'>
+									<div class='row_odd_field' id='row_odd_field'>
+										<h4> Name </h4>
+									</div>
+									<div class='row_odd_value' id='row_odd_value'>
+										<?php echo "<h4>".$student['name']."</h4>"; ?>
+									</div>
+								</div>
 
-								echo "<div class='row_even' >";
-								echo "<div class='row_even_field' id='row_even_field'>";
-								echo "<h4> Student ID</h4>";
-								echo "</div>";
-								echo "<div class='row_even_value' id='row_even_value'>";
-								echo "<h4>".$student['s_id']."</h4>";
-								echo "</div>";
-								echo "</div>";
-
-								$cnt = count($student['major']);
-								if($cnt == 1) {
-									$major_field_print = "<h4> Major(s)</h4>";
-									$major_value_print = "<h4>".$student['major'][0]['title']."</h4>";
-								}
-								else if($cnt == 2) {
-									$major_field_print = "<h4> Major(s)</h4>";
-									$major_value_print = "<h4>".$student['major'][0]['title'].", ".$student['major'][1]['title']."</h4>";
-								}
-								else if($cnt == 3) {
-									$major_field_print = "<h4> Major(s)</h4>";
-									$major_value_print = "<h4>".$student['major'][0]['title'].", ".$student['major'][1]['title'].", ".$student['major'][2]['title']."</h4>";
-								}
-								echo "<div class='row_odd'>";
-								echo "<div class='row_odd_field' id='row_odd_field'>";
-								echo $major_field_print;
-								echo "</div>";	
-								echo "<div class='row_odd_value' id='row_odd_value'>";
-								echo $major_value_print;
-								echo "</div>";
-								echo "</div>";
-
-								$cnt = count($student['minor']);
-								if($cnt == 1) {
-									$minor_field_print = "<h4> Minor(s)</h4>";
-									$minor_value_print = "<h4>".$student['minor'][0]['title']."</h4>";
-								}
-								else if($cnt == 2) {
-									$minor_field_print = "<h4> Minor(s)</h4>";
-									$minor_value_print = "<h4>".$student['minor'][0]['title'].", ".$student['minor'][1]['title']."</h4>";
-								}
-								else if($cnt == 3) {
-									$minor_field_print = "<h4> Minor(s)</h4>";
-									$minor_value_print = "<h4>".$student['minor'][0]['title'].", ".$student['minor'][1]['title'].", ".$student['minor'][2]['title']."</h4>";
-								}
-
-								echo "<div class='row_even' style='border-radius: 0px 0px 10px 10px;'>";
-								echo "<div class='row_even_field' id='row_even_field' style='border-bottom: none;'>";
-								echo $minor_field_print;
-								echo "</div>";
-								echo "<div class='row_even_value' id='row_even_value' style='border-bottom: none;'>";
-								echo $minor_value_print;
-								echo "</div>";
-								echo "</div>";
-							?>
+								<div class='row_even' >
+									<div class='row_even_field' id='row_even_field'>
+										<h4> Student ID</h4>
+									</div>
+									<div class='row_even_value' id='row_even_value'>
+										<?php echo "<h4>".$student['s_id']."</h4>"; ?>
+									</div>
+								</div>
+								<?php
+									$cnt = count($student['major']);
+									if($cnt == 1) {
+										$major_field_print = "<h4> Major(s)</h4>";
+										$major_value_print = "<h4>".$student['major'][0]['title']."</h4>";
+									}
+									else if($cnt == 2) {
+										$major_field_print = "<h4> Major(s)</h4>";
+										$major_value_print = "<h4>".$student['major'][0]['title'].", ".$student['major'][1]['title']."</h4>";
+									}
+									else if($cnt == 3) {
+										$major_field_print = "<h4> Major(s)</h4>";
+										$major_value_print = "<h4>".$student['major'][0]['title'].", ".$student['major'][1]['title'].", ".$student['major'][2]['title']."</h4>";
+									}
+								?>
+								<div class='row_odd'>
+									<div class='row_odd_field' id='row_odd_field'>
+										<?php echo $major_field_print; ?>
+									</div>	
+									<div class='row_odd_value' id='row_odd_value'>
+										<?php echo $major_value_print; ?>
+									</div>
+								</div>
+								<?php 
+									$cnt = count($student['minor']);
+									if($cnt == 1) {
+										$minor_field_print = "<h4> Minor(s)</h4>";
+										$minor_value_print = "<h4>".$student['minor'][0]['title']."</h4>";
+									}
+									else if($cnt == 2) {
+										$minor_field_print = "<h4> Minor(s)</h4>";
+										$minor_value_print = "<h4>".$student['minor'][0]['title'].", ".$student['minor'][1]['title']."</h4>";
+									}
+									else if($cnt == 3) {
+										$minor_field_print = "<h4> Minor(s)</h4>";
+										$minor_value_print = "<h4>".$student['minor'][0]['title'].", ".$student['minor'][1]['title'].", ".$student['minor'][2]['title']."</h4>";
+									}
+								?>
+								<div class='row_even' style='border-radius: 0px 0px 10px 10px;'>
+									<div class='row_even_field' id='row_even_field' style='border-bottom: none;'>
+										<?php echo $minor_field_print; ?>
+									</div>
+									<div class='row_even_value' id='row_even_value' style='border-bottom: none;'>
+										<?php echo $minor_value_print; ?>
+									</div>
+								</div>
+							
 						</div>
 					</div>
 				</div>
@@ -220,47 +221,47 @@
 					</div>
 					<div class="info_area">
 						<div class="dash_info">
-							<?php
-								echo "<div class='row_odd'>";
-								echo "<div class='row_odd_field' id='row_odd_field'>";
-								echo "<h4> Current Year</h4>";
-								echo "</div>";
-								echo "<div class='row_odd_value' id='row_odd_value'>";
-								echo "<h4>".$student['year']."</h4>";
-								echo "</div>";
-								echo "</div>";
-
-								echo "<div class='row_even'>";
-								echo "<div class='row_even_field' id='row_even_field'>";
-								echo "<h4> Current Semester</h4>";
-								echo "</div>";
-								echo "<div class='row_even_value' id='row_even_value'>";
-								echo "<h4>".$student['semester']."</h4>";
-								echo "</div>";
-								echo "</div>";
-
-								$credits = 0;
-								for($i=0;$i<count($student['taking_course']);$i++)
-									$credits = $credits+$student['taking_course'][$i]['cred'];
-
-								echo "<div class='row_odd'>";
-								echo "<div class='row_odd_field' id='row_odd_field'>";
-								echo "<h4> Credits Registered For</h4>";
-								echo "</div>";
-								echo "<div class='row_odd_value' id='row_odd_value'>";
-								echo "<h4>".$credits."</h4>"; 
-								echo "</div>";
-								echo "</div>";
 								
-								echo "<div class='row_even' style='border-radius: 0px 0px 10px 10px;'>";
-								echo "<div class='row_even_field' id='row_even_field' style='border-bottom: none'>";
-								echo "<h4> Total Credits</h4>";
-								echo "</div>";
-								echo "<div class='row_even_value' id='row_even_value' style='border-bottom: none'>";
-								echo "<h4>".$student['credits']."</h4>"; 
-								echo "</div>";
-								echo "</div>";
-							?>
+								<div class='row_odd'>
+									<div class='row_odd_field' id='row_odd_field'>
+										<h4> Current Year</h4>
+									</div>
+									<div class='row_odd_value' id='row_odd_value'>
+										<?php echo "<h4>".$student['year']."</h4>"; ?>
+									</div>
+								</div>
+
+								<div class='row_even'>
+									<div class='row_even_field' id='row_even_field'>
+										<h4> Current Semester</h4>
+									</div>
+									<div class='row_even_value' id='row_even_value'>
+										<?php echo "<h4>".$student['semester']."</h4>"; ?>
+									</div>
+								</div>
+								<?php
+									$credits = 0;
+									for($i=0;$i<count($student['taking_course']);$i++)
+										$credits = $credits+$student['taking_course'][$i]['cred'];
+								?>
+								<div class='row_odd'>
+									<div class='row_odd_field' id='row_odd_field'>
+										<h4> Credits Registered For</h4>
+									</div>
+									<div class='row_odd_value' id='row_odd_value'>
+										<?php echo "<h4>".$credits."</h4>"; ?>
+									</div>
+								</div>
+								
+								<div class='row_even' style='border-radius: 0px 0px 10px 10px;'>
+									<div class='row_even_field' id='row_even_field' style='border-bottom: none'>
+										<h4> Total Credits</h4>
+									</div>
+									<div class='row_even_value' id='row_even_value' style='border-bottom: none'>
+										<?php echo "<h4>".$student['credits']."</h4>"; ?>
+									</div>
+								</div>
+							
 						</div>
 					</div>
 				</div>
@@ -270,40 +271,38 @@
 					</div>
 					<div class="info_area">
 						<div class="dash_info">
-							<?php 
-								echo "<div class='row_odd'>";
-								echo "<div class='row_odd_field' id='row_odd_field'>";
-								echo "<h4> Advisor Email</h4>";
-								echo "</div>";
-								echo "<div class='row_odd_value' id='row_odd_value'>";
-								echo "<h4>".$student['advisor_mail']."</h4>"; 
-								echo "</div>";
-								echo "</div>";
-								
-								echo "<div class='row_even'>";
-								echo "<div class='row_even_field' id='row_even_field'>";
-								echo "<h4> Enrollment Date</h4>";
-								echo "</div>";
-								echo "<div class='row_even_value' id='row_even_value'>";
-								echo "<h4>".$student['enrll']."</h4>";
-								echo "</div>";
-								echo "</div>";
-								
-								echo "<div class='row_odd' style='border-radius: 0px 0px 10px 10px;'>";
-								echo "<div class='row_odd_field' id='row_odd_field' style='border-bottom: none'>";
-								echo "<h4> Registering For</h4>";
-								echo "</div>";
-								echo "<div class='row_odd_value' id='row_odd_value' style='border-bottom: none'>";
-								echo "<h4>".$student['registering_for']."</h4>";
-								echo "</div>";
-								echo "</div>";
-							?>
+								<div class='row_odd'>
+									<div class='row_odd_field' id='row_odd_field'>
+										<h4> Advisor Email</h4>
+									</div>
+									<div class='row_odd_value' id='row_odd_value'>
+										<?php echo "<h4>".$student['advisor_mail']."</h4>"; ?>
+									</div>
+								</div>
+									
+								<div class='row_even'>
+									<div class='row_even_field' id='row_even_field'>
+										<h4> Enrollment Date</h4>
+									</div>
+									<div class='row_even_value' id='row_even_value'>
+										<?php echo "<h4>".$student['enrll']."</h4>"; ?>
+									</div>
+								</div>
+									
+								<div class='row_odd' style='border-radius: 0px 0px 10px 10px;'>
+									<div class='row_odd_field' id='row_odd_field' style='border-bottom: none'>
+										<h4> Registering For</h4>
+									</div>
+									<div class='row_odd_value' id='row_odd_value' style='border-bottom: none'>
+										<?php echo "<h4>".$student['registering_for']."</h4>"; ?>
+									</div>
+								</div>
 						</div>
 					</div>
 				</div>
 					<div class="progress_bar" id="progress_bar">
 						<div class="dash_header_progress">
-							<h4 style="color: white; text-align: center;">Credits Progress</h4>
+							<h3 style="color: white; text-align: center;">Credits Progress</h3>
 						</div>
 						<div class="progress_background">
 							<div class="progress">
@@ -322,5 +321,4 @@
 	</body>
 	</html>
 <?php
-// Width < 720 causes table overflow
 ?>
