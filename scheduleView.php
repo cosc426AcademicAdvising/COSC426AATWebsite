@@ -26,5 +26,10 @@
 		</div>
 </div> <!-- flexbox div ends -->
 
+<script>
+	$('nav ul .schedule-show').toggleClass("sch");
+	$('nav ul .first').toggleClass("rotate");
+	$('.schedule-view-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
+</script>
 </body>
 </html>

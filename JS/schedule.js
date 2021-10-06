@@ -1,13 +1,16 @@
 // schedule new functions
-function scheduleAddCourse(subj, ttl, cr, prog) {
-	// console.log(subj, ttl, cr, typ);
-	if (subj != "" && ttl != "" && cr != "") {
-		rmbutton = '<button type="button" onclick="removeCourse()">Remove</botton>'
-		text = "<tr><td>" + subj.toUpperCase() + "</td><td>" + ttl.toUpperCase() + "</td><td>" + cr + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
-		$('#schedulecoursetable').append(text);
-		$("#schedulecoursetable :input").val("");
+function scheduleAddCourse(course, prog) {
 
-		$("#schedulecoursenumb").focus();
+	// console.log(course.split(" - "));
+	if (course != "") {
+		var val = course.split(" - ")
+		// rmbutton = '<button type="button" onclick="removeCourse()">Remove</botton>';
+		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
+		text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + val[2] + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+		$('#schedulecoursetable').append(text);
+		
+		$("#coursesearchsection :input").val("");
+		$("#coursesearch").focus();
 	}
 }
 
@@ -16,13 +19,3 @@ function removeCourse() {
 	var tr = td.parentNode; // the row to be removed
 	tr.parentNode.removeChild(tr);
 }
-
-// $(document).ready(function () {
-
-// 	$(document).on('input', '#schedulecoursenumb', function () {
-// 		if (schedulecoursenumb.value.length > 7 ) {
-// 			console.log( schedulecoursenumb.value.toUpperCase() );
-// 		}
-// 	});
-
-// });

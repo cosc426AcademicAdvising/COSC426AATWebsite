@@ -15,10 +15,26 @@
 		ob_start();
 		session_start();
 		require 'vendor/autoload.php';
+
+		include_once 'funcs/CourseFunctions.php';
+		
+		// echo '<datalist id="subjectlist">';
+		// foreach (getSubjects() as $val) {
+		// 	echo '<option value="'. $val .'">';
+		// }
+		// echo '</datalist>';
+		echo '<script> var courselist = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>'
 	?>
 </head>
 
 <body>
+	<datalist id="courselist"></datalist>
+	<script>
+		var text = "";
+		courselist.forEach( val => 
+			text += '<option value="'+ val["Subject"] + val["Catalog"]+ " - " + val["Long Title"] + " - " + val["Allowd Unt"] + '">');
+		$('#courselist').html( text )
+	</script>
 	<?php
 		include 'nav.php';
 	?>
@@ -33,7 +49,6 @@
 					<label for="studentid">Id: </label>
 					<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8">
 					<br>
-					
 					
 					<div for="affliation">
 						<p>Major(s): <span id="major"></span> Minor(s):  <span id="minor"></span> </p>
@@ -63,6 +78,18 @@
 					<span>currently enrolled in</span>
 					<br>
 
+					<div id="coursesearchsection" style="display:inline-block; margin-top:20px; width:100%;">
+						<div style="display:inline-block;">
+							<label for="course">Search for a course <br> <font size="1">e.g. COSC 117 ...</font></label><br>
+							<input list="courselist" id="coursesearch" name="coursesearch" size="50" placeholder="e.g. COSC 117 ...">
+						</div>
+						<div style="display:inline-block;">
+							<label for="coursetype">Fulffilment <br> <font size="1">e.g. Major/Minor/Elective/Gen-Ed</font></label><br>
+							<input type='text' id="coursetype" name="coursetype">
+						</div>
+						<button type='button' onclick="scheduleAddCourse(coursesearch.value, coursetype.value)">Add</button>
+					</div>
+
 					<!-- Course table goes here -->
 					<div id="schedule-course">
 						<table id="schedulecoursetable">
@@ -71,17 +98,9 @@
 									<th style="width:10%px;">Course Number</th>
 									<th style="width:50%;">Title</th>
 									<th style="width:5%;">Credits</th>
-									<th style="width:20%;"><a title="Major, minor, gen ed">Program</a></th>
+									<th style="width:20%;">Program</a></th>
 									<th></th>
 								</b>
-							</tr>
-							<tr id="schedule-course-entry">
-								<th><input type='text' id="schedulecoursenumb" name="schedulecoursenumb" size="10" maxlength="8"></th>
-								<th><input type='text' id="schedulecoursetitle" name="schedulecoursetitle" size="50"></th>
-								<th><input type='text' id="schedulecoursecredit" name="schedulecoursecredit" size="3" maxlength="3"></th>
-								<th><input type='text' id="schedulecoursetype" name="schedulecoursetype"></th>
-								<th><button type='button' onclick="scheduleAddCourse(schedulecoursenumb.value, schedulecoursetitle.value, schedulecoursecredit.value, schedulecoursetype.value)">Add</button></th>
-								<!-- scheduleAddCourse(schedule-coursenumb.value, schedule-coursetitle.value, schedule-coursecredit.value, schedule-coursetype.value)" -->
 							</tr>
 						</table>
 					</div>
@@ -89,7 +108,7 @@
 					<br>
 
 					<label for="memo">Memo: </label><br>
-					<textarea rows="8" cols="50" name="memo" form="programplanningworksheet"></textarea>
+					<textarea rows="4" cols="50" name="memo" form="programplanningworksheet"></textarea>
 					<br>
 
 					<input type="submit" value="Submit">
@@ -99,17 +118,10 @@
 
 		</div>
 </div> <!-- flexbox div ends -->
-
 <script>
-	$(document).ready(function () {
-
-		$(document).on('input', '#schedulecoursenumb', function () {
-			if (schedulecoursenumb.value.length > 7 ) {
-				console.log( schedulecoursenumb.value.toUpperCase() );
-			}
-		});
-
-	});
+	$('nav ul .schedule-show').toggleClass("sch");
+	$('nav ul .first').toggleClass("rotate");
+	$('.schedule-new-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
 </script>
 
 </body>

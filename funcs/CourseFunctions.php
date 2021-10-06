@@ -31,7 +31,7 @@ function getCoursebyRegex($sub, $cat, $title, $cred){
     $headers = array('Content-Type' => 'application/json', 'auth-token' => $token);
     $param = array( 'subject' => $sub, 'catalog' => $cat, 'title' => $title, 'credit' => $cred );
     $response = Requests::post($url, $headers, json_encode($param));
-    var_dump($response->body);
+    // var_dump($response->body);
     $course = json_decode($response->body, true);
     return $course;
 }

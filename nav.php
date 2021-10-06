@@ -3,7 +3,7 @@
 	</header>
 	<?php
 		if(empty($_SESSION)){
-			header("Location: /login.php");
+			header("Location: login.php");
 		}
 	?>
 	<div class="flexbox">
@@ -31,6 +31,7 @@
 
 		<script>
 			$( document ).ready(function(){
+				
 				$('.schedule-btn').click(function () {
 					$('nav ul .schedule-show').toggleClass("sch");
 					$('nav ul .first').toggleClass("rotate");
