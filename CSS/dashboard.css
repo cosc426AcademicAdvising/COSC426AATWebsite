@@ -39,12 +39,14 @@ h3 {
 	width: 100%;
 	padding: 5px;
 	color: var(--tertiary);
+	font-weight: bold;
 }
 
 h4 {
 	text-align: left;
 	margin: auto;
 	width: 80%;
+	font-weight: normal;
 }
 td {
 	border-style: none solid solid solid;
@@ -52,7 +54,7 @@ td {
 	width: auto;
 	margin: auto;
 	border-spacing: 0;
-	font-weight: bold;
+	font-weight: normal;
 }
 tr {
 	text-align: center;
@@ -68,17 +70,15 @@ th {
 	margin: auto;
 	border-spacing: 0;
 	background-color: var(--secondary);
+	font-weight: bold;
 }
 
 .container {
 	display: grid; 
 	width: 100%;
 	height: 100%;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-template-rows: 4.5fr 3fr 3fr;
 	padding: 0px;
 	grid-gap: 50px;
-	
 }
 
 .schedule {
@@ -152,6 +152,7 @@ th {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 3fr;
+	padding: 5px;
 	
 }
 .schedule_table {
@@ -194,7 +195,7 @@ th {
 	grid-auto-columns: 1fr;
 	height: 100%;
 	background-color: var(--tertiary);
-	border-radius: 10px;
+	border-radius: 0 0 10px10px;
 }
 .table_area {
 	height: 100%;
@@ -211,6 +212,7 @@ th {
 	grid-column-end: 2;
 }
 .progress_background {
+	height: 70%;
 	background-color: var(--grey);
 	border-radius: 15px;
 	grid-row-start: 2;
@@ -228,8 +230,10 @@ th {
 }
 .progress_text {
 	text-align: right;
-	font-size: 15px;
-	padding-top: 10px;
+	font-size: 20px;
+	padding-top: 22px;
+	padding-right: 5px;
+	font-weight: bold;
 }
 .row_odd {
 	display: grid;
@@ -249,6 +253,7 @@ th {
 	text-overflow: ellipsis;
 	white-space: wrap;
 	word-wrap: break-word;
+	font-weight: normal;
 }
 .row_even {
 	background-color: var(--grey);
@@ -267,6 +272,7 @@ th {
 	padding: 3px;
 	border-bottom: solid;
 	word-wrap: break-word;
+	font-weight: normal;
 
 }
 .tabs_area {
@@ -287,8 +293,97 @@ th {
 	font-size: x-large;
 	border-style: none;
 	float: left;
+	font-weight: normal;
 	
 }
 .fyp_tabs:hover {
 	background-color: #5c5c5c;
+}
+
+@media only screen and (min-width: 720px) {
+	.container {
+		grid-template-columns: 1fr;
+		grid-template-rows: 2fr 2fr 1fr 1fr 1fr 1fr;
+	}
+	.schedule {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 1;
+		grid-row-end: 2;
+	}
+	.plan {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+	.personal_info {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 3;
+		grid-row-end: 4;
+	}
+	.credit_info {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 4;
+		grid-row-end: 5;
+	}
+	.advisor_info {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 5;
+		grid-row-end: 6;
+	}
+	.progress_bar {
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row-start: 6;
+		grid-row-end: 7;
+		
+	}
+}
+
+@media only screen and (min-width: 1060px) {
+	.container {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+		grid-template-rows: 4.5fr 3fr 3fr;
+	}
+	.schedule {
+		grid-column-start: 1;
+		grid-column-end: 4;
+		grid-row-start: 1;
+		grid-row-end: 2;
+	}
+	.plan {
+		grid-column-start: 4;
+		grid-column-end: 7;
+		grid-row-start: 1;
+		grid-row-end: 2;
+	}
+	.personal_info {
+		grid-column-start: 1;
+		grid-column-end: 3;
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+	.credit_info {
+		grid-column-start: 3;
+		grid-column-end: 5;
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+	.advisor_info {
+		grid-column-start: 5;
+		grid-column-end: 7;
+		grid-row-start: 2;
+		grid-row-end: 3;
+	}
+	.progress_bar {
+		grid-column-start: 1;
+		grid-column-end: 7;
+		grid-row-start: 3;
+		grid-row-end: 4;
+		
+	}
 }
