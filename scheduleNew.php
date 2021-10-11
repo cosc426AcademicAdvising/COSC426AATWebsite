@@ -18,11 +18,6 @@
 
 		include_once 'funcs/CourseFunctions.php';
 		
-		// echo '<datalist id="subjectlist">';
-		// foreach (getSubjects() as $val) {
-		// 	echo '<option value="'. $val .'">';
-		// }
-		// echo '</datalist>';
 		echo '<script> var courselist = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>'
 	?>
 </head>
@@ -30,9 +25,29 @@
 <body>
 	<datalist id="courselist"></datalist>
 	<script>
+		courselist = courselist.filter(function(val){
+			return val["Allowd Unt"] != "999.00";
+		});
+
+		// sort by course number
+		courselist.sort(function(a,b) {
+			if( a["Subject"] > b["Subject"] ){
+				return 1;
+			} else if( a["Subject"] < b["Subject"] ){
+				return -1;
+			} else { // same
+				if(a["Catalog"] > b["Catalog"]){
+					return 1;
+				}else{
+					return -1;
+				}
+			}
+		});
+		
 		var text = "";
+		var seperator = "    "
 		courselist.forEach( val => 
-			text += '<option value="'+ val["Subject"] + val["Catalog"]+ " - " + val["Long Title"] + " - " + val["Allowd Unt"] + '">');
+			text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
 		$('#courselist').html( text )
 	</script>
 	<?php
@@ -80,11 +95,11 @@
 
 					<div id="coursesearchsection" style="display:inline-block; margin-top:20px; width:100%;">
 						<div style="display:inline-block;">
-							<label for="course">Search for a course <br> <font size="1">e.g. COSC 117 ...</font></label><br>
-							<input list="courselist" id="coursesearch" name="coursesearch" size="50" placeholder="e.g. COSC 117 ...">
+							<label for="course">Search for a course <br> <font size="1">enter subject, course number, title or credits</font></label><br>
+							<input list="courselist" id="coursesearch" name="coursesearch" size="80" required>
 						</div>
 						<div style="display:inline-block;">
-							<label for="coursetype">Fulffilment <br> <font size="1">e.g. Major/Minor/Elective/Gen-Ed</font></label><br>
+							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elective, Gen-Ed, ...</font></label><br>
 							<input type='text' id="coursetype" name="coursetype">
 						</div>
 						<button type='button' onclick="scheduleAddCourse(coursesearch.value, coursetype.value)">Add</button>
@@ -98,7 +113,7 @@
 									<th style="width:10%px;">Course Number</th>
 									<th style="width:50%;">Title</th>
 									<th style="width:5%;">Credits</th>
-									<th style="width:20%;">Program</a></th>
+									<th style="width:20%;">Fulffilment</a></th>
 									<th></th>
 								</b>
 							</tr>
