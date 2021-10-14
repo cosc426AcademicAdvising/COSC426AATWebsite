@@ -17,8 +17,17 @@
 		require 'vendor/autoload.php';
 
 		include_once 'funcs/CourseFunctions.php';
+		include_once 'funcs/StudentFunctions.php';
 		
-		echo '<script> var courselist = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>'
+		echo '<script> var courselist = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
+
+		$student = getStudent($_SESSION['username']);
+		$progress = $student['credits'];
+
+		$majors = array();
+		for($i=0;$i<count($student['major']);$i++) {
+			$majors[$i] = $student['major'][$i]['title'];
+		}
 	?>
 </head>
 
@@ -60,9 +69,9 @@
 				<form action="" id="programplanningworksheet">
 					<h3 style="text-align: center; margin-bottom:20px;">Program Planning Worksheet</h3>
 					<label for="studentname">Name: </label>
-					<input type="text" id="studentname" name="studentname" size="40">
+					<input type="text" id="studentname" name="studentname" size="40" value="<?php echo $student['name'];?>" readonly>
 					<label for="studentid">Id: </label>
-					<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8">
+					<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8" value="<?php echo $student['s_id'];?>" readonly>
 					<br>
 					
 					<div for="affliation">
@@ -72,21 +81,28 @@
 					<br>
 
 					<span>Registering for</span>
-					<input type="radio" id="Fall" name="season" value="Fall">
+					<input type="radio" id="Fall" name="season" value="Fall" required>
 					<label for="Fall">Fall </label>
-					<input type="radio" id="Winter" name="season" value="Winter">
+					<input type="radio" id="Winter" name="season" value="Winter" required>
 					<label for="Winter">Winter </label>
-					<input type="radio" id="Spring" name="season" value="Spring">
+					<input type="radio" id="Spring" name="season" value="Spring" required>
 					<label for="Spring">Spring </label>
-					<input type="radio" id="Summer" name="season" value="Summer">
+					<input type="radio" id="Summer" name="season" value="Summer" required>
 					<label for="Summer">Summer </label>
 					
-					<label for="year">Year </label>
-					<input type="text" id="year" name="year" maxlength="4" minlength="4" size="6">
+					<label for="year" style="margin-left:100px;">Year </label>
+					<select id="year" name="year">
+						<?php
+						$year = date("Y");
+						for( $i=0; $i<5; $i++){
+							echo '<option>'. ($year + $i) . '</option>';
+						}
+						?>
+					</select>
 					<br>
 
 					<span>Earned: </span> 
-					<input type="text" id="creditearned" name="creditearned" maxlength="3" size="4" readonly>
+					<input type="text" id="creditearned" name="creditearned" maxlength="3" size="4" value="<?php echo $student['credits'];?>" readonly>
 					<span>credits</span>
 					<span>Credits</span>
 					<input type="text" id="creditenrolled" name="creditenrolled" size="3" value="0" readonly>
@@ -96,7 +112,7 @@
 					<div id="coursesearchsection" style="display:inline-block; margin-top:20px; width:100%;">
 						<div style="display:inline-block;">
 							<label for="course">Search for a course <br> <font size="1">enter subject, course number, title or credits</font></label><br>
-							<input list="courselist" id="coursesearch" name="coursesearch" size="80" required>
+							<input list="courselist" id="coursesearch" name="coursesearch" size="80">
 						</div>
 						<div style="display:inline-block;">
 							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elective, Gen-Ed, ...</font></label><br>
