@@ -24,9 +24,17 @@
 		$student = getStudent($_SESSION['username']);
 		$progress = $student['credits'];
 
+		// print_r($student);
+
 		$majors = array();
 		for($i=0;$i<count($student['major']);$i++) {
 			$majors[$i] = $student['major'][$i]['title'];
+		}
+		$minors = array();
+		if(count($student['minor']) > 0) {
+			for($i=0;$i<count($student['minor']);$i++) {
+				$minors[$i] = $student['minor'][$i]['title'];
+			}
 		}
 	?>
 </head>
@@ -75,26 +83,44 @@
 					<br>
 					
 					<div for="affliation">
-						<p>Major(s): <span id="major"></span> Minor(s):  <span id="minor"></span> </p>
+						<p style="margin-top:15px;">
+							Major(s): 
+							<span id="major">
+								<?php 
+								foreach ($majors as $val) {echo $val . ', ';} 
+								?>
+							</span>
+						</p> 
+						<p style="margin-top:15px;">
+							Minor(s):
+							<span id="minor">
+								<?php
+								if(count($student['minor']) > 0) {
+									foreach ($minors as $val) {echo $val . ', ';} 
+								}
+								?>
+							</span> 
+						</p>
 					</div>
 
 					<br>
 
 					<span>Registering for</span>
-					<input type="radio" id="Fall" name="season" value="Fall" required>
+					<input type="radio" name="season" value="Fall" required>
 					<label for="Fall">Fall </label>
-					<input type="radio" id="Winter" name="season" value="Winter" required>
+					<input type="radio" name="season" value="Winter" required>
 					<label for="Winter">Winter </label>
-					<input type="radio" id="Spring" name="season" value="Spring" required>
+					<input type="radio" name="season" value="Spring" required>
 					<label for="Spring">Spring </label>
-					<input type="radio" id="Summer" name="season" value="Summer" required>
+					<input type="radio" name="season" value="Summer" required>
 					<label for="Summer">Summer </label>
 					
 					<label for="year" style="margin-left:100px;">Year </label>
 					<select id="year" name="year">
 						<?php
 						$year = date("Y");
-						for( $i=0; $i<5; $i++){
+						$year_count = 5;	//number of years forward
+						for( $i=0; $i<$year_count; $i++){
 							echo '<option>'. ($year + $i) . '</option>';
 						}
 						?>
@@ -141,7 +167,8 @@
 					<label for="memo">Memo: </label><br>
 					<textarea rows="4" cols="50" name="memo" form="programplanningworksheet"></textarea>
 					<br>
-
+					<!-- remove  type=button when save button is complete -->
+					<button type="button" onclick="saveDraft()">Save</button>
 					<input type="submit" value="Submit">
 
 				</form>

@@ -9,7 +9,7 @@ input {
 }
 
 #programplanningworksheet > * {
-	margin: 5px
+	margin: 5px;
 }
 
 .schedule-new table {
@@ -79,6 +79,13 @@ input, button, select {
   color: #FBFA6E;
   text-decoration: none;
   cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+	background-color: black;
+	color: white;
+  	text-decoration: none;
+	cursor: pointer;
 }
 
 /* 
