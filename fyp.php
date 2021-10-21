@@ -16,8 +16,12 @@
 		include_once 'funcs/StudentFunctions.php';
 		include_once 'funcs/FourYearFunctions.php';
 		$student = getStudent($_SESSION['username']);
-		$fyp = getFourYearbyMajor($student['major'][0]['title']);
+		//$fyp = getFourYearbyMajor($student['major'][0]['title']);
 		$sem = $student['semester'];
+		$majors = array();
+		for($i=0;$i<count($student['major']);$i++){
+			$majors[$i] = $student['major'][$i]['title'];
+		}
 	?>
 </head>
 
@@ -29,6 +33,31 @@
 		<div id="content" style="overflow: auto">
 			<div id="container" class="container">
 				<div class='year1' id='year1'>
+					<div class="tabs_area">
+						<div class="tabs">
+							<form method="post">
+								<?php
+									if(count($majors) == 1) {
+										echo "<button class='fyp_tabs' style='border-radius: 10px 10px 0 0; width: 100%;' name='major' value=".$majors[0].">".$majors[0]."</button>";
+									}
+									else if(count($majors) == 2) {
+										echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; width: 50%; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
+										echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; width: 50%;' name='major' value=".$majors[1].">".$majors[1]."</button>";
+									}
+									else if(count($majors) == 3) {
+										echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
+										echo "<button class='fyp_tabs' name='major' value=".$majors[1].">".$majors[1]."</button>";
+										echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; border-left: solid;' name='major' value=".$majors[2].">".$majors[2]."</button>";
+									}
+									if(isset($_POST['major'])){
+										$fyp = getFourYearbyMajor($_POST['major']);
+									} else {
+										$fyp = getFourYearByMajor($student['major'][0]['title']);
+									}
+								?>
+							</form>
+						</div>
+					</div>
 					<div class='fyp_header'>
 						<h3>Year 1</h3>
 					</div>
