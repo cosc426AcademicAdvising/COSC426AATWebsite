@@ -62,10 +62,9 @@
 		});
 		
 		var text = "";
-		var seperator = "    "
-		courselist.forEach( val => 
-			text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
-		$('#courselist').html( text )
+		var seperator = "    ";
+		courselist.forEach( val => text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
+		$('#courselist').html( text );
 	</script>
 	<?php
 		include 'nav.php';
@@ -137,20 +136,44 @@
 
 					<div id="coursesearchsection" style="display:inline-block; margin-top:20px; width:100%;">
 						<div style="display:inline-block;">
-							<label for="course">Search for a course <br> <font size="1">enter subject, course number, title or credits</font></label><br>
-							<input list="courselist" id="coursesearch" name="coursesearch" size="80">
+							<label for="course">Search for a course <br> <font size="1">enter a subject, course number, title or credits</font></label><br>
+							<input list="courselist" id="coursesearch" name="coursesearch" style="width:40vw;">
 						</div>
 						<div style="display:inline-block;">
-							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elective, Gen-Ed, ...</font></label><br>
+							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elect, Gen-Ed, ...</font></label><br>
 							<input type='text' id="coursetype" name="coursetype">
+						</div>
+						<div style="display:inline-block;text-align:center;">
+							<label for="forBcourse">Is a back-up<br>course?</label><br>
+							<select id="forBcourse" name="forBcourse">
+								<option>No</option>
+								<option>Yes</option>
+							</select>
 						</div>
 						<button type='button' onclick="scheduleAddCourse(coursesearch.value, coursetype.value)">Add</button>
 					</div>
 
 					<!-- Course table goes here -->
 					<div id="schedule-course">
-						<table id="schedulecoursetable">
+						<table id="schedule-coursetable">
 							<tr>
+								<b>
+									<th style="width:10%px;">Course Number</th>
+									<th style="width:50%;">Title</th>
+									<th style="width:5%;">Credits</th>
+									<th style="width:20%;">Fulffilment</a></th>
+									<th></th>
+								</b>
+							</tr>
+						</table>
+					</div>
+					
+					<div style="text-align:center;margin-top:20px;">
+					<label for="schedule-backupcoursetable"><u>Back-up Courses</u></label>
+					</div>
+					<div id="schedule-backupcourse">
+						<table id="schedule-backupcoursetable">
+							<tr hidden>
 								<b>
 									<th style="width:10%px;">Course Number</th>
 									<th style="width:50%;">Title</th>
