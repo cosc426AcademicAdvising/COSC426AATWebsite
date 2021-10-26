@@ -1,17 +1,21 @@
 // schedule new functions
 function scheduleAddCourse(course, prog) {
 	if (course != "") {
+		var val = course.split(seperator);
+		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
+
 		if (forBcourse.value == "No") { // for non-backup courses
-			var val = course.split(seperator);
-			rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
 			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + val[2] + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
 			$('#schedule-coursetable').append(text);
 
+			// add credits
 			$('#creditenrolled').val(parseInt($('#creditenrolled').val()) + parseInt(val[2]));
 		}
 		else {
-			var val = course.split(seperator);
-			rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
+			//	display table if adding first time
+			if ($('#schedule-backupcoursetable tbody').children().length == 1) {
+				$('#schedule-backupcoursetable').toggle();
+			}
 			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + val[2] + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
 			$('#schedule-backupcoursetable').append(text);
 		}
@@ -21,7 +25,7 @@ function scheduleAddCourse(course, prog) {
 		$('#forBcourse').prop('selectedIndex', 0);
 	}
 	else {
-		//error message
+		//error messages
 	}
 }
 
@@ -39,6 +43,11 @@ function removeCourse() {
 	}
 
 	tr.parentNode.removeChild(tr);
+
+	// hide backup-course table since there is no data
+	if ($('#schedule-backupcoursetable tbody').children().length == 1) {
+		$('#schedule-backupcoursetable').toggle();
+	}
 }
 
 function saveDraft() {
@@ -49,7 +58,7 @@ function saveDraft() {
 	if( tabledata.length > 0 ) {
 		for( let i=0; i<tabledata.length;i++ ) {
 			courseTable.push(tabledata[i].innerText.split("\t").slice(0, 4));
-			// slice (0,4) to exclude remove button in each row
+			// slice (0,4) to exclude the remove button in each row
 		}
 	}
 
@@ -67,6 +76,7 @@ function saveDraft() {
 		year:year.value,
 		taking_course:courseTable,
 		backup_course:backupCourseTable,
+		memo:memo.value,
 	}
 	console.log(draftObj);
 }

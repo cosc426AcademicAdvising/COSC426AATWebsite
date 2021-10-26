@@ -24,8 +24,6 @@
 		$student = getStudent($_SESSION['username']);
 		$progress = $student['credits'];
 
-		// print_r($student);
-
 		$majors = array();
 		for($i=0;$i<count($student['major']);$i++) {
 			$majors[$i] = $student['major'][$i]['title'];
@@ -48,21 +46,16 @@
 
 		// sort by course number
 		courselist.sort(function(a,b) {
-			if( a["Subject"] > b["Subject"] ){
-				return 1;
-			} else if( a["Subject"] < b["Subject"] ){
-				return -1;
-			} else { // same
-				if(a["Catalog"] > b["Catalog"]){
-					return 1;
-				}else{
-					return -1;
-				}
+			if ( a["Subject"] > b["Subject"] ){ return 1;} 
+			else if( a["Subject"] < b["Subject"] ) { return -1;} 
+			else { // same
+				if (a["Catalog"] > b["Catalog"]) { return 1; }
+				else { return -1; }
 			}
 		});
 		
 		var text = "";
-		var seperator = "    ";
+		var seperator =  Array(4).fill(' ').join(''); //4 blank space
 		courselist.forEach( val => text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
 		$('#courselist').html( text );
 	</script>
@@ -74,14 +67,14 @@
 			
 			<div class="schedule-new">
 				<form action="" id="programplanningworksheet">
-					<h3 style="text-align: center; margin-bottom:20px;">Program Planning Worksheet</h3>
+					<h3 style="text-align:center; margin-bottom:20px;">Program Planning Worksheet</h3>
 					<label for="studentname">Name: </label>
 					<input type="text" id="studentname" name="studentname" size="40" value="<?php echo $student['name'];?>" readonly>
 					<label for="studentid">Id: </label>
 					<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8" value="<?php echo $student['s_id'];?>" readonly>
 					<br>
 					
-					<div for="affliation">
+					<div id="affliation">
 						<p style="margin-top:15px;">
 							Major(s): 
 							<span id="major">
@@ -188,7 +181,7 @@
 					<br>
 
 					<label for="memo">Memo: </label><br>
-					<textarea rows="4" cols="50" name="memo" form="programplanningworksheet"></textarea>
+					<textarea rows="4" cols="50" id="memo" name="memo" form="programplanningworksheet"></textarea>
 					<br>
 					<!-- remove  type=button when save button is complete -->
 					<button type="button" onclick="saveDraft()">Save</button>
@@ -203,6 +196,10 @@
 	$('nav ul .schedule-show').toggleClass("sch");
 	$('nav ul .first').toggleClass("rotate");
 	$('.schedule-new-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
+	
+	if ( $('#schedule-backupcoursetable tbody').children().length == 1) {
+		$('#schedule-backupcoursetable').toggle();
+	}
 </script>
 
 </body>

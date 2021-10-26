@@ -35,6 +35,7 @@ input {
     border-top: none;
 }
 
+
 .schedule-new td {
 	text-align: center;
 }
@@ -46,13 +47,6 @@ td:first-child, th:first-child {
 #schedule-course-entry input {
 	text-transform: uppercase;
 }
-
-/* button {
-	border-radius: 8px;
-	text-align: center;
-	padding: 5px 10px;
-	width: 80px;
-} */
 
 textarea {
 	border-radius: 8px;
