@@ -12,6 +12,10 @@ input {
 	margin: 5px;
 }
 
+.required{
+	color:red;
+}
+
 .schedule-new table {
 	border-collapse: collapse;
 	width: 90%;
@@ -34,7 +38,6 @@ input {
 	background-color: yellow;
     border-top: none;
 }
-
 
 .schedule-new td {
 	text-align: center;

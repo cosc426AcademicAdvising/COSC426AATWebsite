@@ -67,16 +67,17 @@
 			
 			<div class="schedule-new">
 				<form action="" id="programplanningworksheet">
+					<p style="font-weight:normal;font-size:12px;text-align:right"><span class="required"> *</span> denotes a required field</p>
 					<h3 style="text-align:center; margin-bottom:20px;">Program Planning Worksheet</h3>
-					<label for="studentname">Name: </label>
+					<label for="studentname">Name<span class="required">*</span></label>
 					<input type="text" id="studentname" name="studentname" size="40" value="<?php echo $student['name'];?>" readonly>
-					<label for="studentid">Id: </label>
+					<label for="studentid">Id<span class="required">*</span></label>
 					<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8" value="<?php echo $student['s_id'];?>" readonly>
 					<br>
 					
 					<div id="affliation">
 						<p style="margin-top:15px;">
-							Major(s): 
+							Major(s):
 							<span id="major">
 								<?php 
 								foreach ($majors as $val) {echo $val . ', ';} 
@@ -97,7 +98,7 @@
 
 					<br>
 
-					<span>Registering for</span>
+					<span>Registering for<span class="required">*</span></span>
 					<input type="radio" name="season" value="Fall" required>
 					<label for="Fall">Fall </label>
 					<input type="radio" name="season" value="Winter" required>
@@ -107,7 +108,7 @@
 					<input type="radio" name="season" value="Summer" required>
 					<label for="Summer">Summer </label>
 					
-					<label for="year" style="margin-left:100px;">Year </label>
+					<label for="year" style="margin-left:100px;">Year <span class="required">*</span></label>
 					<select id="year" name="year">
 						<?php
 						$year = date("Y");
@@ -151,7 +152,7 @@
 						<table id="schedule-coursetable">
 							<tr>
 								<b>
-									<th style="width:10%px;">Course Number</th>
+									<th style="width:10%px;">Course Number<span class="required">*</span></th>
 									<th style="width:50%;">Title</th>
 									<th style="width:5%;">Credits</th>
 									<th style="width:20%;">Fulffilment</a></th>
