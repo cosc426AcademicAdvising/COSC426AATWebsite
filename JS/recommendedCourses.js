@@ -1,6 +1,5 @@
 // fyp defined in funcs/FourYearFunctions.php -> combinedFourYear()
 // extract semester keys from each major(s)
-console.log(fyp[2]);
 var fy_courses = [];
 for (let i = 1; i < 9; i++) {
 	var key = 'semester_' + i;
@@ -45,7 +44,6 @@ courses_taken.forEach(obj => obj['title'] = obj['title'].toUpperCase());
 courses_taken.forEach(obj => delete obj.grade);
 courses_taken.forEach(obj => delete Object.assign(obj, { ['cred']: obj['credits'] })['credits']);	// might delete
 
-
 // remove underterminable courses and courses w/ X in catalog e.g HIST 10X
 fy_courses = fy_courses.filter(function (obj) {
 	return Object.keys(obj).length == 4 && obj['catalog'] != '' && obj['catalog'] != 'XXX' && obj['catalog'][2] != 'X';
@@ -88,24 +86,24 @@ switch( true ) {
 	case (rec.length >= 4):
 		for (let i = 0; i < 4; i++) {
 			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
-			scheduleAddCourse(course, "");
+			scheduleAddCourse(course, "", true);
 		}
 		break;
 	case (rec.length >= 3):
 		for (let i = 0; i < 3; i++) {
 			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
-			scheduleAddCourse(course, "");
+			scheduleAddCourse(course, "", true);
 		}
 		break;
 	case (rec.length >= 2):
 		for (let i = 0; i < 2; i++) {
 			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
-			scheduleAddCourse(course, "");
+			scheduleAddCourse(course, "", true);
 		}
 		break;
 	case (rec.length == 1):
 		var course = rec[0]["subject"] + " " + $.trim(rec[0]["catalog"]) + seperator + rec[0]["title"] + seperator + rec[0]["cred"];
-		scheduleAddCourse(course, "");
+		scheduleAddCourse(course, "", true);
 		break;
 	case (rec.length == 0):
 		break;

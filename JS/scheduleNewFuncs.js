@@ -1,23 +1,41 @@
 // schedule new functions
-function scheduleAddCourse(course, prog) {
+function scheduleAddCourse(course, prog, isRec) {
 	if (course != "") {
 		var val = course.split(seperator);
 		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
-
-		if (forBcourse.value == "No") { // for non-backup courses
+		if(isRec == true) {
+			text = "<tr class='rec'><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+		} else {
 			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
-			$('#schedule-coursetable').append(text);
-
-			// add credits
-			$('#creditenrolled').val(parseInt($('#creditenrolled').val()) + parseInt(val[2]));
 		}
-		else {
-			//	display table if adding first time
-			if ($('#schedule-backupcoursetable tbody').children().length == 1) {
-				$('#schedule-backupcoursetable').toggle();
+
+		var current = [];
+		var tabledata = $("#schedule-coursetable tbody").children().slice(1);
+		var btabledata = $("#schedule-backupcoursetable tbody").children().slice(1);
+		for (let i = 0; i < tabledata.length; i++) {
+			current.push(tabledata[i].innerText.split("\t").slice(0, 4)[0]);
+		}
+		for (let i = 0; i < btabledata.length; i++) {
+			current.push(btabledata[i].innerText.split("\t").slice(0, 4)[0]);
+		}
+		console.log(current);
+
+		if (current.indexOf(val[0]) == -1 ) {
+			if (forBcourse.value == "No") { // for non-backup courses
+				$('#schedule-coursetable').append(text);
+				// add credits
+				$('#creditenrolled').val(parseInt($('#creditenrolled').val()) + parseInt(val[2]));
+
+			} else{
+				//	display table if adding first time
+				if ($('#schedule-backupcoursetable tbody').children().length == 1) {
+					$('#schedule-backupcoursetable').toggle();
+				}
+				$('#schedule-backupcoursetable').append(text);
 			}
-			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + val[2] + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
-			$('#schedule-backupcoursetable').append(text);
+		} else {
+			// error message dup course
+			alert("Cannot add the same course twice!");
 		}
 
 		$("#coursesearchsection :input").val("");
@@ -25,7 +43,8 @@ function scheduleAddCourse(course, prog) {
 		$('#forBcourse').prop('selectedIndex', 0);
 	}
 	else {
-		//error messages
+		//error message empty input
+		alert("empty field!");
 	}
 }
 

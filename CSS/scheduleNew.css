@@ -16,6 +16,11 @@ input {
 	color:red;
 }
 
+.rec {
+	/* color: green; */
+	background-color: lightgreen;
+}
+
 .schedule-new table {
 	border-collapse: collapse;
 	width: 90%;
@@ -44,7 +49,7 @@ input {
 }
 
 td:first-child, th:first-child {
-     border-left: none;
+    border-left: none;
 }
 
 #schedule-course-entry input {

@@ -40,6 +40,7 @@
 		// for recommandations
 		combinedFourYear($majors);
 		echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
+		echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
 	?>
 </head>
 
@@ -152,7 +153,7 @@
 								<option>Yes</option>
 							</select>
 						</div>
-						<button type='button' onclick="scheduleAddCourse(coursesearch.value, coursetype.value)">Add</button>
+						<button type='button' onclick="scheduleAddCourse(coursesearch.value, coursetype.value, false)">Add</button>
 					</div>
 
 					<!-- Course table goes here -->
@@ -205,7 +206,7 @@
 	$('nav ul .schedule-show').toggleClass("sch");
 	$('nav ul .first').toggleClass("rotate");
 	$('.schedule-new-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
-	
+
 	if ( $('#schedule-backupcoursetable tbody').children().length == 1) {
 		$('#schedule-backupcoursetable').toggle();
 	}

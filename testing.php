@@ -13,12 +13,14 @@ for($i=0;$i<count($student['major']);$i++) {
 }
 
 combinedFourYear($majors);
+echo '<script> var std = ' . json_encode( $student )  . '; </script>';
 echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
 
 ?>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 <script>
+	console.log( std );
 	// console.log(fyp);
 	var fy_courses = [];
 	for (let i=1; i < 9; i++) {
