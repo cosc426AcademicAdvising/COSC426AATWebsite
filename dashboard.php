@@ -27,6 +27,7 @@
 		$majors = array();
 		for($i=0;$i<count($student['major']);$i++) {
 			$majors[$i] = $student['major'][$i]['title'];
+			
 		}
 	?>
 	<style>
