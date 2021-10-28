@@ -9,7 +9,6 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<link rel="stylesheet" href="CSS/scheduleNew.css">
-	<script src="JS/schedule.js"></script>
 
 	<?php
 		ob_start();
@@ -18,9 +17,12 @@
 
 		include_once 'funcs/CourseFunctions.php';
 		include_once 'funcs/StudentFunctions.php';
+		include_once 'funcs/FourYearFunctions.php';
 		
-		echo '<script> var courselist = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
-
+		// available courses
+		echo '<script> var available_courses = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
+		
+		//student information
 		$student = getStudent($_SESSION['username']);
 		$progress = $student['credits'];
 
@@ -34,18 +36,24 @@
 				$minors[$i] = $student['minor'][$i]['title'];
 			}
 		}
+
+		// for recommandations
+		combinedFourYear($majors);
+		echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
 	?>
 </head>
 
 <body>
-	<datalist id="courselist"></datalist>
+	<datalist id="available_courses"></datalist>
+	<datalist id="recommended_courses"></datalist>
+
 	<script>
-		courselist = courselist.filter(function(val){
+		available_courses = available_courses.filter(function(val){
 			return val["Allowd Unt"] != "999.00";
 		});
 
 		// sort by course number
-		courselist.sort(function(a,b) {
+		available_courses.sort(function(a,b) {
 			if ( a["Subject"] > b["Subject"] ){ return 1;} 
 			else if( a["Subject"] < b["Subject"] ) { return -1;} 
 			else { // same
@@ -56,8 +64,8 @@
 		
 		var text = "";
 		var seperator =  Array(4).fill(' ').join(''); //4 blank space
-		courselist.forEach( val => text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
-		$('#courselist').html( text );
+		available_courses.forEach( val => text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
+		$('#available_courses').html( text );
 	</script>
 	<?php
 		include 'nav.php';
@@ -122,16 +130,16 @@
 
 					<span>Earned: </span> 
 					<input type="text" id="creditearned" name="creditearned" maxlength="3" size="4" value="<?php echo $student['credits'];?>" readonly>
-					<span>credits</span>
-					<span>Credits</span>
+					<span>credits.</span>
+					<span style="margin-left:100px">Credits</span>
 					<input type="text" id="creditenrolled" name="creditenrolled" size="3" value="0" readonly>
-					<span>currently enrolled in</span>
+					<span>currently enrolled in.</span>
 					<br>
 
 					<div id="coursesearchsection" style="display:inline-block; margin-top:20px; width:100%;">
 						<div style="display:inline-block;">
 							<label for="course">Search for a course <br> <font size="1">enter a subject, course number, title or credits</font></label><br>
-							<input list="courselist" id="coursesearch" name="coursesearch" style="width:40vw;">
+							<input list="available_courses" id="coursesearch" name="coursesearch" style="width:40vw;">
 						</div>
 						<div style="display:inline-block;">
 							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elect, Gen-Ed, ...</font></label><br>
@@ -202,6 +210,12 @@
 		$('#schedule-backupcoursetable').toggle();
 	}
 </script>
+
+<!-- table and buttons functionalities -->
+<script src="JS/scheduleNewFuncs.js"></script>
+
+<!-- courses recommandations -->
+<script src="JS/recommendedCourses.js"></script>
 
 </body>
 </html>

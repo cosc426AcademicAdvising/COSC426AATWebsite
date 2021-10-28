@@ -5,7 +5,7 @@ function scheduleAddCourse(course, prog) {
 		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
 
 		if (forBcourse.value == "No") { // for non-backup courses
-			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + val[2] + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
 			$('#schedule-coursetable').append(text);
 
 			// add credits
@@ -45,7 +45,7 @@ function removeCourse() {
 	tr.parentNode.removeChild(tr);
 
 	// hide backup-course table since there is no data
-	if ($('#schedule-backupcoursetable tbody').children().length == 1) {
+	if (t.id == 'schedule-backupcoursetable' && $('#schedule-backupcoursetable tbody').children().length == 1) {
 		$('#schedule-backupcoursetable').toggle();
 	}
 }

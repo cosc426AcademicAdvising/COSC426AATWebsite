@@ -112,5 +112,13 @@ function displayFourYearSemester($plan, $semester_plan) {
     }
 }
 
+// input: list of majors
+function combinedFourYear($maj) {
+	$list = array();
+	foreach ($maj as $m) {
+		$list[] = getFourYearbyMajor($m);
+	}
+	echo '<script> var fyp = ' . json_encode( $list )  . '; </script>';
+}
 
 ?>
