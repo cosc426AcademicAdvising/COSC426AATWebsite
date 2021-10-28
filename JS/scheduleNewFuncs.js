@@ -4,7 +4,7 @@ function scheduleAddCourse(course, prog, isRec) {
 		var val = course.split(seperator);
 		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
 		if(isRec == true) {
-			text = "<tr title='recommened course'><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+			text = "<tr><td><i title='recommened course'class='fa fa-question-circle'> </i>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
 		} else {
 			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
 		}
