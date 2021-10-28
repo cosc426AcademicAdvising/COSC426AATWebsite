@@ -3,6 +3,6 @@
 7654321 averageundergrad
 5432121 badatcalculus
 1234124 c0mp13xi7y
-7654322 OtherCourses
-5433122 backuppassword123
+7654322 ThisPassWorks
+5433122 ShittyPassword
 3211123 McWrath112
