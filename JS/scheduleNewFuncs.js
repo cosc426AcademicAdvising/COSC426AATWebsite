@@ -97,5 +97,20 @@ function saveDraft() {
 		backup_course:backupCourseTable,
 		memo:memo.value,
 	}
-	console.log(draftObj);
+	const url='https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url);
+
+	xhr.setRequestHeader("Access-Control-Allow-Origin", '*');
+	xhr.setRequestHeader("Accept", "application/json");
+	xhr.setRequestHeader("Content-Type", "application/json");
+	
+	
+	xhr.onreadystatechange = function () {
+	   if (xhr.readyState == 4 && http.status == 200) {
+		  console.log(xhr.status);
+		  console.log(xhr.responseText);
+	   }};
+	
+	xhr.send(draftObj);
 }
