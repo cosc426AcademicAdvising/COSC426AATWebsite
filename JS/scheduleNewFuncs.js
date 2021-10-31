@@ -99,7 +99,7 @@ function saveDraft() {
 	}
 	const url='https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
 
-	fetch(url, { method: 'POST', headers: "Access-Control-Allow-Origin: *", body: draftObj})
+	fetch(url, { method: 'POST', headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' }, body: draftObj})
 		.then(results => results.json())
 		.then(console.log)
 
