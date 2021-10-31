@@ -16,4 +16,12 @@ function getStudent($sid){
     return $student;
 }
 
+function newPass($sid, $hsh){
+  global $token;
+  $url = "https://cosc426restapi.herokuapp.com/api/update/NewPass";
+  $send = array("s_id"=>$sid, "passHash"=>$hsh);
+  $response = Requests::post("https://cosc426restapi.herokuapp.com/api/update/NewPass", array('auth-token' => $token), $send);
+  return $response;
+}
+
 ?>
