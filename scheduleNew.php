@@ -89,7 +89,7 @@
 							Major(s):
 							<span id="major">
 								<?php 
-								foreach ($majors as $val) {echo $val . ', ';} 
+								echo "".implode(", ", $majors); 
 								?>
 							</span>
 						</p> 
@@ -98,7 +98,7 @@
 							<span id="minor">
 								<?php
 								if(count($student['minor']) > 0) {
-									foreach ($minors as $val) {echo $val . ', ';} 
+									echo "".implode(", ", $minors); 
 								}
 								?>
 							</span> 
