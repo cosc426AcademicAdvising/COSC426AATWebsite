@@ -47,7 +47,7 @@
 				<div type="inputs">
 					<input type = "uname" name = "username" placeholder = "Student ID" required autofocus><br>
 					<input type = "password" name = "password" placeholder = "password" required><br>
-					<button type = "submit" id="login" name = "login">Log in</button>
+					<button type = "submit" id="login" name = "login">Loggggg in</button>
 				</div>
 			</form>
 		</div>
