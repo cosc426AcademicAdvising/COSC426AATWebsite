@@ -18,7 +18,6 @@ function scheduleAddCourse(course, prog, isRec) {
 		for (let i = 0; i < btabledata.length; i++) {
 			current.push(btabledata[i].innerText.split("\t").slice(0, 4)[0]);
 		}
-		console.log(current);
 
 		if (current.indexOf(val[0]) == -1 ) {
 			if (forBcourse.value == "No") { // for non-backup courses
