@@ -40,7 +40,7 @@
 		// for recommandations
 		combinedFourYear($majors);
 		echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
-		echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
+		echo '<script> var current_semester_number = ' . json_encode( intval($student['semester']) )  . '; </script>';
 	?>
 </head>
 
