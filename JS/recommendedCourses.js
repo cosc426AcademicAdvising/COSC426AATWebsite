@@ -1,7 +1,12 @@
 // fyp defined in funcs/FourYearFunctions.php -> combinedFourYear()
 // extract semester keys from each major(s)
+
+// current_semester_number defined in scheduleNew.php in php tag
+// we want to recommend classes from semester 0 to semester ahead of current
+var semester_count = (current_semester_number + 1 <= 8) ? current_semester_number + 1 : current_semester_number;
+
 var fy_courses = [];
-for (let i = 1; i < 9; i++) {
+for (let i = 1; i <= semester_count; i++) {
 	var key = 'semester_' + i;
 	// major 1
 	if (fyp[0] != null) {
@@ -48,7 +53,6 @@ courses_taken.forEach(obj => delete Object.assign(obj, { ['cred']: obj['credits'
 fy_courses = fy_courses.filter(function (obj) {
 	return Object.keys(obj).length == 4 && obj['catalog'] != '' && obj['catalog'] != 'XXX' && obj['catalog'][2] != 'X';
 });
-
 
 // convert to string for easier comparison
 var string_fy = [];
