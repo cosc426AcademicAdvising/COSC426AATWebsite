@@ -6,7 +6,7 @@
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	<link rel="stylesheet" href="CSS/nav.css">
-	<link rel="stylesheet" href="CSS/scheduleView.css">
+	<link rel="stylesheet" href="CSS/info.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
