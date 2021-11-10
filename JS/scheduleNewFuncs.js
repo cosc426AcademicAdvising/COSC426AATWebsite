@@ -103,6 +103,8 @@ function saveDraft() {
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify(draftObj))
 
+	window.location.replace("https://cosc426website.herokuapp.com/savedraft.php");
+
 	// const url='https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
 
 	// fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: draftObj})
