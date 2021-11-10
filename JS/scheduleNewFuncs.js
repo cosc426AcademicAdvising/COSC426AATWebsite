@@ -96,11 +96,19 @@ function saveDraft() {
 		backup_course:backupCourseTable,
 		memo:memo.value,
 	}
-	const url='https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
+	console.log("Saved draft", draftObj)
 
-	fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: draftObj})
-		.then(results => results.json())
-		.then(console.log)
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", 'https://cosc426website.herokuapp.com/scheduleNew.php', true)
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.send(JSON.stringify(draftObj))
+
+	// const url='https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
+
+	// fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: draftObj})
+	// 	.then(results => results.json())
+	// 	.then(console.log)
+
 
 	// var xhr = new XMLHttpRequest();
 	// xhr.open("POST", url);

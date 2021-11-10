@@ -41,6 +41,11 @@
 		combinedFourYear($majors);
 		echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
 		echo '<script> var current_semester_number = ' . json_encode( intval($student['semester']) )  . '; </script>';
+
+		function printsavedraft($x) {
+			// print_r($x);
+			echo $x;
+		}
 	?>
 </head>
 
@@ -217,6 +222,14 @@
 
 <!-- courses recommandations -->
 <script src="JS/recommendedCourses.js"></script>
+
+<script>
+	if (xhr.readyState == 4) {
+		if (xhr.status == 200) {
+			console.log("Post request received", xhr.responseText);
+		}
+	}
+</script>
 
 </body>
 </html>
