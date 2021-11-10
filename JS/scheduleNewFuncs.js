@@ -96,14 +96,15 @@ function saveDraft() {
 		backup_course:backupCourseTable,
 		memo:memo.value,
 	}
-	console.log("Saved draft", draftObj)
+	// console.log("Saved draft", draftObj)
 
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", 'https://cosc426website.herokuapp.com/savedraft.php', true)
-	xhr.setRequestHeader('Content-Type', 'application/json');
-	xhr.send(JSON.stringify(draftObj))
+	$form = $('<form action="savedraft.php" method="POST"></form>')
+	$form.append("<input type='submit' id='clickme' name='draft' value='" + JSON.stringify(draftObj) +"'>")
+	$('body').append($form);
+	$('#clickme').click();
 
-	window.location.replace("https://cosc426website.herokuapp.com/savedraft.php");
+	// window.location.replace("https://cosc426website.herokuapp.com/savedraft.php");
+	//'https://cosc426website.herokuapp.com/savedraft.php'
 
 	// const url='https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
 

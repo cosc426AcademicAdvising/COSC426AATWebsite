@@ -21,17 +21,15 @@
 	?>
 
 		<div id="content">
+
+		<?php
+			$text = $_POST['draft'];
+			echo $text;
+		?>
 			
 		</div>
 </div> <!-- flexbox div ends -->
 
-<script>
-	if (xhr.readyState == 4) {
-		if (xhr.status == 200) {
-			console.log("Post request received", xhr.responseText);
-		}
-	}
-</script>
 
 <script>
 	$('nav ul .schedule-show').toggleClass("sch");
