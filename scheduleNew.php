@@ -223,13 +223,5 @@
 <!-- courses recommandations -->
 <script src="JS/recommendedCourses.js"></script>
 
-<script>
-	if (xhr.readyState == 4) {
-		if (xhr.status == 200) {
-			console.log("Post request received", xhr.responseText);
-		}
-	}
-</script>
-
 </body>
 </html>

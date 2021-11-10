@@ -99,7 +99,7 @@ function saveDraft() {
 	console.log("Saved draft", draftObj)
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", 'https://cosc426website.herokuapp.com/scheduleNew.php', true)
+	xhr.open("POST", 'https://cosc426website.herokuapp.com/savedraft.php', true)
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify(draftObj))
 
