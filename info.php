@@ -6,7 +6,7 @@
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	<link rel="stylesheet" href="CSS/nav.css">
-	<link rel="stylesheet" href="CSS/info.css">
+	<link rel="stylesheet" href="CSS/scheduleView.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
@@ -82,9 +82,7 @@
 </div> <!-- flexbox div ends -->
 
 <script>
-	$('nav ul .schedule-show').toggleClass("sch");
-	$('nav ul .first').toggleClass("rotate");
-	$('.schedule-view-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
+	$('.contact-info-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
 </script>
 </body>
 </html>

@@ -20,7 +20,8 @@
 				<li>
 					<a href="#" class="progress-btn">Progress Report <span class="fas fa-caret-down second"></span> </a>
 					<ul class="progress-show">
-						<li><a href="fyp.php" class="fyp-btn">Four Year Plan</a></li>
+						<li><a href="fyp.php" class="fyp-btn">Major Plan</a></li>
+						<li><a href="minorPlan.php" class="minor-btn">Minor Plan</a></li>
 						<li><a href="courseHistory.php" class="course-hist-btn">Course History</a></li>
 					</ul>
 				</li>
