@@ -197,7 +197,7 @@
 <script>
 	$('nav ul .progress-show').toggleClass("prog");
 	$('nav ul .second').toggleClass("rotate");
-	$('.course-hist-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
+	$('.minor-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
 </script>
 
 </body>
