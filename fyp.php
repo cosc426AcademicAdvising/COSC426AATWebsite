@@ -33,30 +33,28 @@
 		<div id="content" style="overflow: auto">
 			<div id="container" class="container">
 				<div class='year1' id='year1'>
-					<div class="tabs_area">
-						<div class="tabs">
-							<form method="post">
+					<div id="form">
+						<form id="maj" method="post">
+							<select name="major">
+								<option value="0"><?php echo $student['major'][0]['title']; ?></option>
 								<?php
-									if(count($majors) == 1) {
-										echo "<button class='fyp_tabs' style='border-radius: 10px 10px 0 0; width: 100%;' name='major' value=".$majors[0].">".$majors[0]."</button>";
+									if(isset($student['major'][1])){
+										echo "<option value='1'>".$student['major'][1]['title']."</option>";
 									}
-									else if(count($majors) == 2) {
-										echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; width: 50%; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
-										echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; width: 50%;' name='major' value=".$majors[1].">".$majors[1]."</button>";
-									}
-									else if(count($majors) == 3) {
-										echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
-										echo "<button class='fyp_tabs' name='major' value=".$majors[1].">".$majors[1]."</button>";
-										echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; border-left: solid;' name='major' value=".$majors[2].">".$majors[2]."</button>";
-									}
-									if(isset($_POST['major'])){
-										$fyp = getFourYearbyMajor($_POST['major']);
-									} else {
-										$fyp = getFourYearByMajor($student['major'][0]['title']);
+									if(isset($student['major'][2])){
+										echo "<option value='2'>".$student['major'][2]['title']."</option>";
 									}
 								?>
-							</form>
-						</div>
+							</select>
+						<input type="submit" name="submit" value="Select">
+						</form>
+						<?php
+							if(isset($_POST['major'])){
+								$fyp = getFourYearbyMajor($student['major'][$_POST['major']]['title']);
+							} else {
+								$fyp = getFourYearbyMajor($student['major'][0]['title']);
+							}
+						?>
 					</div>
 					<div class='fyp_header'>
 						<h3>Year 1</h3>
