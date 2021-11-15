@@ -35,7 +35,7 @@ for (let i = 1; i <= semester_count; i++) {
 	}
 }
 
-// std_hist defined in schedduleNew.php in php tag
+// std_hist defined in scheduleNew.php in php tag
 // extract student courses taken list
 var courses_taken = [];
 for (key in std_hist[0]) {

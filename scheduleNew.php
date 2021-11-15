@@ -68,6 +68,7 @@
 		available_courses.forEach( val => text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
 		$('#available_courses').html( text );
 	</script>
+
 	<?php
 		include 'nav.php';
 	?>
@@ -143,7 +144,7 @@
 							<input list="available_courses" id="coursesearch" name="coursesearch" style="width:40vw;">
 						</div>
 						<div style="display:inline-block;">
-							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elect, Gen-Ed, ...</font></label><br>
+							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elective</font></label><br>
 							<input type='text' id="coursetype" name="coursetype">
 						</div>
 						<div style="display:inline-block;text-align:center;">
