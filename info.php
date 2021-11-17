@@ -6,7 +6,7 @@
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	<link rel="stylesheet" href="CSS/nav.css">
-	<link rel="stylesheet" href="CSS/scheduleView.css">
+	<link rel="stylesheet" href="CSS/info.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
@@ -37,13 +37,11 @@
 									<th style="border-radius: 0px 10px 0px 0px;">Number/email</th>
 								</tr>
 							</thead>
-							<?php
-								echo "<tr>";
-								echo "<td>Academic Advisor</td>";
-								echo "<td>*advisor office placeholder*</td>";
-								echo "<td>".$student['advisor_mail']."</td>";
-								echo "</tr>";
-							?>
+							<tr>
+							<td>General advising</td>
+							<td>Blackwell Hall</td>
+							<td>410-546-4366</td>
+							</tr>
 							<tr>
 							<td>Office of the Registrar</td>
 							<td>Holloway Hall 120</td>
@@ -74,7 +72,7 @@
 							<td>Academic Commons 145</td>
 							<td>410-543-6070</td>
 							</tr>
-						</table>		
+						</table>
 					</div>
 				</div>
 			</div>

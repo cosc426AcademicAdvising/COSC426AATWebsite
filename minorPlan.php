@@ -17,14 +17,14 @@
 		include_once 'funcs/MinorFunctions.php';
 		$student = getStudent($_SESSION['username']);
 	?>
-	
+
 </head>
 
 <body>
 	<?php
 		include 'nav.php';
 	?>
-		
+
 		<div id="content">
 			<form id="min" method="post">
 				<select name="minor">
@@ -47,6 +47,16 @@
 					$minPlan = getMinorPlan($student['minor'][0]['title']);
 				}
 			?>
+			<div id='table_area' class='table_area'>
+				<div id='course_header' class='course_header'>
+					<h4 style='color: white; text-align: center; padding: 10px;'>Minor Requirements</h4>
+				</div>
+				<table class='course_table' id="course_table">
+					<?php
+						echo "<td style='border:none;'>".$minPlan['minor_req']."</td>";
+					?>
+				</table>
+			</div>
 			<div id='table_area' class='table_area'>
 				<div id='course_header' class='course_header'>
 					<h4 style='color: white; text-align: center; padding: 10px;'><?php echo $minPlan['req1'] ?></h4>
@@ -153,21 +163,21 @@
 	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	  table = document.getElementById("course_table");
 	  switching = true;
-	  
-	  dir = "asc"; 
-	  
+
+	  dir = "asc";
+
 	  while (switching) {
 		switching = false;
 		rows = table.rows;
 		for (i = 1; i < (rows.length - 1); i++) {
-			
+
 		  shouldSwitch = false;
-		  
+
 		  x = rows[i].getElementsByTagName("TD")[n];
 		  y = rows[i + 1].getElementsByTagName("TD")[n];
-		  
+
 		  if (dir == "asc") {
-			
+
 			if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
 			  shouldSwitch = true;
 			  break;
@@ -182,7 +192,7 @@
 		if (shouldSwitch) {
 		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 		  switching = true;
-		  switchcount++;      
+		  switchcount++;
 		} else {
 		  if (switchcount == 0 && dir == "asc") {
 			dir = "desc";
