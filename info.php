@@ -37,13 +37,11 @@
 									<th style="border-radius: 0px 10px 0px 0px;">Number/email</th>
 								</tr>
 							</thead>
-							<?php
-								echo "<tr>";
-								echo "<td>Academic Advisor</td>";
-								echo "<td>*advisor office placeholder*</td>";
-								echo "<td>".$student['advisor_mail']."</td>";
-								echo "</tr>";
-							?>
+							<tr>
+							<td>General advising</td>
+							<td>Blackwell Hall</td>
+							<td>410-546-4366</td>
+							</tr>
 							<tr>
 							<td>Office of the Registrar</td>
 							<td>Holloway Hall 120</td>
@@ -74,7 +72,7 @@
 							<td>Academic Commons 145</td>
 							<td>410-543-6070</td>
 							</tr>
-						</table>		
+						</table>
 					</div>
 				</div>
 			</div>
@@ -82,9 +80,7 @@
 </div> <!-- flexbox div ends -->
 
 <script>
-	$('nav ul .schedule-show').toggleClass("sch");
-	$('nav ul .first').toggleClass("rotate");
-	$('.schedule-view-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
+	$('.contact-info-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
 </script>
 </body>
 </html>

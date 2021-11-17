@@ -29,6 +29,7 @@ header {
 	top: 0;
 	height: 75px;
 }
+
 h3{
 	text-align: center;
 	width: 100%;
@@ -70,11 +71,16 @@ td{
 	grid-template-rows: 35% 35% 35%;
 	paddding: 0px;
 }
+.form{
+	grid-row-start: 2;
+	grid-row-end: 3;
+	margin: 0 auto;	
+}
 .year1{
 	grid-column-start: 1;
 	grid-column-end: 4;
-	grid-row-start: 1;
-	grid-row-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
 	padding-top: 6px;
 	box-shadow: 0 8px 400px 0 rgba (0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 10px;
@@ -84,8 +90,8 @@ td{
 .year2{
 	grid-column-start: 4;
 	grid-column-end: 7;
-	grid-row-start: 1;
-	grid-row-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
 	padding-top: 6px;
 	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
@@ -95,8 +101,8 @@ td{
 .year3{
 	grid-column-start: 1;
 	grid-column-end: 4;
-	grid-row-start: 4;
-	grid-row-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
 	padding-top: 6px;
 	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
@@ -106,8 +112,8 @@ td{
 .year4{
 	grid-column-start: 4;
 	grid-column-end: 7;
-	grid-row-start: 4;
-	grid-row-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
 	padding-top: 6px;
 	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
@@ -126,26 +132,4 @@ td{
 	border-collapse: collapse;
 	background-color: var(--tertiary);
 	border-radius: 10px;
-}
-.tabs_area {
-	grid-column-start: 1;
-	grid-column-end: 4;
-	grid-row-start: 1;
-	grid-row-end: 2;
-}
-.tabs {
-	text-align: center;
-	margin: 0 auto;
-}
-.fyp_tabs{
-	width: 33.33%;
-	height: 10%;
-	border-radius: 0px;
-	font-size: x-large;
-	border-style: none;
-	float: left;
-	font-weight: normal;
-}
-.fyp_tabs:hover{
-	background-color: #5c5c5c;
 }

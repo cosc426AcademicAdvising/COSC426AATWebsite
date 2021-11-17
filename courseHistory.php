@@ -16,7 +16,7 @@
 		include_once 'funcs/StudentFunctions.php';
 		$student = getStudent($_SESSION['username']);
 	?>
-	
+
 </head>
 
 <body>
@@ -35,7 +35,6 @@
 							<th onclick='sortTable(0)' style='border-radius: 10px 0px 0px 0px;'>Course Number</th>
 							<th onclick='sortTable(1)'>Title</th>
 							<th onclick='sortTable(2)'>Credits</th>
-							<th onclick='sortTable(3)' style='border-radius: 0px 10px 0px 0px'>Grade</th>
 						</tr>
 					</thead>
 					<?php
@@ -45,33 +44,32 @@
 								echo "<td id='left' class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
 								echo "<td class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
 								echo "<td class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
-								echo "<td id='right' class='data'>".$student['course_taken'][0]['semester_'.$n][$i]['grade'].'</td>';
 								echo '</tr>';
 							}
 						}
 					?>
 				</table>
 			</div>
-			
+
 		</div>
 <script>
 	function sortTable(n) {
 	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	  table = document.getElementById("history_table");
 	  switching = true;
-	  
-	  dir = "asc"; 
-	  
+
+	  dir = "asc";
+
 	  while (switching) {
 		switching = false;
 		rows = table.rows;
 		for (i = 1; i < (rows.length - 1); i++) {
-			
+
 		  shouldSwitch = false;
-		  
+
 		  x = rows[i].getElementsByTagName("TD")[n];
 		  y = rows[i + 1].getElementsByTagName("TD")[n];
-		  
+
 		  if (dir == "asc") {
 			if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
 			  shouldSwitch = true;
@@ -87,7 +85,7 @@
 		if (shouldSwitch) {
 		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 		  switching = true;
-		  switchcount ++;      
+		  switchcount ++;
 		} else {
 		  if (switchcount == 0 && dir == "asc") {
 			dir = "desc";
@@ -97,7 +95,6 @@
 	  }
 	}
 	</script>
-	<button onclick='sort(0)'>click me</button>
 </div> <!-- flexbox div ends -->
 
 <script>
