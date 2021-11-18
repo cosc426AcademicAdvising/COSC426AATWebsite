@@ -46,19 +46,7 @@
 			<div class="container" id="container">
 				
 				<div class="schedule" id="schedule">
-					<div class="tabs_area">
-						<div class="tabs">
-						<form method="post" action="scheduleNew.php">
-						<?php
-								echo "<button style='border-radius: 10px 0 0 0; border-right: solid;' class='fyp_tabs' name='new' value='new'>New</button>";
-								echo "<button class='fyp_tabs' name='edit' value='edit'>Edit</button>";
-								echo "</form>";
-								echo "<form method='post' action='scheduleView.php'>";
-								echo "<button style='border-radius: 0 10px 0 0; border-left: solid;' class='fyp_tabs' name='view' value='view'>View</button>";
-						?>
-						</form>
-						</div>
-					</div>	
+					
 					<div class="dash_header">
 						<h3> Upcoming Schedule </h3>
 					</div>
@@ -100,26 +88,6 @@
 					</div>
 				</div>
 				<div class="plan" id="plan">
-					<div class="tabs_area">
-						<div class="tabs">
-						<form method="post">
-						<?php
-								if(count($majors) == 1) {
-									echo "<button class='fyp_tabs' style='border-radius: 10px 10px 0 0; width: 100%;' name='major' value=".$majors[0].">".$majors[0]."</button>";
-								}
-								else if(count($majors) == 2) {
-									echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; width: 50%; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
-									echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; width: 50%;' name='major' value=".$majors[1].">".$majors[1]."</button>";
-								}
-								else if(count($majors) == 3) {
-									echo "<button class='fyp_tabs' style='border-radius: 10px 0 0 0; border-right: solid;' name='major' value=".$majors[0].">".$majors[0]."</button>";
-									echo "<button class='fyp_tabs' name='major' value=".$majors[1].">".$majors[1]."</button>";
-									echo "<button class='fyp_tabs' style='border-radius: 0 10px 0 0; border-left: solid;' name='major' value=".$majors[2].">".$majors[2]."</button>";
-								}
-						?>
-						</form>
-						</div>
-					</div>
 					<div class="dash_header">
 						<h3> Recommended Courses</h3>
 					
