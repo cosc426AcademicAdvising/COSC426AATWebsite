@@ -143,9 +143,15 @@
 							<label for="course">Search for a course <br> <font size="1">enter a subject, course number, title or credits</font></label><br>
 							<input list="available_courses" id="coursesearch" name="coursesearch" style="width:40vw;">
 						</div>
-						<div style="display:inline-block;">
-							<label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elective</font></label><br>
-							<input type='text' id="coursetype" name="coursetype">
+						<div class="checkboxes" style="display:inline-block; margin-left:20px">
+							<!-- <label for="coursetype">Fulffilment <br> <font size="1">for Major, Minor, Elective</font></label><br> -->
+							<!-- <input type='text' id="coursetype" name="coursetype"> -->
+							<input type="checkbox" value="MAJOR" id="majorcourse" class="checkboxaddcourse">
+							<label for="majorcourse">for Major</label><br>
+							<input type="checkbox" value="MINOR" id="minorcourse"class="checkboxaddcourse">
+							<label for="minorcourse">for Minor</label><br>
+							<input type="checkbox" value="ELECTIVE" id="electcourse" class="checkboxaddcourse">
+							<label for="electcourse">for Elective</label>
 						</div>
 						<div style="display:inline-block;text-align:center;">
 							<label for="forBcourse">Is a back-up<br>course?</label><br>
@@ -154,7 +160,7 @@
 								<option>Yes</option>
 							</select>
 						</div>
-						<button type='button' onclick="scheduleAddCourse(coursesearch.value, coursetype.value, false)">Add</button>
+						<button type='button' onclick="scheduleAddCourse(coursesearch.value, '', false)">Add</button>
 					</div>
 
 					<!-- Course table goes here -->

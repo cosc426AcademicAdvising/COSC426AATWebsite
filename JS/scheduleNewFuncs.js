@@ -3,10 +3,16 @@ function scheduleAddCourse(course, prog, isRec) {
 	if (course != "") {
 		var val = course.split(seperator);
 		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
+		credit = parseFloat(val[2]).toFixed(0);
 		if(isRec == true) {
-			text = "<tr title='recommened course'><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+			text = "<tr title='recommened course'><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
 		} else {
-			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + parseFloat(val[2]).toFixed(0) + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+			ctype = []
+			for (box of $(".checkboxaddcourse")){
+				if (box.checked)
+					ctype.push(box.value);
+			}
+			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + ctype.join(", ") + " </td><td>" + rmbutton + "</td></tr>";
 		}
 
 		var current = [];
@@ -18,7 +24,7 @@ function scheduleAddCourse(course, prog, isRec) {
 		for (let i = 0; i < btabledata.length; i++) {
 			current.push(btabledata[i].innerText.split("\t").slice(0, 4)[0]);
 		}
-
+		// 																	TODO implement max credit limit to 19
 		if (current.indexOf(val[0]) == -1 ) {
 			if (forBcourse.value == "No") { // for non-backup courses
 				$('#schedule-coursetable').append(text);
@@ -37,7 +43,8 @@ function scheduleAddCourse(course, prog, isRec) {
 			alert("Cannot add the same course twice!");
 		}
 
-		$("#coursesearchsection :input").val("");
+		$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
+		$("#coursesearchsection :input[id='coursesearch']").val("");
 		$("#coursesearch").focus();
 		$('#forBcourse').prop('selectedIndex', 0);
 	}

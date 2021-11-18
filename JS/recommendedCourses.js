@@ -90,24 +90,24 @@ switch( true ) {
 	case (rec.length >= 4):
 		for (let i = 0; i < 4; i++) {
 			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
-			scheduleAddCourse(course, "", true);
+			scheduleAddCourse(course, "MAJOR", true);
 		}
 		break;
 	case (rec.length >= 3):
 		for (let i = 0; i < 3; i++) {
 			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
-			scheduleAddCourse(course, "", true);
+			scheduleAddCourse(course, "MAJOR", true);
 		}
 		break;
 	case (rec.length >= 2):
 		for (let i = 0; i < 2; i++) {
 			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
-			scheduleAddCourse(course, "", true);
+			scheduleAddCourse(course, "MAJOR", true);
 		}
 		break;
 	case (rec.length == 1):
 		var course = rec[0]["subject"] + " " + $.trim(rec[0]["catalog"]) + seperator + rec[0]["title"] + seperator + rec[0]["cred"];
-		scheduleAddCourse(course, "", true);
+		scheduleAddCourse(course, "MAJOR", true);
 		break;
 	case (rec.length == 0):
 		break;
