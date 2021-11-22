@@ -43,6 +43,7 @@ A web application that allows students to register for courses, view their progr
 ## Future Goals
 - Move to a Flask Framework
 - Styling with Bootstrap
+- Mobile responsive
 - Better message handling
 	- errors
 	- successful login/logout
