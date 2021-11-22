@@ -1,52 +1,73 @@
 // schedule new functions
-function scheduleAddCourse(course, prog, isRec) {
+function scheduleAddCourse(course, course_for, isRec) {
 	if (course != "") {
-		var val = course.split(seperator);
+		var course_attr = course.split(seperator);
 		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
-		credit = parseFloat(val[2]).toFixed(0);
+		// credit = parseFloat(course_attr[2]).toFixed(0);
+		var credit = parseInt(course_attr[2])
+
+		// setup html
+		var text = "";
 		if(isRec == true) {
-			text = "<tr title='recommened course'><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + prog.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+			text = "<tr title='recommended course'><td>" + course_attr[0].toUpperCase() + "</td><td>" + course_attr[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + course_for.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
 		} else {
-			ctype = []
+			course_for_array = []
 			for (box of $(".checkboxaddcourse")){
 				if (box.checked)
-					ctype.push(box.value);
+					course_for_array.push(box.value);
 			}
-			text = "<tr><td>" + val[0].toUpperCase() + "</td><td>" + val[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + ctype.join(", ") + " </td><td>" + rmbutton + "</td></tr>";
+			text = "<tr><td>" + course_attr[0].toUpperCase() + "</td><td>" + course_attr[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + course_for_array.join(", ") + " </td><td>" + rmbutton + "</td></tr>";
 		}
 
-		var current = [];
+		// get current courses present in tables
+		var current_courses = [];
 		var tabledata = $("#schedule-coursetable tbody").children().slice(1);
-		var btabledata = $("#schedule-backupcoursetable tbody").children().slice(1);
+		var backup_tabledata = $("#schedule-backupcoursetable tbody").children().slice(1);
 		for (let i = 0; i < tabledata.length; i++) {
-			current.push(tabledata[i].innerText.split("\t").slice(0, 4)[0]);
+			current_courses.push(tabledata[i].innerText.split("\t").slice(0, 4)[0]);
 		}
-		for (let i = 0; i < btabledata.length; i++) {
-			current.push(btabledata[i].innerText.split("\t").slice(0, 4)[0]);
+		for (let i = 0; i < backup_tabledata.length; i++) {
+			current_courses.push(backup_tabledata[i].innerText.split("\t").slice(0, 4)[0]);
 		}
-		// 																	TODO implement max credit limit to 19
-		if (current.indexOf(val[0]) == -1 ) {
-			if (forBcourse.value == "No") { // for non-backup courses
+
+		// if course number is not in one of the tables, proceed
+		if (current_courses.indexOf(course_attr[0]) == -1 ) {
+			// for non-backup courses
+			if (forBackup.value == "No") {
+				// check that enrolled credits is not greater than 19
+				if(parseInt($('#creditenrolled').val()) + credit >= 20) {
+					alert("Enrolled credit limit exceeded! Course will be added to backup");
+					//	display backup table if adding first time
+					if ($('#schedule-backupcoursetable tbody').children().length == 1) {
+						$('#schedule-backupcoursetable').toggle();
+					}
+					$('#schedule-backupcoursetable').append(text);
+
+					$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
+					$("#coursesearchsection :input[id='coursesearch']").val("");
+					$("#coursesearch").focus();
+					$('#forBackup').prop('selectedIndex', 0);
+					return
+				}
 				$('#schedule-coursetable').append(text);
-				// add credits
-				$('#creditenrolled').val(parseInt($('#creditenrolled').val()) + parseInt(val[2]));
+				// update enrolled credits
+				$('#creditenrolled').val(parseInt($('#creditenrolled').val()) + credit);
 
 			} else{
-				//	display table if adding first time
+				//	display backup table if adding first time
 				if ($('#schedule-backupcoursetable tbody').children().length == 1) {
 					$('#schedule-backupcoursetable').toggle();
 				}
 				$('#schedule-backupcoursetable').append(text);
 			}
 		} else {
-			// error message dup course
 			alert("Cannot add the same course twice!");
 		}
 
 		$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
 		$("#coursesearchsection :input[id='coursesearch']").val("");
 		$("#coursesearch").focus();
-		$('#forBcourse').prop('selectedIndex', 0);
+		$('#forBackup').prop('selectedIndex', 0);
 	}
 	else {
 		//error message empty input
@@ -103,36 +124,10 @@ function saveDraft() {
 		backup_course:backupCourseTable,
 		memo:memo.value,
 	}
-	// console.log("Saved draft", draftObj)
 
+	// create temporary form to send draft object
 	$form = $('<form action="savedraft.php" method="POST"></form>')
 	$form.append("<input type='submit' id='clickme' name='draft' value='" + JSON.stringify(draftObj) +"'>")
 	$('body').append($form);
 	$('#clickme').click();
-
-	// window.location.replace("https://cosc426website.herokuapp.com/savedraft.php");
-	//'https://cosc426website.herokuapp.com/savedraft.php'
-
-	// const url='https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
-
-	// fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: draftObj})
-	// 	.then(results => results.json())
-	// 	.then(console.log)
-
-
-	// var xhr = new XMLHttpRequest();
-	// xhr.open("POST", url);
-
-	// xhr.setRequestHeader("Access-Control-Allow-Origin", '*');
-	// xhr.setRequestHeader("Accept", "application/json");
-	// xhr.setRequestHeader("Content-Type", "application/json");
-	
-	
-	// xhr.onreadystatechange = function () {
-	//    if (xhr.readyState == 4 && http.status == 200) {
-	// 	  console.log(xhr.status);
-	// 	  console.log(xhr.responseText);
-	//    }};
-	
-	// xhr.send(draftObj);
 }

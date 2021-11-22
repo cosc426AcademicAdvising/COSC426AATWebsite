@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Academic Planar</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -18,10 +19,10 @@
 		include_once 'funcs/CourseFunctions.php';
 		include_once 'funcs/StudentFunctions.php';
 		include_once 'funcs/FourYearFunctions.php';
-		
+
 		// available courses
 		echo '<script> var available_courses = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
-		
+
 		//student information
 		$student = getStudent($_SESSION['username']);
 		$progress = $student['credits'];
@@ -39,7 +40,7 @@
 
 		// for recommandations
 		combinedFourYear($majors);
-		echo '<script> var std_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
+		echo '<script> var student_course_hist = ' . json_encode( $student['course_taken'] )  . '; </script>';
 		echo '<script> var current_semester_number = ' . json_encode( intval($student['semester']) )  . '; </script>';
 	?>
 </head>
@@ -55,14 +56,14 @@
 
 		// sort by course number
 		available_courses.sort(function(a,b) {
-			if ( a["Subject"] > b["Subject"] ){ return 1;} 
-			else if( a["Subject"] < b["Subject"] ) { return -1;} 
+			if ( a["Subject"] > b["Subject"] ){ return 1;}
+			else if( a["Subject"] < b["Subject"] ) { return -1;}
 			else { // same
 				if (a["Catalog"] > b["Catalog"]) { return 1; }
 				else { return -1; }
 			}
 		});
-		
+
 		var text = "";
 		var seperator =  Array(4).fill(' ').join(''); //4 blank space
 		available_courses.forEach( val => text += '<option value="'+ val["Subject"] + " " +$.trim(val["Catalog"])+ seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
@@ -74,7 +75,7 @@
 	?>
 
 		<div id="content" style="overflow: scroll;">
-			
+
 			<div class="schedule-new">
 				<form action="" id="programplanningworksheet">
 					<p style="font-weight:normal;font-size:12px;text-align:right"><span class="required"> *</span> denotes a required field</p>
@@ -84,25 +85,25 @@
 					<label for="studentid">Id<span class="required">*</span></label>
 					<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8" value="<?php echo $student['s_id'];?>" readonly>
 					<br>
-					
+
 					<div id="affliation">
 						<p style="margin-top:15px;">
 							Major(s):
 							<span id="major">
-								<?php 
-								echo "".implode(", ", $majors); 
+								<?php
+								echo "".implode(", ", $majors);
 								?>
 							</span>
-						</p> 
+						</p>
 						<p style="margin-top:15px;">
 							Minor(s):
 							<span id="minor">
 								<?php
 								if(count($student['minor']) > 0) {
-									echo "".implode(", ", $minors); 
+									echo "".implode(", ", $minors);
 								}
 								?>
-							</span> 
+							</span>
 						</p>
 					</div>
 
@@ -117,7 +118,7 @@
 					<label for="Spring">Spring </label>
 					<input type="radio" name="season" value="Summer" required>
 					<label for="Summer">Summer </label>
-					
+
 					<label for="year" style="margin-left:100px;">Year <span class="required">*</span></label>
 					<select id="year" name="year">
 						<?php
@@ -130,7 +131,7 @@
 					</select>
 					<br>
 
-					<span>Earned: </span> 
+					<span>Earned: </span>
 					<input type="text" id="creditearned" name="creditearned" maxlength="3" size="4" value="<?php echo $student['credits'];?>" readonly>
 					<span>credits.</span>
 					<span style="margin-left:100px">Credits</span>
@@ -154,8 +155,8 @@
 							<label for="electcourse">for Elective</label>
 						</div>
 						<div style="display:inline-block;text-align:center;">
-							<label for="forBcourse">Is a back-up<br>course?</label><br>
-							<select id="forBcourse" name="forBcourse">
+							<label for="forBackup">Is a back-up<br>course?</label><br>
+							<select id="forBackup" name="forBackup">
 								<option>No</option>
 								<option>Yes</option>
 							</select>
@@ -177,7 +178,7 @@
 							</tr>
 						</table>
 					</div>
-					
+
 					<div style="text-align:center;margin-top:20px;">
 					<label for="schedule-backupcoursetable"><u>Back-up Courses</u></label>
 					</div>

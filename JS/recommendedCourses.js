@@ -1,62 +1,62 @@
-// fyp defined in funcs/FourYearFunctions.php -> combinedFourYear()
+// combined_four_year_plans defined in funcs/FourYearFunctions.php -> combinedFourYear()
 // extract semester keys from each major(s)
 
 // current_semester_number defined in scheduleNew.php in php tag
 // we want to recommend classes from semester 0 to semester ahead of current
 var semester_count = (current_semester_number + 1 <= 8) ? current_semester_number + 1 : current_semester_number;
 
-var fy_courses = [];
+var four_year_courses = [];
 for (let i = 1; i <= semester_count; i++) {
 	var key = 'semester_' + i;
 	// major 1
-	if (fyp[0] != null) {
-		for (obj of fyp[0][key]) {
-			fy_courses.push(obj);
+	if (combined_four_year_plans[0] != null) {
+		for (obj of combined_four_year_plans[0][key]) {
+			four_year_courses.push(obj);
 		}
 	}
 	// major 2
-	if (fyp.length == 2 && fyp[1] != null) {
-		for (obj of fyp[1][key]) {
-			fy_courses.push(obj);
+	if (combined_four_year_plans.length == 2 && combined_four_year_plans[1] != null) {
+		for (obj of combined_four_year_plans[1][key]) {
+			four_year_courses.push(obj);
 		}
 	}
 	// major 3
-	if (fyp.length == 3) {
-		if (fyp[1] != null) {
-			for (obj of fyp[1][key]) {
-				fy_courses.push(obj);
+	if (combined_four_year_plans.length == 3) {
+		if (combined_four_year_plans[1] != null) {
+			for (obj of combined_four_year_plans[1][key]) {
+				four_year_courses.push(obj);
 			}
 		}
-		if (fyp[2] != null) {
-			for (obj of fyp[2][key]) {
-				fy_courses.push(obj);
+		if (combined_four_year_plans[2] != null) {
+			for (obj of combined_four_year_plans[2][key]) {
+				four_year_courses.push(obj);
 			}
 		}
 	}
 }
 
-// std_hist defined in scheduleNew.php in php tag
+// student_course_hist defined in scheduleNew.php in php tag
 // extract student courses taken list
 var courses_taken = [];
-for (key in std_hist[0]) {
-	for (obj of std_hist[0][key]) {
+for (key in student_course_hist[0]) {
+	for (obj of student_course_hist[0][key]) {
 		courses_taken.push(obj);
 	}
 }
 
-// format courses_taken to match fy_courses
+// format courses_taken to match four_year_courses
 courses_taken.forEach(obj => obj['title'] = obj['title'].toUpperCase());
 courses_taken.forEach(obj => delete obj.grade);
 courses_taken.forEach(obj => delete Object.assign(obj, { ['cred']: obj['credits'] })['credits']);	// might delete
 
 // remove underterminable courses and courses w/ X in catalog e.g HIST 10X
-fy_courses = fy_courses.filter(function (obj) {
+four_year_courses = four_year_courses.filter(function (obj) {
 	return Object.keys(obj).length == 4 && obj['catalog'] != '' && obj['catalog'] != 'XXX' && obj['catalog'][2] != 'X';
 });
 
 // convert to string for easier comparison
 var string_fy = [];
-for (obj of fy_courses) {
+for (obj of four_year_courses) {
 	string_fy.push(JSON.stringify(obj));
 }
 var string_taken = [];
@@ -78,38 +78,38 @@ string_rec = string_fy.filter(function (x) {
 });
 
 // convert back to object
-var rec = [];
+var recommended_courses = [];
 for (obj of string_rec) {
-	rec.push(JSON.parse(obj));
+	recommended_courses.push(JSON.parse(obj));
 }
 
 // remove extra char for courses like HIST 103b
-rec.forEach(obj => obj['catalog'] = obj['catalog'].slice(0, 3));
+recommended_courses.forEach(obj => obj['catalog'] = obj['catalog'].slice(0, 3));
 
 switch( true ) {
-	case (rec.length >= 4):
+	case (recommended_courses.length >= 4):
 		for (let i = 0; i < 4; i++) {
-			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
+			var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
 			scheduleAddCourse(course, "MAJOR", true);
 		}
 		break;
-	case (rec.length >= 3):
+	case (recommended_courses.length >= 3):
 		for (let i = 0; i < 3; i++) {
-			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
+			var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
 			scheduleAddCourse(course, "MAJOR", true);
 		}
 		break;
-	case (rec.length >= 2):
+	case (recommended_courses.length >= 2):
 		for (let i = 0; i < 2; i++) {
-			var course = rec[i]["subject"] + " " + $.trim(rec[i]["catalog"]) + seperator + rec[i]["title"] + seperator + rec[i]["cred"];
+			var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
 			scheduleAddCourse(course, "MAJOR", true);
 		}
 		break;
-	case (rec.length == 1):
-		var course = rec[0]["subject"] + " " + $.trim(rec[0]["catalog"]) + seperator + rec[0]["title"] + seperator + rec[0]["cred"];
+	case (recommended_courses.length == 1):
+		var course = recommended_courses[0]["subject"] + " " + $.trim(recommended_courses[0]["catalog"]) + seperator + recommended_courses[0]["title"] + seperator + recommended_courses[0]["cred"];
 		scheduleAddCourse(course, "MAJOR", true);
 		break;
-	case (rec.length == 0):
+	case (recommended_courses.length == 0):
 		break;
 }
 

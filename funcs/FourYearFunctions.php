@@ -51,7 +51,7 @@ function displayFourYearPlan($fyp) {
         echo '</tr>';
         echo '</thead>';
         for ($i=0;$i<count($fyp["semester_".$n]);$i++){
-            
+
             if($i+1 == count($fyp['semester_'.$n])) {
                 $style_subject = 'border-left: none; border-bottom: none; width: 25%; border-radius: 0 0 0 10px;';
                 $style_title = 'border-bottom: none; width: 60%;';
@@ -113,12 +113,12 @@ function displayFourYearSemester($plan, $semester_plan) {
 }
 
 // input: list of majors
-function combinedFourYear($maj) {
+function combinedFourYear($majors) {
 	$list = array();
-	foreach ($maj as $m) {
+	foreach ($majors as $m) {
 		$list[] = getFourYearbyMajor($m);
 	}
-	echo '<script> var fyp = ' . json_encode( $list )  . '; </script>';
+	echo '<script> var combined_four_year_plans = ' . json_encode( $list )  . '; </script>';
 }
 
 ?>
