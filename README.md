@@ -1,6 +1,4 @@
-# COSC426AATWebsite
-
---------------------------------------------------------------------------------
+# Academic Advising Tool
 
 A web application that allows students to register for courses, view progress towards graduation, view major & minor plans/requirements, lookup advising information and more...
 
