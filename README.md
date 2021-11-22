@@ -1,22 +1,28 @@
 # Academic Advising Tool
 
-A web application that allows students to register for courses, view progress towards graduation, view major & minor plans/requirements, lookup advising information and more...
+A web application that allows students to register for courses, view their progress towards graduation, view their major & minor plans/requirements, lookup advising information and more...
 
 ## Features
 - [ ] Authentication
-	- [ ] user login/logout
-	- [ ] reset password
-- [x] Show student's
-	- [x] personal information
-	- [x] credit information
+	- [x] User login/logout
+	- [ ] Reset password
+	- [ ] Sign-up form
+- [x] Dashboard overview
+	- [x] Personal information
+	- [x] Credit information
 	- [x] Enrollment information
-- [ ] Show upcoming semester schedule
-- [ ] Register for courses
-- [x] Recommend major courses according to student progress
+- [ ] Handle transfer student data
+- [ ] Show upcoming semester schedule based of four year plan
+- [ ] Register for courses ([Program Planning Worksheet](https://www.salisbury.edu/academic-offices/advising-center/_files/Program_Planning_Worksheet.docx))
+	- [ ] Save draft
+- [x] Recommend major courses available for a given semester according to student progress
+	- [x] Single major
+	- [x] Double major
+	- [x] Triple major
 - [x] Show major(s) requirements and four year plan(s)
 - [x] Show minor(s) requirements
-- [ ] Show student's courses history
-- [ ] Show general serice information
+- [x] Show student's courses history
+- [ ] Show general service information
 	- [ ] Advising
 	- [ ] Counseling Center
 	- [ ] IT/Library
@@ -35,5 +41,13 @@ A web application that allows students to register for courses, view progress to
 ## File Structure
 
 ## Future Goals
+- Move to a Flask Framework
 - Styling with Bootstrap
-- Move to Flask Framework
+- Better message handling
+	- errors
+	- successful login/logout
+	- last login time
+	- failed/attemped logins
+- Authentication
+	- Temporarily lock an account after many failed logins
+	- Logout inactive users
