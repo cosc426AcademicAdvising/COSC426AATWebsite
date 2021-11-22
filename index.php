@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <?php
 	ob_start();
 	session_start();
-?>	
+?>
 <head>
 	<title>Academic Planar</title>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<link rel="stylesheet" href="CSS\login.css">
 </head>
@@ -37,11 +39,11 @@
 	?>
 
 	<div id="block">
-		<p>Enter Username and Password</p> 
+		<p>Enter Username and Password</p>
 
 		<div class = "container form-signin">
 		</div>
-		
+
 		<div class ="container">
 			<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
 				<div type="inputs">
@@ -53,7 +55,7 @@
 		</div>
 
 	</div>
-	<h4 style="margin-top: 10px"> <?php echo $msg; ?> </h4> 
-	
+	<h4 style="margin-top: 10px"> <?php echo $msg; ?> </h4>
+
 </body>
 </html>

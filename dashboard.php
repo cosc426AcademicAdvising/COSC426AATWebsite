@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<title>Academic Planar</title>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	<link rel="stylesheet" href="CSS/nav.css">
@@ -27,7 +29,7 @@
 		$majors = array();
 		for($i=0;$i<count($student['major']);$i++) {
 			$majors[$i] = $student['major'][$i]['title'];
-			
+
 		}
 	?>
 	<style>
@@ -44,13 +46,13 @@
 
 		<div id="content" style="overflow: auto">
 			<div class="container" id="container">
-				
+
 				<div class="schedule" id="schedule">
-					
+
 					<div class="dash_header">
 						<h3> Upcoming Schedule </h3>
 					</div>
-					
+
 					<div class="table_area">
 						<table class="schedule_table">
 							<thead>
@@ -90,13 +92,13 @@
 				<div class="plan" id="plan">
 					<div class="dash_header">
 						<h3> Recommended Courses</h3>
-					
-					
+
+
 					</div>
-					
+
 					<div class="table_area">
 						<table class="schedule_table">
-							
+
 							<?php
 								include_once 'funcs/FourYearFunctions.php';
 								if(isset($_POST['major']))
@@ -107,7 +109,7 @@
 									echo "<h3>No Four Year Plan Found For".$_POST['major']."</h3>";
 							?>
 						</table>
-						
+
 					</div>
 				</div>
 				<div class="personal_info" id="personal_info">
@@ -116,7 +118,7 @@
 					</div>
 					<div class="info_area">
 						<div class="dash_info">
-							
+
 								<div class='row_odd'>
 									<div class='row_odd_field' id='row_odd_field'>
 										<h4> Name </h4>
@@ -152,12 +154,12 @@
 								<div class='row_odd'>
 									<div class='row_odd_field' id='row_odd_field'>
 										<?php echo $major_field_print; ?>
-									</div>	
+									</div>
 									<div class='row_odd_value' id='row_odd_value'>
 										<?php echo $major_value_print; ?>
 									</div>
 								</div>
-								<?php 
+								<?php
 									$cnt = count($student['minor']);
 									if($cnt == 1) {
 										$minor_field_print = "<h4> Minor(s)</h4>";
@@ -180,7 +182,7 @@
 										<?php echo $minor_value_print; ?>
 									</div>
 								</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -190,7 +192,7 @@
 					</div>
 					<div class="info_area">
 						<div class="dash_info">
-								
+
 								<div class='row_odd'>
 									<div class='row_odd_field' id='row_odd_field'>
 										<h4> Current Year</h4>
@@ -221,7 +223,7 @@
 										<?php echo "<h4>".$credits."</h4>"; ?>
 									</div>
 								</div>
-								
+
 								<div class='row_even' style='border-radius: 0px 0px 10px 10px;'>
 									<div class='row_even_field' id='row_even_field' style='border-bottom: none'>
 										<h4> Total Credits</h4>
@@ -230,7 +232,7 @@
 										<?php echo "<h4>".$student['credits']."</h4>"; ?>
 									</div>
 								</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -248,7 +250,7 @@
 										<?php echo "<h4>".$student['advisor_mail']."</h4>"; ?>
 									</div>
 								</div>
-									
+
 								<div class='row_even'>
 									<div class='row_even_field' id='row_even_field'>
 										<h4> Enrollment Date</h4>
@@ -257,7 +259,7 @@
 										<?php echo "<h4>".$student['enrll']."</h4>"; ?>
 									</div>
 								</div>
-									
+
 								<div class='row_odd' style='border-radius: 0px 0px 10px 10px;'>
 									<div class='row_odd_field' id='row_odd_field' style='border-bottom: none'>
 										<h4> Registering For</h4>
@@ -286,7 +288,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</body>
 	</html>
 <?php
