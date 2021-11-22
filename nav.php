@@ -3,9 +3,10 @@
 	</header>
 	<?php
 		if(empty($_SESSION)){
-			header("Location: login.php");
+			header("Location: index.php");
 		}
 	?>
+	<!-- side navigation bar definition -->
 	<div class="flexbox">
 		<nav class="sidebar">
 			<ul>
@@ -32,7 +33,7 @@
 
 		<script>
 			$( document ).ready(function(){
-				
+
 				$('.schedule-btn').click(function () {
 					$('nav ul .schedule-show').toggleClass("sch");
 					$('nav ul .first').toggleClass("rotate");
@@ -47,4 +48,3 @@
 
 			});
 		</script>
-			
