@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<title>Academic Planar</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	<link rel="stylesheet" href="CSS/nav.css">
@@ -224,7 +225,7 @@
 <script src="JS/scheduleNewFuncs.js"></script>
 
 <!-- courses recommandations -->
-<script src="JS/recommendedCourses.js"></script>
+<script src="JS/recommendCourses.js"></script>
 
 </body>
 </html>
