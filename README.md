@@ -30,7 +30,7 @@ A web application that allows students to register for courses, view progress to
 - [Heroku](https://cosc426website.herokuapp.com/)
 
 ### Dependencies
-- rmccue/requests v1.8.1 [refer to composer.lock](https://github.com/quincden/COSC426AATWebsite/blob/main/composer.lock)
+- rmccue/requests v1.8.1 see [composer.lock](https://github.com/quincden/COSC426AATWebsite/blob/main/composer.lock)
 
 ## File Structure
 
