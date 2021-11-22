@@ -15,6 +15,7 @@ A web application that allows students to register for courses, view their progr
 - [ ] Show upcoming semester schedule based of four year plan
 - [ ] Register for courses ([Program Planning Worksheet](https://www.salisbury.edu/academic-offices/advising-center/_files/Program_Planning_Worksheet.docx))
 	- [ ] Save draft
+	- [ ] Submit mail notification to advisor*
 - [x] Recommend major courses available for a given semester according to student progress
 	- [x] Single major
 	- [x] Double major
