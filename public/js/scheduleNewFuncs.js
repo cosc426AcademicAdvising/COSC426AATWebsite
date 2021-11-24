@@ -126,7 +126,7 @@ function saveDraft() {
 	}
 
 	// create temporary form to send draft object
-	$form = $('<form action="savedraft.php" method="POST"></form>')
+	$form = $('<form action="savedraft" method="POST"></form>')
 	$form.append("<input type='submit' id='clickme' name='draft' value='" + JSON.stringify(draftObj) +"'>")
 	$('body').append($form);
 	$('#clickme').click();

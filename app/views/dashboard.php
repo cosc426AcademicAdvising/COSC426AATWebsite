@@ -7,18 +7,18 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="CSS/nav.css">
+	<link rel="stylesheet" href="css/nav.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-	<link rel="stylesheet" href="CSS/dashboard.css">
+	<link rel="stylesheet" href="css/dashboard.css">
 
 	<?php
 		ob_start();
 		session_start();
-		require 'vendor/autoload.php';
+		// require 'vendor/autoload.php';
 
-		include_once 'funcs/StudentFunctions.php';
-		include_once 'funcs/FourYearFunctions.php';
+		// include_once 'funcs/StudentFunctions.php';
+		// include_once 'funcs/FourYearFunctions.php';
 		$student = getStudent($_SESSION['username']);
 		$plan = getFourYearbyMajor($student['major'][0]['title']);
 		$semester_plan = "semester_".$student['semester'];
@@ -34,7 +34,7 @@
 	?>
 	<style>
 			.progress {
-				<?php echo $progress_width; ?>;
+				<?php echo $progress_width; ?>
 			}
 	</style>
 </head>
@@ -100,7 +100,7 @@
 						<table class="schedule_table">
 
 							<?php
-								include_once 'funcs/FourYearFunctions.php';
+								// include_once 'funcs/FourYearFunctions.php';
 								if(isset($_POST['major']))
 									$plan = getFourYearbyMajor($_POST['major']);
 								if($plan != "")

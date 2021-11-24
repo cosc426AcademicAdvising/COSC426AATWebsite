@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="stylesheet" href="CSS\login.css">
+	<link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -19,8 +19,8 @@
 	</header>
 
 	<?php
-		require 'vendor/autoload.php';
-		include_once 'funcs/StudentFunctions.php';
+		// require 'vendor/autoload.php';
+		// include_once 'funcs/StudentFunctions.php';
 		$msg = '';
 		if (isset($_POST['login'])){
 			$stud = getStudent($_POST['username']);
@@ -29,7 +29,7 @@
 				if (password_verify($_POST['password'], $hash)) {
 					$_SESSION['valid'] = true;
 					$_SESSION['username'] = $stud['s_id'];
-					$url='dashboard.php';
+					$url='dashboard';
 					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 				}else {
 					$msg='Wrong username or password!';

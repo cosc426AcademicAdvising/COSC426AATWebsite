@@ -1,4 +1,4 @@
-# Academic Advising Tool
+# Academic Planar
 
 A web application that allows students to register for courses, view their progress towards graduation, view their major & minor plans/requirements, lookup advising information and more...
 

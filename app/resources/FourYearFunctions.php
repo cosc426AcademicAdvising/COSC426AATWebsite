@@ -1,9 +1,9 @@
 <?php
 // Package requirement via composer package manager for Requests library
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 // API Access Token
-include_once 'getToken.php';
-$token = getToken();
+// include_once 'getToken.php';
+// $token = getToken();
 
 // Get policy for a major's four year plan
 // echo $val[0]['policies']
@@ -120,5 +120,3 @@ function combinedFourYear($majors) {
 	}
 	echo '<script> var combined_four_year_plans = ' . json_encode( $list )  . '; </script>';
 }
-
-?>

@@ -1,0 +1,51 @@
+.
+├── app
+│   ├── core
+│   │   └── Router.php
+│   ├── resources
+│   │   ├── CourseFunctions.php
+│   │   ├── DepartmentFunctions.php
+│   │   ├── FourYearFunctions.php
+│   │   ├── MinorFunctions.php
+│   │   ├── StudentFunctions.php
+│   │   └── getToken.php
+│   └── views
+│       ├── courseHistory.php
+│       ├── dashboard.php
+│       ├── forgotpass.php
+│       ├── info.php
+│       ├── login.php
+│       ├── majorPlan.php
+│       ├── minorPlan.php
+│       ├── nav.php
+│       ├── newSchedule.php
+│       ├── savedraft.php
+│       ├── signout.php
+│       ├── signup.php
+│       └── viewSchedule.php
+├── composer.json
+├── composer.lock
+├── file_structure.txt
+├── files_structure.txt
+├── public
+│   ├── css
+│   │   ├── courseHistory.css
+│   │   ├── dashboard.css
+│   │   ├── fyp.css
+│   │   ├── info.css
+│   │   ├── login.css
+│   │   ├── minplan.css
+│   │   ├── nav.css
+│   │   ├── newSchedule.css
+│   │   └── plan.css
+│   ├── img
+│   ├── index.php
+│   └── js
+│       ├── recommendCourses.js
+│       └── scheduleNewFuncs.js
+└── vendor
+    ├── autoload.php
+    ├── composer
+    └── rmccue
+
+23 directories, 111 files

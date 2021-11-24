@@ -7,19 +7,19 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="CSS/nav.css">
+	<link rel="stylesheet" href="css/nav.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-	<link rel="stylesheet" href="CSS/scheduleNew.css">
+	<link rel="stylesheet" href="css/newSchedule.css">
 
 	<?php
 		ob_start();
 		session_start();
-		require 'vendor/autoload.php';
+		// require 'vendor/autoload.php';
 
-		include_once 'funcs/CourseFunctions.php';
-		include_once 'funcs/StudentFunctions.php';
-		include_once 'funcs/FourYearFunctions.php';
+		// include_once 'funcs/CourseFunctions.php';
+		// include_once 'funcs/StudentFunctions.php';
+		// include_once 'funcs/FourYearFunctions.php';
 
 		// available courses
 		echo '<script> var available_courses = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
@@ -222,10 +222,10 @@
 </script>
 
 <!-- table and buttons functionalities -->
-<script src="JS/scheduleNewFuncs.js"></script>
+<script src="js/scheduleNewFuncs.js"></script>
 
 <!-- courses recommandations -->
-<script src="JS/recommendCourses.js"></script>
+<script src="js/recommendCourses.js"></script>
 
 </body>
 </html>

@@ -7,13 +7,13 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="CSS/nav.css">
+	<link rel="stylesheet" href="css/nav.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
 		ob_start();
 		session_start();
-		require 'vendor/autoload.php';
+		// require 'vendor/autoload.php';
 	?>
 </head>
 
@@ -43,7 +43,7 @@
 			if ($result === FALSE) { /* Handle error */ }
 
 			if($result == 1){
-				header("Location: scheduleView.php");
+				header("Location: dashboard");
 			}
 		?>
 

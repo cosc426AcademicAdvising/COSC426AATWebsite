@@ -1,9 +1,9 @@
 <?php
 // Package requirement via composer package manager for Requests library
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 // API Access Token
-include_once 'getToken.php';
-$token = getToken();
+// include_once 'getToken.php';
+// $token = getToken();
 
 // Get student json file
 // echo $val['name'];
@@ -31,5 +31,3 @@ function createStudent($vals){
 	$response = Requests::post($url, array('auth-token' => $token), $vals);
 	return $response;
 }
-
-?>

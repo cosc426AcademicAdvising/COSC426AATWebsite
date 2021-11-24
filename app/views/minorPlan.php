@@ -7,16 +7,16 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- for caret -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-	<link rel="stylesheet" href="CSS/nav.css">
-	<link rel="stylesheet" href="CSS/plan.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/plan.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
 		ob_start();
 		session_start();
-		require 'vendor/autoload.php';
-		include_once 'funcs/StudentFunctions.php';
-		include_once 'funcs/MinorFunctions.php';
+		// require 'vendor/autoload.php';
+		// include_once 'funcs/StudentFunctions.php';
+		// include_once 'funcs/MinorFunctions.php';
 		$student = getStudent($_SESSION['username']);
 	?>
 

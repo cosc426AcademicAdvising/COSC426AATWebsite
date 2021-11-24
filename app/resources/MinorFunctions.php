@@ -1,9 +1,9 @@
 <?php
 // Package requirement via composer package manager for Requests library
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 // API Access Token
-include_once 'getToken.php';
-$token = getToken();
+// include_once 'getToken.php';
+// $token = getToken();
 
 // Get Minor Plan for minor
 // echo $val['crs1'][0]['subject'];
@@ -14,5 +14,3 @@ function getMinorPlan($min){
     $plan = json_decode($response->body, true);
     return $plan;
 }
-
-?>

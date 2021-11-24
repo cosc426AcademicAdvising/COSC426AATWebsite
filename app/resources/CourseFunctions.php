@@ -1,9 +1,9 @@
 <?php
 // Package requirement via composer package manager for Requests library
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 // API Access Token
-include_once 'getToken.php';
-$token = getToken();
+// include_once 'getToken.php';
+// $token = getToken();
 
 // Get all subjects
 // echo $val[0];
@@ -35,4 +35,3 @@ function getCoursebyRegex($sub, $cat, $title, $cred){
     $course = json_decode($response->body, true);
     return $course;
 }
-?>

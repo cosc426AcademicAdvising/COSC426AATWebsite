@@ -8,6 +8,4 @@ function getToken(){
     $val = ($response->body);
     $token = $val;
     return $token;
-
 }
-?>
