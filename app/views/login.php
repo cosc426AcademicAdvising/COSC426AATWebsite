@@ -19,6 +19,10 @@
 	</header>
 
 	<?php
+		// redict user to dashboard if session still present
+		if (!empty($_SESSION)) {
+			header("Location: dashboard");
+		}
 		// require 'vendor/autoload.php';
 		// include_once 'funcs/StudentFunctions.php';
 		$msg = '';
