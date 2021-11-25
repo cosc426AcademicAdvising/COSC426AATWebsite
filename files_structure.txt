@@ -1,4 +1,5 @@
 .
+├── README.md
 ├── app
 │   ├── core
 │   │   └── Router.php
@@ -25,8 +26,8 @@
 │       └── viewSchedule.php
 ├── composer.json
 ├── composer.lock
-├── file_structure.txt
 ├── files_structure.txt
+├── index.php
 ├── public
 │   ├── css
 │   │   ├── courseHistory.css
@@ -38,8 +39,6 @@
 │   │   ├── nav.css
 │   │   ├── newSchedule.css
 │   │   └── plan.css
-│   ├── img
-│   ├── index.php
 │   └── js
 │       ├── recommendCourses.js
 │       └── scheduleNewFuncs.js
@@ -48,4 +47,4 @@
     ├── composer
     └── rmccue
 
-23 directories, 111 files
+22 directories, 111 files

@@ -1,18 +1,18 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../app/resources/getToken.php';
+require_once 'vendor/autoload.php';
+require_once 'app/resources/getToken.php';
 
 $token = getToken();
 
-include_once __DIR__ . '/../app/resources/CourseFunctions.php';
-include_once __DIR__ . '/../app/resources/DepartmentFunctions.php';
-include_once __DIR__ . '/../app/resources/FourYearFunctions.php';
-include_once __DIR__ . '/../app/resources/MinorFunctions.php';
-include_once __DIR__ . '/../app/resources/StudentFunctions.php';
+include_once 'app/resources/CourseFunctions.php';
+include_once 'app/resources/DepartmentFunctions.php';
+include_once 'app/resources/FourYearFunctions.php';
+include_once 'app/resources/MinorFunctions.php';
+include_once 'app/resources/StudentFunctions.php';
 
 // namepsace wasn't working 
-require_once __DIR__ . '/../app/core/Router.php';
+require_once 'app/core/Router.php';
 
 // include everyhting in index.php so that we dont have to include in every file
 // when accessing a file, index.php is always ran first
@@ -20,8 +20,8 @@ require_once __DIR__ . '/../app/core/Router.php';
 $route = new Router();
 
 // $route->add( what the url will look like, file name)
-// href('./') to reference homepage or just './'
-// css and js are relative to this folder so: css/mystyle.css
+// to reference homepage: './'
+// to include css, js, img: public/css/mystyle.css
 // $route->add('', '');
 
 $route->add('/', 'login');

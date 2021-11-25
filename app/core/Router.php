@@ -1,4 +1,6 @@
 <?
+// routing class
+// goal is to help load the appropriate file according to the url
 
 class Router
 {
@@ -20,8 +22,8 @@ class Router
 			if (preg_match("#^$value$#", $params)) {
 				$file = $this->request[$key];
 				
-				if (file_exists('../app/views/'.$file.'.php')) {
-					include '../app/views/' . $file . '.php';
+				if (file_exists('app/views/'.$file.'.php')) {
+					include 'app/views/' . $file . '.php';
 				} else {
 					// show 404 error page or something
 					die($file .'.php doesnt exist!');
