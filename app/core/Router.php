@@ -24,11 +24,15 @@ class Router
 				
 				if (file_exists('app/views/'.$file.'.php')) {
 					include 'app/views/' . $file . '.php';
+					return;
 				} else {
 					// show 404 error page or something
-					die($file .'.php doesnt exist!');
+					die("<h1>Oops, looks like something when wrong!</h1>");
 				}
 			}
 		}
+		// show 404 error page or something
+		die("<h1>The page you are looking for doesn't exist!</h1>");
+		exit;
 	}
 }
