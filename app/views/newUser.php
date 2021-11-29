@@ -16,7 +16,7 @@
     <header>
 		<h2>Salisbury University</h2>
 	</header>
-    <form action="firsttimeuser" method="post">
+    <form action="firstTimeForm.php" method="post">
     <div class="container">
         <div class="title">
             <h1>Register</h1>
