@@ -18,7 +18,7 @@ function getStudent($sid){
 
 function newPass($sid, $hsh){
   global $token;
-  $url = "http://localhost:5000/api/Update/NewPass";
+  $url = "https://cosc426restapi.herokuapp.com/api/Update/NewPass";
   $headers = array('Content-Type' => 'application/json','auth-token' => $token);
   $arr = array("s_id"=>$sid, "passHash"=>$hsh);
   $send = json_encode($arr);
