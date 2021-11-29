@@ -56,7 +56,7 @@
 					<button type = "submit" id="login" name = "login" style="margin-bottom: 20px;">Log In</button>
 				</form>
 				<hr>
-				<form action="newuser" method="post">
+				<form action="newUser" method="post">
 					<label for="SignUp" style="margin-top: 5px;">New User?</label><br>
 					<button type = "submit" style="margin-top: 10px;" id="SignUp" name = "SignUp">Sign Up</button>
 				</form>
