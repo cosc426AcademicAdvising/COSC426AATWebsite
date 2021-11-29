@@ -43,20 +43,26 @@
 	?>
 
 	<div id="block">
-		<p>Enter Username and Password</p>
+	<p>Enter Username and Password</p>
 
-		<div class = "container form-signin">
-		</div>
+	<div class = "container form-signin">
+	</div>
 
-		<div class ="container">
-			<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
-				<div type="inputs">
+	<div class ="container">
+			<div type="inputs">
+				<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
 					<input type = "uname" name = "username" placeholder = "Student ID" required autofocus><br>
 					<input type = "password" name = "password" placeholder = "password" required><br>
-					<button type = "submit" id="login" name = "login">Log in</button>
-				</div>
-			</form>
-		</div>
+					<button type = "submit" id="login" name = "login" style="margin-bottom: 20px;">Log In</button>
+				</form>
+				<hr>
+				<form action="newuser" method="post">
+					<label for="SignUp" style="margin-top: 5px;">New User?</label><br>
+					<button type = "submit" style="margin-top: 10px;" id="SignUp" name = "SignUp">Sign Up</button>
+				</form>
+			</div>
+		
+	</div>
 
 	</div>
 	<h4 style="margin-top: 10px"> <?php echo $msg; ?> </h4>
