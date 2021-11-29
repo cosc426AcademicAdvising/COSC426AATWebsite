@@ -1,9 +1,8 @@
+Options -MultiViews
 RewriteEngine on
-RewriteBase /COSC426AATWebsite/
+
+#RewriteBase /cosc426website/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
-
-# direct everything to index.php before going somewhere else
-
+RewriteRule ^(.+)$index.php?uri=$1 [QSA,L]
