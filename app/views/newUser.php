@@ -41,7 +41,7 @@
     </form>
     <form>
     <div class="signin">
-        <p>Already have an account? <a href="index.php">Sign in</a>.</p>
+        <p>Already have an account? <a href="./">Sign in</a>.</p>
     </div>
     </form>
 </body>
