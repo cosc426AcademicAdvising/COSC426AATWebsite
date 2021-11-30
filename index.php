@@ -35,6 +35,7 @@ $route->add('/minorplan', 'minorPlan');
 $route->add('/coursehistory', 'courseHistory');
 $route->add('/contact', 'info');
 $route->add('/newuser', 'newUser');
+$route->add('/firsttime', 'firstTimeForm');
 
 // forms action
 $route->add('/savedraft', 'savedraft');
