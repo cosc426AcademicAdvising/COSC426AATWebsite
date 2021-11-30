@@ -10,13 +10,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="stylesheet" href="CSS\newUser.css">
+	<link rel="stylesheet" href="public/css/newUser.css">
 </head>
 <body>
     <header>
 		<h2>Salisbury University</h2>
 	</header>
-    <form action="firstTimeForm.php" method="post">
+    <form action="firsttime" method="post">
     <div class="container">
         <div class="title">
             <h1>Register</h1>

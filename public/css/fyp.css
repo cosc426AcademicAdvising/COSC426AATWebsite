@@ -4,6 +4,7 @@
 	--tertiary: #ffff;
 	--black: black;
 	--grey: #c9c9c9;
+	--offWhite: #f0eeea;
 }
 * {
 	user-select: none;
@@ -22,7 +23,7 @@ body {
 }
 header {
 	/* position: fixed; */
-	background-color: #8a0000;
+	background-color: var(--primary);
 	color: #ffff;
 	width: 100%;
 	left: 0;
@@ -69,7 +70,7 @@ td{
 	height: 100%;
 	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
 	grid-template-rows: 35% 35% 35%;
-	paddding: 0px;
+	padding: 0px;
 }
 .form{
 	grid-row-start: 2;
@@ -95,7 +96,7 @@ td{
 	padding-top: 6px;
 	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-color: var(--primary);
-	border-radius: 10px;11:31 AM 10/8/2021
+	border-radius: 10px;
 	margin: 0 auto;	
 }
 .year3{

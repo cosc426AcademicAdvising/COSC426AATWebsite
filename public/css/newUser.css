@@ -1,0 +1,121 @@
+:root {
+	--primary: #8a0000;
+	--secondary: #fbfa6e;
+	--tertiary: #ffff;
+	--black: black;
+	--grey: #c9c9c9;
+  --offWhite: #f0eeea;
+
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.container {
+    background: var(--offWhite);
+    border-radius: 8px 8px 0 0;
+    padding: 25px;
+    width: 50%;
+    margin: 35px auto auto auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.title {
+    padding: 10px;
+    margin: 10px auto auto auto;
+    width: 40%;
+    height: 100%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.input_field {
+    padding: 10px 10px 10px 10px;
+    width: 100%;
+    height: 100%;
+    margin: 10px auto auto 0px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 15px;
+  margin: 5px 0 22px 0px;
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  background: var(--tertiary);
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: var(--primary);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: var(--offWhite);
+  padding: 10px;
+  border-top: solid 1px;
+  border-radius: 0 0 8px 8px;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+header {
+	/* position: fixed; */
+	background-color: var(--primary);
+	color: #ffff;
+	width: 100%;
+	left: 0;
+	top: 0;
+	height: 75px;
+}
+
+body {
+	text-align: center;
+}
+
+header h2 {
+	text-align: center;
+	padding: 22px;
+}

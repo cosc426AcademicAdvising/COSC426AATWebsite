@@ -4,6 +4,7 @@
 	--tertiary: #ffff;
 	--black: black;
 	--grey: #c9c9c9;
+	--offWhite: #f0eeea;
 }
 * {
 	user-select: none;
@@ -22,7 +23,7 @@ body {
 }
 header {
 	/* position: fixed; */
-	background-color: #8a0000;
+	background-color: var(--primary);
 	color: #ffff;
 	width: 100%;
 	left: 0;
