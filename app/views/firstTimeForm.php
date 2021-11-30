@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="public/css/nav.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-	<link rel="stylesheet" href="public/css//scheduleNew.css">
+	<link rel="stylesheet" href="public/css/scheduleNew.css">
 
 	<?php
 		ob_start();
