@@ -1,5 +1,10 @@
 {
     "require": {
         "rmccue/requests": "^1.8"
+    },
+    "autoload":{
+        "psr-4": {
+            "app\\": "./"
+        }
     }
 }

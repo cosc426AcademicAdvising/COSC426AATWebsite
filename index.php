@@ -1,61 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-	ob_start();
-	session_start();
-?>
-<head>
-	<title>Academic Planar</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	<link rel="stylesheet" href="CSS\login.css">
-</head>
+require_once 'vendor/autoload.php';
+require_once 'app/resources/getToken.php';
 
-<body>
-	<header>
-		<h2>Salisbury University</h2>
-	</header>
+$token = getToken();
 
-	<?php
-		require 'vendor/autoload.php';
-		include_once 'funcs/StudentFunctions.php';
-		$msg = '';
-		if (isset($_POST['login'])){
-			$stud = getStudent($_POST['username']);
-			$hash = $stud['passHash'];
-			if (!empty($_POST['username']) && !empty($_POST['password'])) {
-				if (password_verify($_POST['password'], $hash)) {
-					$_SESSION['valid'] = true;
-					$_SESSION['username'] = $stud['s_id'];
-					$url='dashboard.php';
-					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-				}else {
-					$msg='Wrong username or password!';
-				}
-			}
-		}
-	?>
+include_once 'app/resources/CourseFunctions.php';
+include_once 'app/resources/DepartmentFunctions.php';
+include_once 'app/resources/FourYearFunctions.php';
+include_once 'app/resources/MinorFunctions.php';
+include_once 'app/resources/StudentFunctions.php';
 
-	<div id="block">
-		<p>Enter Username and Password</p>
+// namepsace wasn't working 
+require_once 'app/core/Router.php';
 
-		<div class = "container form-signin">
-		</div>
+// include everyhting in index.php so that we dont have to include in every file
+// when accessing a file, index.php is always ran first
 
-		<div class ="container">
-			<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
-				<div type="inputs">
-					<input type = "uname" name = "username" placeholder = "Student ID" required autofocus><br>
-					<input type = "password" name = "password" placeholder = "password" required><br>
-					<button type = "submit" id="login" name = "login">Log in</button>
-				</div>
-			</form>
-		</div>
+$route = new Router();
 
-	</div>
-	<h4 style="margin-top: 10px"> <?php echo $msg; ?> </h4>
+// $route->add( what the url will look like, file name)
+// to reference homepage: './'
+// to include css, js, img: public/css/mystyle.css
+// $route->add('', '');
 
-</body>
-</html>
+$route->add('/', 'login');
+$route->add('/signout', 'signout');
+
+$route->add('/dashboard', 'dashboard');
+$route->add('/programplanningworksheet', 'newSchedule');
+$route->add('/viewschedule', 'viewSchedule');
+$route->add('/majorplan', 'majorPlan');
+$route->add('/minorplan', 'minorPlan');
+$route->add('/coursehistory', 'courseHistory');
+$route->add('/contact', 'info');
+$route->add('/newuser', 'newUser');
+$route->add('/firsttime', 'firstTimeForm');
+
+// forms action
+$route->add('/savedraft', 'savedraft');
+
+// echo '<pre>';
+// print_r($route);
+
+// includes the file
+$route->submit();
