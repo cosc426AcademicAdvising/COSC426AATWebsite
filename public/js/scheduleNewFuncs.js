@@ -131,3 +131,41 @@ function saveDraft() {
 	$('body').append($form);
 	$('#clickme').click();
 }
+
+function submitPlan() {
+
+	console.log("Reached")
+	var courseTable = [];
+	var backupCourseTable = [];
+
+	var tabledata = $("#schedule-coursetable tbody").children().slice(1);	//slice(1) to remove table header row
+	if (tabledata.length > 0) {
+		for (let i = 0; i < tabledata.length; i++) {
+			courseTable.push(tabledata[i].innerText.split("\t").slice(0, 4));
+			// slice (0,4) to exclude the remove button in each row
+		}
+	}
+
+	var tabledata = $("#schedule-backupcoursetable tbody").children().slice(1);
+	if (tabledata.length > 0) {
+		for (let i = 0; i < tabledata.length; i++) {
+			backupCourseTable.push(tabledata[i].innerText.split("\t").slice(0, 4));
+		}
+	}
+
+	var Obj = {
+		name: studentname.value,
+		s_id: studentid.value,
+		registering_for: $('input[name="season"]:checked').val(),
+		year: year.value,
+		taking_course: courseTable,
+		backup_course: backupCourseTable,
+		memo: memo.value,
+	}
+
+	// create temporary form to send draft object
+	$form = $('<form action="submitPPW" method="POST"></form>')
+	$form.append("<input type='submit' id='clickme2' name='PPW' value='" + JSON.stringify(Obj) + "'>")
+	$('body').append($form);
+	$('#clickme2').click();
+}

@@ -39,6 +39,7 @@ $route->add('/firsttime', 'firstTimeForm');
 
 // forms action
 $route->add('/savedraft', 'savedraft');
+$route->add('/submitPPW', 'submitPPW');
 
 // echo '<pre>';
 // print_r($route);

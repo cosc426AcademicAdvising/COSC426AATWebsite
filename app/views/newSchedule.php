@@ -84,11 +84,14 @@
 	<div id="content" style="overflow: scroll;">
 
 		<div class="schedule-new">
-			<form action="" id="programplanningworksheet">
+			<form action="javascript:submitPlan()" id="programplanningworksheet">
+			<!-- <form onSubmit="return submitPlan()" id="programplanningworksheet"> -->
 				<p style="font-weight:normal;font-size:12px;text-align:right"><span class="required"> *</span> denotes a required field</p>
 				<h3 style="text-align:center; margin-bottom:20px;">Program Planning Worksheet</h3>
+
 				<label for="studentname">Name<span class="required">*</span></label>
 				<input type="text" id="studentname" name="studentname" size="40" value="<?php echo $student['name']; ?>" readonly>
+
 				<label for="studentid">Id<span class="required">*</span></label>
 				<input type="text" id="studentid" name="studentid" maxlength="7" minlength="7" size="8" value="<?php echo $student['s_id']; ?>" readonly>
 				<br>
