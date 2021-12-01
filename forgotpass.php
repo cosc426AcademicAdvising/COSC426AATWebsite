@@ -25,10 +25,12 @@
 		$msg = '';
 		if (isset($_POST['login'])){
 			$stud = getStudent($_POST['username']);
-      if (strcmp($_POST['password'], $_POST['cpassword'])){
+      if (!strcmp($_POST['password'], $_POST['cpassword'])){
         $hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $id = $stud['s_id'];
         newPass($id, $hash);
+				session_destroy();
+				header("Location: index.php");
       }
 		}
 	?>
@@ -45,7 +47,7 @@
 					<input type = "uname" name = "username" placeholder = "Student ID" required autofocus><br>
 					<input type = "password" name = "password" placeholder = "password" required><br>
           <input type = "password" name = "cpassword" placeholder = "confirm password" required><br>
-					<button type = "submit" id="login" name = "login">Log in</button>
+					<button type = "submit" id="login" name = "login">Reset Password</button>
 				</div>
 			</form>
 		</div>

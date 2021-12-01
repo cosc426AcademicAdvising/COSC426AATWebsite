@@ -50,6 +50,13 @@
 					<input type = "uname" name = "username" placeholder = "Student ID" required autofocus><br>
 					<input type = "password" name = "password" placeholder = "password" required><br>
 					<button type = "submit" id="login" name = "login">Log in</button>
+					<button type = "submit" id="forgot" name = "forgot">Reset password</button>
+					<script type="text/javascript">
+						<?php session_destroy(); ?>
+						document.getElementById("forgot").onclick = function () {
+							location.href = "forgotpass.php";
+						};
+					</script>
 				</div>
 			</form>
 		</div>
