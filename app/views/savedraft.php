@@ -28,24 +28,24 @@
 		<?php
 		$text = $_POST['draft'];
 		echo $text;
-		// global $token;
-		// $url = 'https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
-		// $data = array('form' => $text);
-		// // use key 'http' even if you send the request to https://...
-		// $options = array(
-		// 	'http' => array(
-		// 		'header'  => "Content-type: application/json",
-		// 		'method'  => 'POST',
-		// 		'content' => json_encode($data)
-		// 	)
-		// );
-		// $context  = stream_context_create($options);
-		// $result = file_get_contents($url, false, $context);
-		// if ($result === FALSE) { 
-		// 	/* Handle error */
-		// } elseif ($result == 1) {
-		// 	header("Location: dashboard");
-		// }
+		global $token;
+		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Submit/';
+		$data = array('form' => $text);
+		// use key 'http' even if you send the request to https://...
+		$options = array(
+		 	'http' => array(
+		 		'header'  => "Content-type: application/json",
+		 		'method'  => 'POST',
+		 		'content' => json_encode($data)
+		 	)
+		 );
+		 $context  = stream_context_create($options);
+		 $result = file_get_contents($url, false, $context);
+		 if ($result === FALSE) { 
+		 	/* Handle error */
+		 } elseif ($result == 1) {
+		 	header("Location: dashboard");
+		 }
 		?>
 
 	</div>

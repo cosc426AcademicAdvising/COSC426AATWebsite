@@ -15,17 +15,14 @@
 	<?php
 		ob_start();
 		session_start();
-		// require 'vendor/autoload.php';
-
-		// include_once 'funcs/CourseFunctions.php';
-		// include_once 'funcs/StudentFunctions.php';
-		// include_once 'funcs/FourYearFunctions.php';
 
 		// available courses
 		echo '<script> var available_courses = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
 
 		//student information
 		//$student = getStudent($_SESSION['username']);
+		$student_name = $_POST['name'];
+		$student_id = $_POST['s_id'];
 		
 	?>
     
@@ -63,6 +60,9 @@
 	
 
 		<div id="content" style="overflow: auto; width: 80%; margin: auto; border: none;">
+		<div class="welcome">
+			<?php echo "<h1> Welcome ".$student_name." To The Academic Planner</h1>"; ?>
+		</div>
         <div class="title">
             <h1 style="margin-top: 5px;">Course History</h1>
             <p style="margin-top: 5px;">Please enter all courses you have completed at Salisbury University</p>
@@ -93,11 +93,12 @@
 						</table>
 					</div>
                     <input type="hidden" id="forBackup" name="forBackup" value="No">
-					<button type="button" onclick="saveDraft()">Submit</button>
+					<input type="hidden" id="studentname" name="studentname" value=<?php echo $student_name; ?>>
+					<input type="hidden" id="studentid" name="studentid" value=<?php echo $student_id; ?>>
+					<button type="button" onclick="saveDraft_firstTime()">Submit</button>
 
 				</form>
 			</div>
-
 		</div>
 </div> <!-- flexbox div ends -->
 <script>
