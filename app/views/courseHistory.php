@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<title>Academic Planar</title>
 	<meta charset="UTF-8">
@@ -13,99 +12,108 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
-	ob_start();
-	session_start();
-	// require 'vendor/autoload.php';
-	// include_once 'funcs/StudentFunctions.php';
-	$student = getStudent($_SESSION['username']);
+		ob_start();
+		session_start();
+		// require 'vendor/autoload.php';
+		// include_once 'funcs/StudentFunctions.php';
+		$student = getStudent($_SESSION['username']);
 	?>
 
 </head>
 
 <body>
 	<?php
-	include 'nav.php';
+		include 'nav.php';
 	?>
 
-	<div id="content">
-		<div id='table_area' class='table_area'>
-			<div id='history_header' class='history_header'>
-				<h4 style='color: white; text-align: center; padding: 10px;'>Course History</h4>
+		<div id="content">
+			<div id='table_area' class='table_area'>
+				<div id='history_header' class='history_header'>
+					<h4 style='color: white; text-align: center; padding: 10px;'>Course History</h4>
+				</div>
+				<table class='history_table' id="history_table">
+					<thead>
+						<tr>
+							<th onclick='sortTable(0)'>Course Number</th>
+							<th onclick='sortTable(1)'>Title</th>
+							<th onclick='sortTable(2)'>Credits</th>
+						</tr>
+					</thead>
+					<?php
+						$cnter = 0;
+						for($n=1;$n<=count($student['course_taken'][0]);$n++){
+							for($i=0;$i<count($student['course_taken'][0]['semester_'.$n]);$i++){
+								$style_sub = "";
+								$style_tit = "";
+								$style_cred = "";
+								// if( $cnter % 2 != 0) {
+								// 	$style_sub = 'border-left: none; background-color: #c9c9c9;';
+								// 	$style_tit = 'background-color: #c9c9c9;';
+								// 	$style_cred = 'border-right: none; background-color: #c9c9c9;';
+								// }
+								echo "<tr>";
+								echo "<td id='left' class='data' style='$style_sub'>".$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
+								echo "<td class='data' style='$style_sub'>".$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
+								echo "<td id='right' class='data' style='$style_sub'>".$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
+								echo '</tr>';
+								$cnter = $cnter + 1;
+							}
+						}
+					?>
+				</table>
 			</div>
-			<table class='history_table' id="history_table">
-				<thead>
-					<tr>
-						<th onclick='sortTable(0)' style='border-radius: 10px 0px 0px 0px;'>Course Number</th>
-						<th onclick='sortTable(1)'>Title</th>
-						<th onclick='sortTable(2)'>Credits</th>
-					</tr>
-				</thead>
-				<?php
-				for ($n = 1; $n <= count($student['course_taken'][0]); $n++) {
-					for ($i = 0; $i < count($student['course_taken'][0]['semester_' . $n]); $i++) {
-						echo "<tr>";
-						echo "<td id='left' class='data'>" . $student['course_taken'][0]['semester_' . $n][$i]['subject'] . ' ' . $student['course_taken'][0]['semester_' . $n][$i]['catalog'] . '</td>';
-						echo "<td class='data'>" . $student['course_taken'][0]['semester_' . $n][$i]['title'] . '</td>';
-						echo "<td class='data'>" . $student['course_taken'][0]['semester_' . $n][$i]['credits'] . '</td>';
-						echo '</tr>';
-					}
-				}
-				?>
-			</table>
+
 		</div>
+<script>
+	function sortTable(n) {
+	  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	  table = document.getElementById("history_table");
+	  switching = true;
 
-	</div>
-	<script>
-		function sortTable(n) {
-			var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-			table = document.getElementById("history_table");
-			switching = true;
+	  dir = "asc";
 
-			dir = "asc";
+	  while (switching) {
+		switching = false;
+		rows = table.rows;
+		for (i = 1; i < (rows.length - 1); i++) {
 
-			while (switching) {
-				switching = false;
-				rows = table.rows;
-				for (i = 1; i < (rows.length - 1); i++) {
+		  shouldSwitch = false;
 
-					shouldSwitch = false;
+		  x = rows[i].getElementsByTagName("TD")[n];
+		  y = rows[i + 1].getElementsByTagName("TD")[n];
 
-					x = rows[i].getElementsByTagName("TD")[n];
-					y = rows[i + 1].getElementsByTagName("TD")[n];
-
-					if (dir == "asc") {
-						if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-							shouldSwitch = true;
-							break;
-						}
-					} else if (dir == "desc") {
-						if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-							shouldSwitch = true;
-							break;
-						}
-					}
-				}
-				if (shouldSwitch) {
-					rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-					switching = true;
-					switchcount++;
-				} else {
-					if (switchcount == 0 && dir == "asc") {
-						dir = "desc";
-						switching = true;
-					}
-				}
+		  if (dir == "asc") {
+			if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+			  shouldSwitch = true;
+			  break;
 			}
+		  } else if (dir == "desc") {
+			if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+			  shouldSwitch = true;
+			  break;
+			}
+		  }
 		}
+		if (shouldSwitch) {
+		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		  switching = true;
+		  switchcount ++;
+		} else {
+		  if (switchcount == 0 && dir == "asc") {
+			dir = "desc";
+			switching = true;
+		  }
+		}
+	  }
+	}
 	</script>
-	</div> <!-- flexbox div ends -->
+</div> <!-- flexbox div ends -->
 
-	<script>
+<!-- <script>
 	$('nav ul .progress-show').toggleClass("prog");
 	$('nav ul .second').toggleClass("rotate");
 	$('.course-hist-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
-</script>
+</script> -->
 
 </body>
-
 </html>
