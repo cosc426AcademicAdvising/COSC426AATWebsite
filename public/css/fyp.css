@@ -41,7 +41,7 @@ th{
 	text-align: center;
 	width: auto;
 	height: 50px;
-	padding: 5px;
+	padding: 0px;
 	margin: auto;
 	border-spacing: 0;
 	background-color: var(--secondary);	
@@ -67,10 +67,11 @@ td{
 .container{
 	display: grid;
 	width: 100%;
-	height: 100%;
-	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
-	grid-template-rows: 35% 35% 35%;
-	padding: 0px;
+	height: 90%;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: minmax(.25fr, 1fr);
+	grid-gap: 50px;
+	padding: 10px;
 }
 .form{
 	grid-row-start: 2;
@@ -123,7 +124,39 @@ td{
 }
 .table_area{
 	height: 100%;
+	width: 100%;
 	margin: auto;
+}
+.enc {
+	height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-rows: .25fr 2fr;
+	box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: var(--primary);
+	border-radius: 30px;
+}
+.tbl {
+	width: 100%;
+	height: 100%;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+.course_table{
+	width: 100%;
+	height: 100%;
+	display: table;
+	padding: 0px;
+	border-collapse: collapse;
+	background-color: var(--tertiary);
+	border-radius: 0px 0px 10px 10px;
+	overflow: hidden;
+}
+.course_header {
+	width: 100%;
+	height: 100%;
+	grid-row-start: 1;
+	grid-row-end: 2;
 }
 .schedule_table{
 	width: 100%;
