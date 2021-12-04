@@ -53,6 +53,7 @@ th{
 	margin: auto;
 	border-spacing: 0;
 	background-color: var(--secondary);
+	border-bottom: solid;
 }
 .container {
 	display: grid;

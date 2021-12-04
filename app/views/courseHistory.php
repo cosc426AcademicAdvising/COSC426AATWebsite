@@ -34,9 +34,9 @@
 				<table class='history_table' id="history_table">
 					<thead>
 						<tr>
-							<th onclick='sortTable(0)'>Course Number</th>
+							<th style="border-right: solid;" onclick='sortTable(0)'>Course Number</th>
 							<th onclick='sortTable(1)'>Title</th>
-							<th onclick='sortTable(2)'>Credits</th>
+							<th style="border-left: solid" onclick='sortTable(2)'>Credits</th>
 						</tr>
 					</thead>
 					<?php
