@@ -41,7 +41,7 @@ th{
 	text-align: center;
 	width: auto;
 	height: 50px;
-	padding: 0px;
+	padding: 8px;
 	margin: auto;
 	border-spacing: 0;
 	background-color: var(--secondary);	
@@ -58,8 +58,7 @@ td{
 	width: auto;
 	margin: auto;
 	border-spacing: 0;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding: 8px;
 }
 .fyp_header{
 	margin-bottom: 5px;
