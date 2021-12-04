@@ -60,7 +60,7 @@ th{
 	height: 100%;
 	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
 	grid-template-rows: 35% 35% 30%;
-	padding: 0px;
+	padding: 50px;
 }
 .table_area{
 	grid-column-start: 1;
