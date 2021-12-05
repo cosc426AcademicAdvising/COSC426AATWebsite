@@ -34,6 +34,10 @@ header h2 {
 	text-align: center;
 	padding: 22px;
 }
+
+.alt h2 {
+	text-align: center;
+}
 h3 {
 	text-align: center;
 	width: 100%;
@@ -300,6 +304,33 @@ th {
 	background-color: #5c5c5c;
 }
 
+.table_area tr:last-child td{
+	border-bottom: 0;
+}
+.table_area tr:last-child #left{
+
+	border-bottom-left-radius: 8px;
+
+}
+.table_area tr:last-child #right{
+	border-bottom-right-radius: 8px;
+
+}
+
+#left {
+    border-left: none;
+}
+
+#right {
+    border-right: none;
+}
+
+.alt {
+	height: 100%;
+	background-color: var(--secondary);
+	padding: 25px;
+	border-radius: 0px 0px 8px 8px;
+}
 @media only screen and (min-width: 720px) {
 	.container {
 		grid-template-columns: 1fr;

@@ -80,12 +80,38 @@ function displayFourYearPlan($fyp) {
     }
 }
 
+function displayScheduleCurrent($student) {
+    echo '<thead>';
+        echo '<tr>';
+        echo '<th style="border-right: solid; border-bottom: solid;">Course Number</th>';
+        echo '<th style="border-bottom: solid;">Title</th>';
+        echo '<th style="border-left: solid; border-bottom: solid;">Credits</th>';
+        echo '</tr>';
+    echo '</thead>';
+    for($i=0;$i<count($student['taking_course']);$i++){
+        echo "<tr>";
+        $style_sub = "";
+        $style_tit = "";
+        $style_cred = "";
+        if( $i % 2 != 0) {
+            $style_sub = 'border-left: none; background-color: #c9c9c9;';
+            $style_tit = 'background-color: #c9c9c9;';
+            $style_cred = 'border-right: none; background-color: #c9c9c9;';
+        }
+        echo "<td id='left' style='$style_sub'>".$student['taking_course'][$i]['subject']." ".$student['taking_course'][$i]['catalog']."</td>";
+        echo "<td style='$style_tit'>".$student['taking_course'][$i]['title']."</td>";
+        echo "<td id='right' style='$style_cred'>".$student['taking_course'][$i]['cred']."</td>";
+        echo "</tr>";
+    }
+}
+    
+
 function displayFourYearSemester($plan, $semester_plan) {
     echo '<thead>';
         echo '<tr>';
-            echo '<th>Course Number</th>';
-            echo '<th>Title</th>';
-            echo '<th>Credit</th>';
+        echo '<th style="border-right: solid; border-bottom: solid;">Course Number</th>';
+        echo '<th style="border-bottom: solid;">Title</th>';
+        echo '<th style="border-left: solid; border-bottom: solid;">Credits</th>';
         echo '</tr>';
     echo '</thead>';
     for($i=0;$i<count($plan[$semester_plan]);$i++){
@@ -120,3 +146,5 @@ function combinedFourYear($majors) {
 	}
 	echo '<script> var combined_four_year_plans = ' . json_encode( $list )  . '; </script>';
 }
+
+?>
