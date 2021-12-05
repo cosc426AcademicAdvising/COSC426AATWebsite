@@ -63,13 +63,14 @@
 									displayScheduleCurrent($student);
 									echo '</table>';
 								}
-								else
+								else {
 									echo "<div class='alt'>";
 									echo "<h2> No Schedule Found </h2>";
 									echo "<h2> On the left sidebar </h2>";
 									echo "<h2> Please go to Schedule -> New </h2>";
 									echo "<h2> to create your schedule </h2>";
 									echo "</div>";
+								}
 							?>
 						
 					</div>
