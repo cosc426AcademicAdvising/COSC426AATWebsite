@@ -38,9 +38,9 @@
 						<table class='taking_table'>
 							<thead>
 								<tr>
-									<th>Course Number</th>
-									<th>Title</th>
-									<th>Credits</th>
+									<th style="border-right: solid; border-bottom: solid;">Course Number</th>
+									<th style="border-bottom: solid;">Title</th>
+									<th style="border-left: solid; border-bottom: solid;">Credits</th>
 								</tr>
 							</thead>
 							<?php
@@ -71,9 +71,9 @@
 						<table class='taking_table'>
 							<thead>
 								<tr>
-									<th>Course Number</th>
-									<th>Title</th>
-									<th>Credits</th>
+									<th style="border-right: solid; border-bottom: solid;">Course Number</th>
+									<th style="border-bottom: solid;">Title</th>
+									<th style="border-left: solid; border-bottom: solid;">Credits</th>
 								</tr>
 							</thead>
 							<?php
