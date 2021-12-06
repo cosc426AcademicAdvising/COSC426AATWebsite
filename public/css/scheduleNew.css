@@ -101,3 +101,10 @@ button:hover, input[type="submit"]:hover {
   	text-decoration: none;
 	cursor: pointer;
 }
+.welcome {
+	background-color: var(--offWhite);
+	border-radius: 8px;
+	text-align: center;
+	padding: 25px;
+	margin: auto auto 40px auto;
+}
