@@ -25,6 +25,14 @@ function getMajors(){
     return $major;
 }
 
+// Get all minors
+function getMinors(){
+    global $token;
+    $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/Minor', array('auth-token' => $token));
+    $major = json_decode($response->body, true);
+    return $major;
+}
+
 // Get all Majors under a school
 // echo $val[0]['Acad Plan'];
 function getMajorsbySchool($school){
