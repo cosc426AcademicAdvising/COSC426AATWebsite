@@ -15,6 +15,11 @@
 	<?php
 		ob_start();
 		session_start();
+		// require 'vendor/autoload.php';
+
+		// include_once 'funcs/CourseFunctions.php';
+		// include_once 'funcs/StudentFunctions.php';
+		// include_once 'funcs/FourYearFunctions.php';
 
 		// available courses
 		echo '<script> var available_courses = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
@@ -95,7 +100,7 @@
                     <input type="hidden" id="forBackup" name="forBackup" value="No">
 					<input type="hidden" id="studentname" name="studentname" value=<?php echo $student_name; ?>>
 					<input type="hidden" id="studentid" name="studentid" value=<?php echo $student_id; ?>>
-					<button type="button" onclick="saveDraft_firstTime()">Submit</button>
+					<button type="button" onclick="saveStudent_firstTime()">Submit</button>
 
 				</form>
 			</div>
