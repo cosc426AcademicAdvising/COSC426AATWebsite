@@ -16,11 +16,6 @@
 	<?php
 	ob_start();
 	session_start();
-	// require 'vendor/autoload.php';
-
-	// include_once 'funcs/CourseFunctions.php';
-	// include_once 'funcs/StudentFunctions.php';
-	// include_once 'funcs/FourYearFunctions.php';
 
 	// available courses
 	echo '<script> var available_courses = ' . json_encode(getCoursebyRegex("", "", "", ""))  . '; </script>';
@@ -40,8 +35,12 @@
 		}
 	}
 
+	$is_draft_present = isDraftPresent($student['s_id']);
+	echo '<script> var is_draft_present = ' . json_encode($is_draft_present)  . '; </script>';
+
 	// for recommandations
 	combinedFourYear($majors);
+	echo '<script> var student_id = ' . json_encode($student['s_id'])  . '; </script>';
 	echo '<script> var student_course_hist = ' . json_encode($student['course_taken'])  . '; </script>';
 	echo '<script> var current_semester_number = ' . json_encode(intval($student['semester']))  . '; </script>';
 	?>
@@ -52,6 +51,7 @@
 	<datalist id="recommended_courses"></datalist>
 
 	<script>
+		console.log(available_courses);
 		available_courses = available_courses.filter(function(val) {
 			return val["Allowd Unt"] != "999.00";
 		});
@@ -85,7 +85,7 @@
 
 		<div class="schedule-new">
 			<form action="javascript:submitPlan()" id="programplanningworksheet">
-			<!-- <form onSubmit="return submitPlan()" id="programplanningworksheet"> -->
+				<!-- <form onSubmit="return submitPlan()" id="programplanningworksheet"> -->
 				<p style="font-weight:normal;font-size:12px;text-align:right"><span class="required"> *</span> denotes a required field</p>
 				<h3 style="text-align:center; margin-bottom:20px;">Program Planning Worksheet</h3>
 
@@ -222,6 +222,13 @@
 
 	</div>
 	</div> <!-- flexbox div ends -->
+
+	<!-- table and buttons functionalities -->
+	<script src="public/js/scheduleNewFuncs.js"></script>
+
+	<!-- courses recommandations contains function recommend_courses()-->
+	<script src="public/js/recommendCourses.js"></script>
+
 	<script>
 		$('nav ul .schedule-show').toggleClass("sch");
 		$('nav ul .first').toggleClass("rotate");
@@ -233,13 +240,12 @@
 		if ($('#schedule-backupcoursetable tbody').children().length == 1) {
 			$('#schedule-backupcoursetable').toggle();
 		}
+
+		// if draft was not saved recommend courses
+		if (is_draft_present != 1) {
+			recommend_courses(true)
+		}
 	</script>
-
-	<!-- table and buttons functionalities -->
-	<script src="public/js/scheduleNewFuncs.js"></script>
-
-	<!-- courses recommandations -->
-	<script src="public/js/recommendCourses.js"></script>
 
 </body>
 

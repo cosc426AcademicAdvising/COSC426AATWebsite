@@ -34,3 +34,12 @@ function createStudent($vals){
 	$response = Requests::post($url, array('auth-token' => $token), $vals);
 	return $response;
 }
+
+// returns 1 if draft is present otherwise 0
+function isDraftPresent($sid) {
+  global $token;
+  $url = 'https://cosc426restapi.herokuapp.com/api/Draft/draftExists/'.$sid;
+  $response = Requests::get($url, array('auth-token' => $token));
+  $draft_status = json_decode($response->body, true);
+  return $draft_status;
+}

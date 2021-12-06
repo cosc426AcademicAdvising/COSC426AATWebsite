@@ -9,14 +9,14 @@ function scheduleAddCourse(course, course_for, isRec) {
 		// setup html
 		var text = "";
 		if(isRec == true) {
-			text = "<tr title='recommended course'><td>" + course_attr[0].toUpperCase() + "</td><td>" + course_attr[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + course_for.toUpperCase() + " </td><td>" + rmbutton + "</td></tr>";
+			text = `<tr title='recommended course'><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for.toUpperCase()}</td><td>${rmbutton}</td></tr>`;
 		} else {
 			course_for_array = []
 			for (box of $(".checkboxaddcourse")){
 				if (box.checked)
 					course_for_array.push(box.value);
 			}
-			text = "<tr><td>" + course_attr[0].toUpperCase() + "</td><td>" + course_attr[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + course_for_array.join(", ") + " </td><td>" + rmbutton + "</td></tr>";
+			text = `<tr title='recommended course'><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for_array.join(", ")}</td><td>${rmbutton}</td></tr>`;
 		}
 
 		// get current courses present in tables
@@ -126,8 +126,8 @@ function saveDraft() {
 	}
 
 	// create temporary form to send draft object
-	$form = $('<form action="savedraft" method="POST"></form>')
-	$form.append("<input type='submit' id='clickme' name='draft' value='" + JSON.stringify(draftObj) +"'>")
+	$form = $('<form action="savedraft" method="POST"></form>');
+	$form.append(`<input type='submit' id='clickme' name='draft' value='${JSON.stringify(draftObj)}'>`);
 	$('body').append($form);
 	$('#clickme').click();
 }
@@ -164,8 +164,8 @@ function submitPlan() {
 	}
 
 	// create temporary form to send draft object
-	$form = $('<form action="submitPPW" method="POST"></form>')
-	$form.append("<input type='submit' id='clickme2' name='PPW' value='" + JSON.stringify(Obj) + "'>")
+	$form = $('<form action="submitPPW" method="POST"></form>');
+	$form.append(`<input type='submit' id='clickme2' name='PPW' value='${JSON.stringify(Obj)}'>`);
 	$('body').append($form);
 	$('#clickme2').click();
 }
