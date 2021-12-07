@@ -10,7 +10,11 @@ function scheduleAddCourse(course, course_for, isRec) {
 		var text = "";
 		if(isRec == true) {
 			text = `<tr title='recommended course'><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for.toUpperCase()}</td><td>${rmbutton}</td></tr>`;
-		} else {
+		}
+		else if (course_for != ''){
+			text = `<tr><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for.toUpperCase()}</td><td>${rmbutton}</td></tr>`;
+		} 
+		else{
 			course_for_array = []
 			for (box of $(".checkboxaddcourse")){
 				if (box.checked)

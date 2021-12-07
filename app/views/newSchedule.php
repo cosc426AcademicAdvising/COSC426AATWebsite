@@ -35,8 +35,14 @@
 		}
 	}
 
+	// draft
 	$is_draft_present = isDraftPresent($student['s_id']);
 	echo '<script> var is_draft_present = ' . json_encode($is_draft_present)  . '; </script>';
+	// if draft make js variable for it
+	if ($is_draft_present == 1) {
+		$draft = getDraft($student['s_id']);
+		echo '<script> var student_draft = ' . json_encode($draft)  . '; </script>';
+	}
 
 	// for recommandations
 	combinedFourYear($majors);
@@ -51,7 +57,6 @@
 	<datalist id="recommended_courses"></datalist>
 
 	<script>
-		console.log(available_courses);
 		available_courses = available_courses.filter(function(val) {
 			return val["Allowd Unt"] != "999.00";
 		});
@@ -167,7 +172,7 @@
 						<label for="electcourse">for Elective</label>
 					</div>
 					<div style="display:inline-block;text-align:center;">
-						<label for="forBackup">Is a back-up<br>course?</label><br>
+						<label for="forBackup">Is a Backup<br>course?</label><br>
 						<select id="forBackup" name="forBackup">
 							<option>No</option>
 							<option>Yes</option>
@@ -191,19 +196,17 @@
 					</table>
 				</div>
 
-				<div style="text-align:center;margin-top:20px;">
-					<label for="schedule-backupcoursetable"><u>Back-up Courses</u></label>
-				</div>
-				<div id="schedule-backupcourse">
+				<!-- <div style="text-align:center;margin-top:20px;">
+					<label for="schedule-backupcoursetable"><u>Backup Courses</u></label>
+				</div> -->
+				<div id="schedule-backupcourse" style="margin-top:10px;">
 					<table id="schedule-backupcoursetable">
-						<tr hidden>
-							<b>
-								<th style="width:10%px;">Course Number</th>
-								<th style="width:50%;">Title</th>
-								<th style="width:5%;">Credits</th>
-								<th style="width:20%;">Fulffilment</a></th>
-								<th></th>
-							</b>
+						<tr>
+							<th style="width:10%px;visibility:hidden;">Course Number</th>
+							<th style="width:50%; background-color:#ffff;">Backup Courses</th>
+							<th style="width:5%;visibility:hidden;">Credits</th>
+							<th style="width:20%;visibility:hidden;">Fulffilment</th>
+							<th style="visibility:hidden;"></th> <!-- for close button -->
 						</tr>
 					</table>
 				</div>
@@ -229,6 +232,9 @@
 	<!-- courses recommandations contains function recommend_courses()-->
 	<script src="public/js/recommendCourses.js"></script>
 
+	<!-- fill tables with draft obj data if student had saved-->
+	<script src="public/js/fillWithDraft.js"></script>
+
 	<script>
 		$('nav ul .schedule-show').toggleClass("sch");
 		$('nav ul .first').toggleClass("rotate");
@@ -244,6 +250,8 @@
 		// if draft was not saved recommend courses
 		if (is_draft_present != 1) {
 			recommend_courses(true)
+		} else {
+			fill_with_draft();
 		}
 	</script>
 

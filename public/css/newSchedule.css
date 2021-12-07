@@ -4,7 +4,8 @@ input {
 
 #programplanningworksheet {
 	outline: 2px solid black;
-	padding: 2%;
+	padding:3%;
+	padding-left:10%;
 	border-radius: 8px;
 }
 

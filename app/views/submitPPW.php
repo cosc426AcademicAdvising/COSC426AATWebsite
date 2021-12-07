@@ -48,6 +48,10 @@
 		if ($result === FALSE) { 
 			/* Handle error */
 		} elseif ($result == 1) {
+			// delete draft
+			deleteDraft($student['s_id']);
+			
+			// email notif
 			$to = "florentdondjeu@yahoo.com";	// advising email
 			$subject = "Notification: Program Planning Submittion";
 			

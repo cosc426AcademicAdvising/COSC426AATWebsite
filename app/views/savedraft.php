@@ -14,7 +14,8 @@
 	<?php
 	ob_start();
 	session_start();
-	// require 'vendor/autoload.php';
+
+	$student = getStudent($_SESSION['username']);
 	?>
 </head>
 
@@ -27,7 +28,11 @@
 
 		<?php
 		$text = $_POST['draft'];
-		echo $text;
+
+		// delete old draft
+		// deleteDraft($student['s_id']);
+
+		// echo $text;
 		global $token;
 		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Submit/';
 		$data = array('form' => $text);
