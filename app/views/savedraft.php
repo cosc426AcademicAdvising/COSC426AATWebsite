@@ -35,7 +35,7 @@
 		// echo $text;
 		global $token;
 
-		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Delete/' + $student['s_id'];
+		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Delete/'.strval($student['s_id']);
 		// use key 'http' even if you send the request to https://...
 		$options = array(
 		 	'http' => array(
