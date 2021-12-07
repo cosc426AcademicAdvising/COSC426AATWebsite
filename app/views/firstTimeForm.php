@@ -66,7 +66,7 @@
 
 		<div id="content" style="overflow: auto; width: 80%; margin: auto; border: none;">
 		<div class="welcome">
-			<?php echo "<h1> Welcome ".$student_name." To The Academic Planner</h1>"; ?>
+			<?php echo "<h1> Welcome To The Academic Planner</h1>"; ?>
 		</div>
         <div class="title">
             <h1 style="margin-top: 5px;">Course History</h1>

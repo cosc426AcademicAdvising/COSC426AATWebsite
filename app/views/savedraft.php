@@ -34,6 +34,20 @@
 
 		// echo $text;
 		global $token;
+
+		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Delete/' + $student['s_id'];
+		// use key 'http' even if you send the request to https://...
+		$options = array(
+		 	'http' => array(
+		 		'header'  => "Content-type: application/json",
+		 		'method'  => 'GET'
+		 	)
+		 );
+		 $context  = stream_context_create($options);
+		 $result = file_get_contents($url, false, $context);
+		
+
+
 		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Submit/';
 		$data = array('form' => $text);
 		// use key 'http' even if you send the request to https://...
