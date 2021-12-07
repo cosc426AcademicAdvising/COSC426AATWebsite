@@ -27,6 +27,15 @@ function newPass($sid, $hsh){
   return $response;
 }
 
+function api_get_paseto($sid, $pass){
+  $arr = array('id' => intval($_POST['s_id']), 'password' => $_POST['psw']);
+  $send = json_encode($arr);
+  $header = array('Content-Type' => 'application/json');
+  $url = "https://cosc426restapi.herokuapp.com/api/user/login";
+  $asd = Requests::post($url, $header, $send);
+  return $asd->body;
+}
+
 function createStudent($vals){
 	global $token;
 	$sid=$vals['s_id'];
