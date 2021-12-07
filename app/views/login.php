@@ -33,6 +33,7 @@
 				if (password_verify($_POST['password'], $hash)) {
 					$_SESSION['valid'] = true;
 					$_SESSION['username'] = $stud['s_id'];
+					$_SESSION['token'] = api_get_paseto($_POST['s_id'], $_POST['password']);
 					$url='dashboard';
 					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 				}else {
