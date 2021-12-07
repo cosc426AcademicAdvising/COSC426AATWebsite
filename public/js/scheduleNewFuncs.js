@@ -16,7 +16,7 @@ function scheduleAddCourse(course, course_for, isRec) {
 				if (box.checked)
 					course_for_array.push(box.value);
 			}
-			text = `<tr title='recommended course'><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for_array.join(", ")}</td><td>${rmbutton}</td></tr>`;
+			text = `<tr><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for_array.join(", ")}</td><td>${rmbutton}</td></tr>`;
 		}
 
 		// get current courses present in tables
