@@ -27,6 +27,7 @@
 	?>
 
 		<div id="content">
+		<div class="container">
 			<div id='table_area' class='table_area'>
 				<div id='history_header' class='history_header'>
 					<h4 style='color: white; text-align: center; padding: 10px;'>Course History</h4>
@@ -62,7 +63,7 @@
 					?>
 				</table>
 			</div>
-
+		</div>
 		</div>
 <script>
 	function sortTable(n) {
