@@ -81,7 +81,6 @@
 						<table class="schedule_table">
 
 							<?php
-								include_once 'funcs/FourYearFunctions.php';
 								if(isset($_POST['major']))
 									$plan = getFourYearbyMajor($_POST['major']);
 								if($plan != "")
