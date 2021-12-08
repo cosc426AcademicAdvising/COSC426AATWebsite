@@ -37,7 +37,7 @@ A web application that allows students to register for courses, view their progr
 - [Heroku](https://cosc426website.herokuapp.com/)
 
 ### Dependencies
-- rmccue/requests v1.8.1 see [composer.lock](https://github.com/quincden/COSC426AATWebsite/blob/main/composer.lock)
+- rmccue/requests v1.8.1 see [composer.lock](composer.lock)
 
 ## [File Structure](files_structure.txt)
 With the PHP framework, a routing class was implemented to help customize the application url link and also help decrease the excessive use of 'include' every where in the code. Its implementation can be found in `app/core/Router.php`.<br/>
