@@ -29,7 +29,6 @@
 		<?php
 		$text = $_POST['PPW'];
 
-		// echo $text;
 		global $token;
 		$url = 'https://cosc426restapi.herokuapp.com/api/Update/SubmitForm/';
 		$data = array('form' => $text);
@@ -49,44 +48,45 @@
 			/* Handle error */
 		} elseif ($result == 1) {
 			// delete draft
-			deleteDraft($student['s_id']);
-			
-			// email notif
-			$to = "florentdondjeu@yahoo.com";	// advising email
-			$subject = "Notification: Program Planning Submittion";
-			
-			$message = "The following student: " . $student['name'] . ". SID: " . $student['s_id'];
-			$message .=	"\nhas completed their program planning worksheet, which is now availble for viewing in the python application!";
-			$message = wordwrap($message, 70);
-
-			$server_mail = "florentdondjeu@gmail.com";
-			$headers = array(
-				'From' => $server_mail,
-				'Reply-To' => $server_mail
+			$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Delete/' . strval($student['s_id']);
+			$options = array(
+				'http' => array(
+					'header'  => "Content-type: application/json",
+					'method'  => 'GET'
+				)
 			);
+			$context  = stream_context_create($options);
+			$result = file_get_contents($url, false, $context);
+			
+			// email notif	- need to setup SMTP with heroku email
+			// $to = "florentdondjeu@yahoo.com";	// advising email
+			// $subject = "Notification: Program Planning Submittion";
+			
+			// $message = "The following student: " . $student['name'] . ". SID: " . $student['s_id'];
+			// $message .=	"\nhas completed their program planning worksheet, which is now availble for viewing in the python application!";
+			// $message = wordwrap($message, 70);
 
-			$success = mail($to, $subject, $message, $headers);
-			if (!$success) {
-				echo $errorMessage = error_get_last()['message'];
-			} else {
-				echo "email sent!";
-				// header("Location: dashboard");
-			}
+			// $server_mail = "florentdondjeu@gmail.com";
+			// $headers = array(
+			// 	'From' => $server_mail,
+			// 	'Reply-To' => $server_mail
+			// );
+
+			// $success = mail($to, $subject, $message, $headers);
+			// if (!$success) {
+			// 	// echo $errorMessage = error_get_last()['message'];
+			// 	echo "<script>console.log('Error: Submit PPW - email not sent!')</script>";
+			// } else {
+			// 	echo "email sent!";
+			// 	echo "<script>console.log('Success: Submit PPW - email sent.')</script>";
+			// }
+			header("Location: dashboard");
 		}
 		?>
 
 	</div>
 	</div> <!-- flexbox div ends -->
 
-
-	<!-- <script>
-		$('nav ul .schedule-show').toggleClass("sch");
-		$('nav ul .first').toggleClass("rotate");
-		$('.schedule-view-btn').css({
-			"color": "#8a0000",
-			"border-left-color": "#8a0000"
-		});
-	</script> -->
 </body>
 
 </html>

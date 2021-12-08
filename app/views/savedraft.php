@@ -30,9 +30,6 @@
 		$text = $_POST['draft'];
 
 		// delete old draft
-		// deleteDraft($student['s_id']);
-
-		// echo $text;
 		global $token;
 
 		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Delete/'.strval($student['s_id']);
@@ -47,10 +44,9 @@
 		 $result = file_get_contents($url, false, $context);
 		
 
-
+		// save new draft
 		$url = 'https://cosc426restapi.herokuapp.com/api/Draft/Submit/';
 		$data = array('form' => $text);
-		// use key 'http' even if you send the request to https://...
 		$options = array(
 		 	'http' => array(
 		 		'header'  => "Content-type: application/json",
@@ -70,15 +66,6 @@
 	</div>
 	</div> <!-- flexbox div ends -->
 
-
-	<!-- <script>
-		$('nav ul .schedule-show').toggleClass("sch");
-		$('nav ul .first').toggleClass("rotate");
-		$('.schedule-view-btn').css({
-			"color": "#8a0000",
-			"border-left-color": "#8a0000"
-		});
-	</script> -->
 </body>
 
 </html>
