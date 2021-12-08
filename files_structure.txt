@@ -13,6 +13,7 @@
 │   └── views
 │       ├── courseHistory.php
 │       ├── dashboard.php
+│       ├── firstTimeForm.php
 │       ├── forgotpass.php
 │       ├── info.php
 │       ├── login.php
@@ -20,14 +21,18 @@
 │       ├── minorPlan.php
 │       ├── nav.php
 │       ├── newSchedule.php
+│       ├── newUser.php
 │       ├── savedraft.php
 │       ├── signout.php
 │       ├── signup.php
+│       ├── submitFirstTime.php
+│       ├── submitPPW.php
 │       └── viewSchedule.php
 ├── composer.json
 ├── composer.lock
 ├── files_structure.txt
 ├── index.php
+├── logins_for_testing.txt
 ├── public
 │   ├── css
 │   │   ├── courseHistory.css
@@ -38,13 +43,15 @@
 │   │   ├── minplan.css
 │   │   ├── nav.css
 │   │   ├── newSchedule.css
-│   │   └── plan.css
+│   │   ├── newUser.css
+│   │   ├── plan.css
+│   │   ├── scheduleNew.css
+│   │   └── scheduleView.css
 │   └── js
+│       ├── fillWithDraft.js
+│       ├── firstTimeFuncs.js
 │       ├── recommendCourses.js
 │       └── scheduleNewFuncs.js
 └── vendor
-    ├── autoload.php
-    ├── composer
-    └── rmccue
 
-22 directories, 111 files
+22 directories, 121 files
