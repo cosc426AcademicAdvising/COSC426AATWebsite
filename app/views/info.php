@@ -14,7 +14,6 @@
 	<?php
 		ob_start();
 		session_start();
-		require 'vendor/autoload.php';
 	?>
 </head>
 
@@ -24,7 +23,7 @@
 		$student = getStudent($_SESSION['username']);
 	?>
 		<div id="content">
-			<div id="container">
+			<div class="container">
 				<div class='taking' id='taking'>
 					<div class='taking_header'>
 						<h3>Student Resources</h3>

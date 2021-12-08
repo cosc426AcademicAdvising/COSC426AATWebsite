@@ -101,10 +101,54 @@ button:hover, input[type="submit"]:hover {
   	text-decoration: none;
 	cursor: pointer;
 }
+
 .welcome {
 	background-color: var(--offWhite);
 	border-radius: 8px;
 	text-align: center;
 	padding: 25px;
 	margin: auto auto 40px auto;
+}
+
+.std_input {
+	background-color: var(--offWhite);
+	border-radius: 8px;
+	padding: 20px;
+}
+
+.std_title {
+	border-style: solid;
+	border-color: var(--primary);
+	border-radius: 8px;
+	padding: 4px;
+	width: 40%;
+	height: auto;
+	margin: auto auto 15px auto;
+	justify-content: center;
+}
+.std_id {
+	border-bottom: solid;
+	border-color: var(--primary);
+	padding: 15px;
+	width: 40%;
+	height: auto;
+	margin: auto auto 15px 0;
+	justify-content: center;
+}
+
+.std_maj {
+	border-bottom: solid;
+	border-color: var(--primary);
+	padding: 15px;
+	width: 40%;
+	height: auto;
+	margin: auto auto 15px 0;
+	justify-content: center;
+}
+.schedule-new {
+	background-color: var(--offWhite);
+}
+
+.container {
+	padding: 2%;
 }

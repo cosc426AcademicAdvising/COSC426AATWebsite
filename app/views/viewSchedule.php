@@ -23,13 +23,7 @@
 		$student = getStudent($_SESSION['username']);
 	?>
 		<div id="content">
-			<?php
-				$total = count($student["backup_course"]);
-				if( $total < 2)
-					echo "<div class='container' id='container' style='grid-template-rows: 1fr .5fr;'>";
-				else
-					echo "<div class='container' id='container' style='grid-auto-rows: 1fr;'>";
-			?>
+			<div class="container">
 				<div class='taking' id='taking'>
 					<div class='taking_header'>
 						<h3>Main Courses</h3>
@@ -38,9 +32,9 @@
 						<table class='taking_table'>
 							<thead>
 								<tr>
-									<th style="border-right: solid; border-bottom: solid;">Course Number</th>
-									<th style="border-bottom: solid;">Title</th>
-									<th style="border-left: solid; border-bottom: solid;">Credits</th>
+									<th>Course Number</th>
+									<th>Title</th>
+									<th>Credits</th>
 								</tr>
 							</thead>
 							<?php
@@ -71,9 +65,9 @@
 						<table class='taking_table'>
 							<thead>
 								<tr>
-									<th style="border-right: solid; border-bottom: solid;">Course Number</th>
-									<th style="border-bottom: solid;">Title</th>
-									<th style="border-left: solid; border-bottom: solid;">Credits</th>
+									<th>Course Number</th>
+									<th>Title</th>
+									<th>Credits</th>
 								</tr>
 							</thead>
 							<?php
@@ -96,6 +90,7 @@
 						</table>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 </div> <!-- flexbox div ends -->

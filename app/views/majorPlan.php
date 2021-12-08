@@ -14,9 +14,6 @@
 	<?php
 		ob_start();
 		session_start();
-		// require 'vendor/autoload.php';
-		// include_once 'funcs/StudentFunctions.php';
-		// include_once 'funcs/FourYearFunctions.php';
 		$student = getStudent($_SESSION['username']);
 	?>
 </head>

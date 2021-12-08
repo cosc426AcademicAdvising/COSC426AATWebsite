@@ -59,7 +59,7 @@ th{
 	height: 100%;
 	/* grid-template-columns: 1fr; */
 	grid-auto-rows:  1fr;
-	padding: 50px;
+	padding: 2%;
 	grid-gap: 50px;
 	overflow: auto;
 }
@@ -80,7 +80,7 @@ th{
 }
 .course_header {
 	grid-row-start: 1;
-	grid-row-end: 2;
+	grid-row-end: 2; 
 	padding: 10px;
 }
 .course_table{

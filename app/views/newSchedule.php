@@ -87,7 +87,7 @@
 	?>
 
 	<div id="content" style="overflow: scroll;">
-
+		<div class="conatiner">
 		<div class="schedule-new">
 			<form action="javascript:submitPlan()" id="programplanningworksheet">
 				<!-- <form onSubmit="return submitPlan()" id="programplanningworksheet"> -->
@@ -222,7 +222,7 @@
 
 			</form>
 		</div>
-
+		</div>
 	</div>
 	</div> <!-- flexbox div ends -->
 

@@ -15,10 +15,6 @@
 	<?php
 		ob_start();
 		session_start();
-		// require 'vendor/autoload.php';
-
-		// include_once 'funcs/StudentFunctions.php';
-		// include_once 'funcs/FourYearFunctions.php';
 		$student = getStudent($_SESSION['username']);
 		$plan = getFourYearbyMajor($student['major'][0]['title']);
 		$semester_plan = "semester_".$student['semester'];
@@ -56,14 +52,13 @@
 					<div class="table_area">
 						
 							<?php
-								// include_once 'funcs/FourYearFunctions.php';
 								$total = count($student['taking_course']);
-								if($total > 1){
+								if($total > 0){
 									echo '<table class="schedule_table">';
 									displayScheduleCurrent($student);
 									echo '</table>';
 								}
-								else {
+								else{
 									echo "<div class='alt'>";
 									echo "<h2> No Schedule Found </h2>";
 									echo "<h2> On the left sidebar </h2>";
@@ -86,7 +81,7 @@
 						<table class="schedule_table">
 
 							<?php
-								// include_once 'funcs/FourYearFunctions.php';
+								include_once 'funcs/FourYearFunctions.php';
 								if(isset($_POST['major']))
 									$plan = getFourYearbyMajor($_POST['major']);
 								if($plan != "")

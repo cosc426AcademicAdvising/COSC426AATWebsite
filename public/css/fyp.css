@@ -41,7 +41,7 @@ th{
 	text-align: center;
 	width: auto;
 	height: 50px;
-	padding: 8px;
+	padding: 0px;
 	margin: auto;
 	border-spacing: 0;
 	background-color: var(--secondary);	
@@ -58,7 +58,8 @@ td{
 	width: auto;
 	margin: auto;
 	border-spacing: 0;
-	padding: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .fyp_header{
 	margin-bottom: 5px;
@@ -70,7 +71,7 @@ td{
 	grid-template-columns: 1fr 1fr;
 	grid-auto-rows: minmax(.25fr, 1fr);
 	grid-gap: 50px;
-	padding: 50px;
+	padding: 2%;
 }
 .form{
 	grid-row-start: 2;

@@ -56,12 +56,14 @@ th{
 	border-bottom: solid;
 }
 .container {
-	display: grid;
-	width: 100%;
+	/* display: grid;
+	width: 100%; */
 	height: 100%;
-	grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
-	grid-template-rows: 35% 35% 30%;
-	padding: 50px;
+	/* grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
+	grid-template-rows: 35% 35% 30%; */
+	margin: auto;
+	overflow: auto;
+	padding: 2%;
 }
 .table_area{
 	grid-column-start: 1;
