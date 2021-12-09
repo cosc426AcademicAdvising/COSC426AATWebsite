@@ -39,6 +39,7 @@ function api_get_paseto($sid, $pass){
 function createStudent($vals){
 	global $token;
 	$sid=$vals['s_id'];
+	$send = json_encode($vals);
 	$url = 'https://cosc426restapi.herokuapp.com/api/Student/'.$sid;
 	$response = Requests::post($url, array('auth-token' => $token), $vals);
 	return $response;
