@@ -46,7 +46,7 @@
                     $_SESSION['valid'] = true;
 					$_SESSION['username'] = $s_id;
                     $res = createStudent($vals);
-                    $url='firstTimeForm.php';
+                    $url='firsttime';
 					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 
                 } else {
