@@ -252,16 +252,6 @@
 	</div>
 	</div>
 	</div> <!-- flexbox div ends -->
-
-	<!-- table and buttons functionalities -->
-	<script src="JS/scheduleNewFuncs.js"></script>
-
-	<!-- courses recommandations -->
-	<script src="JS/recommendCourses.js"></script>
-
-	<!-- fill tables with draft obj data if student had saved-->
-	<script src="public/js/fillWithDraft.js"></script>
-	
 	<script>
 		$('nav ul .schedule-show').toggleClass("sch");
 		$('nav ul .first').toggleClass("rotate");
@@ -280,7 +270,18 @@
 		} else {
 			fill_with_draft();
 		}
-	</script>
+	}
+
+</script>
+
+<!-- table and buttons functionalities -->
+<script src="public/js/scheduleNewFuncs.js"></script>
+
+<!-- courses recommandations -->
+<script src="public/js/recommendCourses.js"></script>
+
+<!-- fill tables with draft obj data if student had saved-->
+<script src="public/js/fillWithDraft.js"></script>
 
 </body>
 
