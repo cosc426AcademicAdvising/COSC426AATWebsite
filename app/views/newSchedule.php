@@ -88,7 +88,7 @@
 	<div id="content" style="overflow: scroll;">
 		<div class="container">
 			<div class="schedule-new">
-				<form action="" id="programplanningworksheet">
+				<form action="javascript:submitPlan()" id="programplanningworksheet">
 					<div class="std_form">
 
 						<p class="denote" style="font-weight:normal;font-size:12px;text-align:right"><span class="required"> *</span> denotes a required field</p>
@@ -221,11 +221,11 @@
 									<table id="schedule-backupcoursetable">
 										<tr>
 											<b>
-												<th style="width:10%px;">Course</th>
-												<th style="width:50%;">Title</th>
-												<th style="width:5%;">Credits</th>
-												<th style="width:20%;">Fulffilment</a></th>
-												<th style="border-right: none;"></th>
+												<th style="width:10%px;visibility:hidden;">Course</th>
+												<th style="width:50%;visibility:hidden;">Title</th>
+												<th style="width:5%;visibility:hidden;">Credits</th>
+												<th style="width:20%;visibility:hidden;">Fulffilment</a></th>
+												<th style="border-right: none;visibility:hidden;"></th>
 											</b>
 										</tr>
 									</table>
