@@ -29,17 +29,9 @@
                     $s_id=$_POST['s_id'];
 
                     $student_major = $_POST['major'];
-                    $student_major_arr = explode(" ", $student_major);
-                    $cnt = count($student_major_arr);
-                    echo $cnt;
-                    for($i=0;$i<$cnt;$i++)
-                        echo $student_major_arr[$i];
-
-                    $student_minor_arr = [];
-                    if(isset($_POST['minor'])){
-                        $student_minor = $_POST['minor'];
-                        $student_minor_arr = explode(" ", $student_minor);
-                    }
+                    $student_minor = [];
+                    if(isset($_POST['minor']))
+                         $student_minor = $_POST['minor'];
 
                     $hash=password_hash($_POST['psw'], PASSWORD_BCRYPT);
                     $vals=array('s_id'=>$s_id, 'name'=>$name, 'passHash'=>$hash, 'major'=>$student_major_arr, 'minor'=>$student_minor_arr);

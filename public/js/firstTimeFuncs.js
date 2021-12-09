@@ -3,7 +3,7 @@ function addMajor() {
     var maj = $("#majorsearch").val();
     var cnt = $("#major_tbl tr").length;
     if(cnt <= 4){
-        $("#major_tbl").append("<tr><td><input type='text' name='major' value='" + maj + "'readonly/></td><td>" + rmbutton + "</td></tr>");
+        $("#major_tbl").append("<tr><td><input type='text' name='major[]' value='" + maj + "'readonly/></td><td>" + rmbutton + "</td></tr>");
         $("#majorsearch").val('');
     }
     else {
@@ -16,7 +16,7 @@ function addMajor() {
     var min = $("#minorsearch").val();
     var cnt = $("#minor_tbl tr").length;
     if(cnt <= 4){
-        $("#minor_tbl").append("<tr><td><input type='text' name='minor' value='" + min + "'readonly/></td><td>" + rmbutton + "</td></tr>");
+        $("#minor_tbl").append("<tr><td><input type='text' name='minor[]' value='" + min + "'readonly/></td><td>" + rmbutton + "</td></tr>");
         $("#minorsearch").val('');
     }
     else {

@@ -38,7 +38,7 @@ function api_get_paseto($sid, $pass){
 
 function createStudent($sid, $hsh, $name){
   global $token;
-  $url = "https://cosc426restapi.herokuapp.com/api/student/new/".$sid;
+  $url = "https://cosc426restapi.herokuapp.com/api/Student/new/".$sid;
   $headers = array('Content-Type' => 'application/json');
   $arr = array("s_id"=>$sid, "name"=>$name, "passHash"=>$hsh, "major"=>$major, "minor"=>$minor);
   $send = json_encode($arr);
