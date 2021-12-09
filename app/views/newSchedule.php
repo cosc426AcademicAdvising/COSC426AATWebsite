@@ -219,14 +219,12 @@
 								</div>
 								<div class="tbl_area">
 									<table id="schedule-backupcoursetable">
-										<tr>
-											<b>
-												<th style="width:10%px;visibility:hidden;">Course</th>
-												<th style="width:50%;visibility:hidden;">Title</th>
-												<th style="width:5%;visibility:hidden;">Credits</th>
-												<th style="width:20%;visibility:hidden;">Fulffilment</a></th>
-												<th style="border-right: none;visibility:hidden;"></th>
-											</b>
+										<tr style="display:none">
+											<th style="width:10%px;visibility:hidden;">Course</th>
+											<th style="width:50%;visibility:hidden;">Title</th>
+											<th style="width:5%;visibility:hidden;">Credits</th>
+											<th style="width:20%;visibility:hidden;">Fulffilment</a></th>
+											<th style="border-right: none;visibility:hidden;"></th>
 										</tr>
 									</table>
 								</div>
@@ -253,16 +251,16 @@
 	</div>
 	</div> <!-- flexbox div ends -->
 
-<!-- table and buttons functionalities -->
-<script src="public/js/scheduleNewFuncs.js"></script>
+	<!-- table and buttons functionalities -->
+	<script src="public/js/scheduleNewFuncs.js"></script>
 
-<!-- courses recommandations -->
-<script src="public/js/recommendCourses.js"></script>
+	<!-- courses recommandations -->
+	<script src="public/js/recommendCourses.js"></script>
 
-<!-- fill tables with draft obj data if student had saved-->
-<script src="public/js/fillWithDraft.js"></script>
+	<!-- fill tables with draft obj data if student had saved-->
+	<script src="public/js/fillWithDraft.js"></script>
 
-<script>
+	<script>
 		$('nav ul .schedule-show').toggleClass("sch");
 		$('nav ul .first').toggleClass("rotate");
 		$('.schedule-new-btn').css({
@@ -280,9 +278,7 @@
 		} else {
 			fill_with_draft();
 		}
-	}
-
-</script>
+	</script>
 
 
 

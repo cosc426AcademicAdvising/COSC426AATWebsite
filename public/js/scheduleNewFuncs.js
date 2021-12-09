@@ -9,10 +9,23 @@ function scheduleAddCourse(course, course_for, isRec) {
 		// setup html
 		var text = "";
 		if(isRec == true) {
-			text = `<tr title='recommended course'><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for.toUpperCase()}</td><td>${rmbutton}</td></tr>`;
+			text = `<tr title='recommended course'>
+					<td>${course_attr[0].toUpperCase()}</td>
+					<td>${course_attr[1].toUpperCase()}</td><td>${credit}</td>
+					<td>${course_for.toUpperCase()}</td>
+					<td>${rmbutton}</td>
+				</tr>`;
 		}
+		// added p tag with credits so that the both tables columns would match :)
 		else if (course_for != ''){
-			text = `<tr><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for.toUpperCase()}</td><td>${rmbutton}</td></tr>`;
+			console.log(course_attr[0].toUpperCase());
+			text = `<tr>
+					<td style="width:10%px">${course_attr[0].toUpperCase()}
+					</td><td style="width:50%;">${course_attr[1].toUpperCase()}</td>
+					<td style="width:5%;line-height:0;">${credit}<p style="visibility:hidden;">Credits</p></td>
+					<td style="width:20%;">${course_for.toUpperCase()}</td>
+					<td>${rmbutton}</td>
+				</tr>`;
 		} 
 		else{
 			course_for_array = []
@@ -20,7 +33,13 @@ function scheduleAddCourse(course, course_for, isRec) {
 				if (box.checked)
 					course_for_array.push(box.value);
 			}
-			text = `<tr><td>${course_attr[0].toUpperCase()}</td><td>${course_attr[1].toUpperCase()}</td><td>${credit}</td><td>${course_for_array.join(", ")}</td><td>${rmbutton}</td></tr>`;
+			text = `<tr>
+					<td style="width:10%px;">${course_attr[0].toUpperCase()}</td>
+					<td style="width:50%;">${course_attr[1].toUpperCase()}</td>
+					<td style="width:5%;line-height:0;">${credit}<p style="visibility:hidden;">Credits</p></td>
+					<td style="width:20%;">${course_for_array.join(", ")}</td>
+					<td>${rmbutton}</td>
+				</tr>`;
 		}
 
 		// get current courses present in tables
