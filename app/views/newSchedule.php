@@ -252,7 +252,17 @@
 	</div>
 	</div>
 	</div> <!-- flexbox div ends -->
-	<script>
+
+<!-- table and buttons functionalities -->
+<script src="public/js/scheduleNewFuncs.js"></script>
+
+<!-- courses recommandations -->
+<script src="public/js/recommendCourses.js"></script>
+
+<!-- fill tables with draft obj data if student had saved-->
+<script src="public/js/fillWithDraft.js"></script>
+
+<script>
 		$('nav ul .schedule-show').toggleClass("sch");
 		$('nav ul .first').toggleClass("rotate");
 		$('.schedule-new-btn').css({
@@ -274,14 +284,7 @@
 
 </script>
 
-<!-- table and buttons functionalities -->
-<script src="public/js/scheduleNewFuncs.js"></script>
 
-<!-- courses recommandations -->
-<script src="public/js/recommendCourses.js"></script>
-
-<!-- fill tables with draft obj data if student had saved-->
-<script src="public/js/fillWithDraft.js"></script>
 
 </body>
 
