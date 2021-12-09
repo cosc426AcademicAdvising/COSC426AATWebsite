@@ -36,15 +36,16 @@ function api_get_paseto($sid, $pass){
   return $asd->body;
 }
 
-function createStudent($vals){
-	global $token;
-	$sid=$vals['s_id'];
-	$send = json_encode($vals);
-	$url = 'https://cosc426restapi.herokuapp.com/api/student/new/'.$sid;
-	$response = Requests::post($url, array('auth-token' => $token), $vals);
-	return $response;
+function createStudent($sid, $hsh, $name){
+  global $token;
+  $url = "http://localhost:5000/api/student/new/".$sid;
+  $headers = array('Content-Type' => 'application/json');
+  $arr = array("s_id"=>$sid, "name"=>$name, "passHash"=>$hsh);
+  $send = json_encode($arr);
+  echo $send;
+  $response = Requests::post($url, $headers, $send);
+  return $response;
 }
-
 // returns 1 if draft is present otherwise 0
 function isDraftPresent($sid) {
   global $token;
