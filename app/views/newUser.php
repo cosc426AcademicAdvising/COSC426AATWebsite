@@ -34,10 +34,10 @@
                          $student_minor = $_POST['minor'];
 
                     $hash=password_hash($_POST['psw'], PASSWORD_BCRYPT);
-                    $vals=array('s_id'=>$s_id, 'name'=>$name, 'passHash'=>$hash, 'major'=>$student_major_arr, 'minor'=>$student_minor_arr);
+                    $vals=array('s_id'=>$s_id, 'name'=>$name, 'passHash'=>$hash, 'major'=>$student_major, 'minor'=>$student_minor);
                     $_SESSION['valid'] = true;
 					$_SESSION['username'] = $s_id;
-                    $res = createStudent($s_id, $hash, $name, $student_major_arr, $student_minor_arr);
+                    $res = createStudent($s_id, $hash, $name, $student_major, $student_minor);
                     //header("Location: firsttime");
 
                 } else {
