@@ -24,8 +24,7 @@ if (isset($_POST['login'])) {
 			$s_id = $_POST['login'];
 			$hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
 			$enrdate = $_POST['enrolldate'];
-			$vals = array('s_id' => $s_id, 'name' => $name, 'passHash' => $hash, 'enrll' => $enrdate);
-			$res = createStudent($vals);
+			$res = createStudent($s_id, $hash, $name);
 		} else {
 			$msg = 'passwords do not match';
 		}
