@@ -38,7 +38,7 @@
                     $_SESSION['valid'] = true;
 					$_SESSION['username'] = $s_id;
                     $res = createStudent($s_id, $hash, $name, $student_major, $student_minor);
-                    //header("Location: firsttime");
+                    header("Location: firsttime");
 
                 } else {
                     $msg = 'passwords do not match';
