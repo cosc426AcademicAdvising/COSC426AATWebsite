@@ -18,7 +18,6 @@ function scheduleAddCourse(course, course_for, isRec) {
 		}
 		// added p tag with credits so that the both tables columns would match :)
 		else if (course_for != ''){
-			console.log(course_attr[0].toUpperCase());
 			text = `<tr>
 					<td style="width:10%px">${course_attr[0].toUpperCase()}
 					</td><td style="width:50%;">${course_attr[1].toUpperCase()}</td>
