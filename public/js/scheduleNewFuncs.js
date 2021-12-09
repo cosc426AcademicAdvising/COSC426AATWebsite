@@ -266,7 +266,7 @@ function saveStudent_firstTime() {
 	}
 	
 	// create temporary form to send draft object
-	$form = $('<form action="submitFirstTime.php" method="POST"></form>')
+	$form = $('<form action="submitfirsttime" method="POST"></form>')
 	$form.append("<input type='submit' id='clickme' name='first_time' value='" + JSON.stringify(draftObj) +"'>")
 	$('body').append($form);
 	$('#clickme').click();
