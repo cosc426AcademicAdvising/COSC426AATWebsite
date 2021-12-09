@@ -45,9 +45,8 @@
                     $vals=array('s_id'=>$s_id, 'name'=>$name, 'passHash'=>$hash, 'major'=>$student_major_arr, 'minor'=>$student_minor_arr);
                     $_SESSION['valid'] = true;
 					$_SESSION['username'] = $s_id;
-                    $res = createStudent($vals);
-                    $url='firsttime';
-					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+                    $res = createStudent($s_id, $hash, $name, $student_major_arr, $student_minor_arr);
+                    header("Location: firsttime");
 
                 } else {
                     $msg = 'passwords do not match';
