@@ -191,3 +191,83 @@ function submitPlan() {
 	$('body').append($form);
 	$('#clickme2').click();
 }
+
+
+
+function scheduleAddCourse_FirstTimeForm(course, course_for) {
+	if (course != "") {
+		var course_attr = course.split(seperator);
+		rmbutton = '<span class="close" onclick="removeCourse()">&times;</span>';
+		// credit = parseFloat(course_attr[2]).toFixed(0);
+		var credit = parseInt(course_attr[2])
+
+		// setup html
+		var text = "";
+		
+		course_for_array = []
+		text = "<tr><td>" + course_attr[0].toUpperCase() + "</td><td>" + course_attr[1].toUpperCase() + "</td><td>" + credit + "</td><td> " + course_for + " </td><td style='border-right:none;'>" + rmbutton + "</td></tr>";
+	
+
+		// get current courses present in tables
+		var current_courses = [];
+		var tabledata = $("#schedule-coursetable tbody").children().slice(1);
+		for (let i = 0; i < tabledata.length; i++) {
+			current_courses.push(tabledata[i].innerText.split("\t").slice(0, 4)[0]);
+		}
+
+		// if course number is not in one of the tables, proceed
+		if (current_courses.indexOf(course_attr[0]) == -1 ) {
+			// check that enrolled credits is not greater than 19
+			if(parseInt($('#creditenrolled').val()) + credit >= 20) {
+				alert("Enrolled credit limit exceeded! Course will be added to backup");
+				//	display backup table if adding first time
+				if ($('#schedule-backupcoursetable tbody').children().length == 1) {
+					$('#schedule-backupcoursetable').toggle();
+				}
+				$('#schedule-backupcoursetable').append(text);
+
+				$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
+				$("#coursesearchsection :input[id='coursesearch']").val("");
+				$("#coursesearch").focus();
+				$('#forBackup').prop('selectedIndex', 0);
+				return
+			}
+			$('#schedule-coursetable').append(text);
+			// update enrolled credits
+			$('#creditenrolled').val(parseInt($('#creditenrolled').val()) + credit);
+		} else {
+			alert("Cannot add the same course twice!");
+		}
+
+		$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
+		$("#coursesearchsection :input[id='coursesearch']").val("");
+		$("#coursesearch").focus();
+	}
+	else {
+		//error message empty input
+		alert("empty field!");
+	}
+}
+
+function saveStudent_firstTime() {
+	var courseTable = [];
+
+	var tabledata = $("#schedule-coursetable tbody").children().slice(1);	//slice(1) to remove table header row
+	if( tabledata.length > 0 ) {
+		for( let i=0; i<tabledata.length;i++ ) {
+			courseTable.push(tabledata[i].innerText.split("\t").slice(0, 4));
+			// slice (0,4) to exclude the remove button in each row
+		}
+	}
+
+	var draftObj = {
+		s_id:studentid.value,
+		taking_course:courseTable
+	}
+	
+	// create temporary form to send draft object
+	$form = $('<form action="submitFirstTime.php" method="POST"></form>')
+	$form.append("<input type='submit' id='clickme' name='first_time' value='" + JSON.stringify(draftObj) +"'>")
+	$('body').append($form);
+	$('#clickme').click();
+}
