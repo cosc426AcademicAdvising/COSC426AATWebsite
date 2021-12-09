@@ -15,20 +15,16 @@
 	<?php
 		ob_start();
 		session_start();
-		// require 'vendor/autoload.php';
-
-		// include_once 'funcs/CourseFunctions.php';
-		// include_once 'funcs/StudentFunctions.php';
-		// include_once 'funcs/FourYearFunctions.php';
 
 		// available courses
 		echo '<script> var available_courses = ' . json_encode( getCoursebyRegex("", "", "", ""))  . '; </script>';
 
 		//student information
 		//$student = getStudent($_SESSION['username']);
-		$student_name = $_POST['name'];
-		$student_id = $_POST['s_id'];
 		
+		$student_id = $_SESSION['username'];
+
+	
 	?>
     
 </head>
@@ -75,12 +71,23 @@
         </div>
 			<div class="schedule-new" style="background: #f0eeea;">
 				<form action="" id="programplanningworksheet">
-					<div id="coursesearchsection" style="margin:20px auto 40px auto; width:50%; border-bottom: solid 1px; ">
+					<div id="coursesearchsection" style="margin:20px auto 40px auto; width:60%; border-bottom: solid 1px; ">
 						<div style="display:inline-block; padding: 15px;">
 							<label for="course" style="margin: auto;">Search for a course <br> <font size="2">enter a subject, course number, title or credit amount</font></label><br>
 							<input list="available_courses" id="coursesearch" name="coursesearch" style="width:31vw;">
 						</div>
-						<button type='button' onclick="scheduleAddCourse(coursesearch.value, '', false)">Add</button>
+						<label for="sem">Semester</label>
+						<select name="sem" id="sem">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+						<button type='button' onclick="scheduleAddCourse_FirstTimeForm(coursesearch.value, sem.value)">Add</button>
 					</div>
 
 					<!-- Course table goes here -->
@@ -91,14 +98,12 @@
 									<th style="width:10%px;">Course Number<span class="required">*</span></th>
 									<th style="width:50%;">Title</th>
 									<th style="width:5%;">Credits</th>
-									<th style="width:20%;">Fulffilment</a></th>
+									<th style="width:20%;">Semester</a></th>
 									<th></th>
 								</b>
 							</tr>
 						</table>
 					</div>
-                    <input type="hidden" id="forBackup" name="forBackup" value="No">
-					<input type="hidden" id="studentname" name="studentname" value=<?php echo $student_name; ?>>
 					<input type="hidden" id="studentid" name="studentid" value=<?php echo $student_id; ?>>
 					<button type="button" onclick="saveStudent_firstTime()">Submit</button>
 

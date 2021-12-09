@@ -15,15 +15,54 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
     <?php
-    // include_once 'funcs/DepartmentFunctions.php';
 
 	echo '<script> var available_minors = ' . json_encode(getMinors())  . '; </script>';
     echo '<script> var available_majors = ' . json_encode(getMajors())  . '; </script>';
 
     ?>
+    <?php
+        $msg = '';
+        if (isset($_POST['form_submit'])){
+            if (!empty($_POST['name']) && !empty($_POST['psw']) && !empty($_POST['s_id']) && isset($_POST['major'])) {
+                if ($_POST['psw'] == $_POST['psw-repeat']){
+                    $name=$_POST['name'];
+                    $s_id=$_POST['s_id'];
 
+                    $student_major = $_POST['major'];
+                    $student_major_arr = explode(" ", $student_major);
+                    $cnt = count($student_major_arr);
+                    echo $cnt;
+                    for($i=0;$i<$cnt;$i++)
+                        echo $student_major_arr[$i];
+
+                    $student_minor_arr = [];
+                    if(isset($_POST['minor'])){
+                        $student_minor = $_POST['minor'];
+                        $student_minor_arr = explode(" ", $student_minor);
+                    }
+
+                    $hash=password_hash($_POST['psw'], PASSWORD_BCRYPT);
+                    $vals=array('s_id'=>$s_id, 'name'=>$name, 'passHash'=>$hash, 'major'=>$student_major_arr, 'minor'=>$student_minor_arr);
+                    $_SESSION['valid'] = true;
+					$_SESSION['username'] = $s_id;
+                    $res = createStudent($vals);
+                    $url='firstTimeForm.php';
+					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+
+                } else {
+                    $msg = 'passwords do not match';
+                    echo '<script>alert("'.$msg.'")</script>';
+                }
+            } else {
+                $msg = 'incomplete info';
+                echo '<script>alert("'.$msg.'")</script>';
+            }
+        }
+    ?>
 </head>
+
 <body>
+    
     <datalist id="available_minors"></datalist>
     <datalist id="available_majors"></datalist>
 
@@ -57,7 +96,7 @@
     <header>
 		<h2>Salisbury University</h2>
 	</header>
-    <form action="firsttime" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
     <div class="container">
         <div class="title">
             <h1>Register</h1>
@@ -105,7 +144,8 @@
                     <font size="1">enter an abbreviation</font>
                 </label><br>
                 <input list="available_minors" id="minorsearch" class="minorsearch" name="minorsearch">
-                <button type="button" class="add_minor" onclick='addMinor()'>Add</button>
+                <input type="hidden" name="form_submit" value=""/>
+                <button type="button"  class="add_minor" onclick='addMinor()'>Add</button>
             </div>
             <div class="m_vals">
                 <table id="minor_tbl">

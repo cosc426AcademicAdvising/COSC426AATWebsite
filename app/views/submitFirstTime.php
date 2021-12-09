@@ -13,7 +13,6 @@
 	<?php
 		ob_start();
 		session_start();
-		// require 'vendor/autoload.php';
 	?>
 </head>
 
@@ -30,9 +29,8 @@
 			if(isset($_POST['first_time'])){
 				$text = $_POST['first_time'];
 				$url = 'https://cosc426restapi.herokuapp.com/api/Student/firstTime/';
-                echo $text;
+				// $url = 'http://localhost:5000/api/Student/firstTime/';
 			}
-			echo $text;
 			global $token;
 			
 			$data = array('form' => $text);
@@ -49,7 +47,7 @@
 			if ($result === FALSE) { /* Handle error */ }
 
 			if($result == 1){
-				header("Location: viewSchedule");
+				header("Location: dashboard");
 			}
 		?>
 
