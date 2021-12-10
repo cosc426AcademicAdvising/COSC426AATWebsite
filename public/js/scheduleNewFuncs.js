@@ -271,3 +271,75 @@ function saveStudent_firstTime() {
 	$('body').append($form);
 	$('#clickme').click();
 }
+
+// function to display recommended courses for dashboard
+function add_recommended(courses) {
+	var text = "";
+	switch (true) {
+		case (courses.length >= 4):
+			for (let i = 0; i < 4; i++){
+				if(i%2 != 0){
+					text = `<tr>
+						<td style="border-left: none; background-color: #c9c9c9;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="background-color: #c9c9c9;">${courses[i]["title"]}</td>
+						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
+				} else{
+					text = `<tr>
+						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td>${courses[i]["title"]}</td>
+						<td>${courses[i]["cred"]}</td></tr>`;
+				}
+				$("#recommended-course-table").append(text);
+			}
+			break;
+
+		case (courses.length >= 3):
+			for (let i = 0; i < 3; i++) {
+				if (i % 2 != 0) {
+					text = `<tr>
+						<td style="border-left: none; background-color: #c9c9c9;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="background-color: #c9c9c9;">${courses[i]["title"]}</td>
+						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
+				} else {
+					text = `<tr>
+						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td>${courses[i]["title"]}</td>
+						<td>${courses[i]["cred"]}</td></tr>`;
+				}
+				$("#recommended-course-table").append(text);
+			}
+			break;
+		
+		case (courses.length >= 2):
+			for (let i = 0; i < 4; i++) {
+				if (i % 2 != 0) {
+					text = `<tr>
+						<td style="border-left: none; background-color: #c9c9c9;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="background-color: #c9c9c9;">${courses[i]["title"]}</td>
+						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
+				} else {
+					text = `<tr>
+						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td>${courses[i]["title"]}</td>
+						<td>${courses[i]["cred"]}</td></tr>`;
+				}
+				$("#recommended-course-table").append(text);
+			}
+
+			break;
+		
+		case (courses.length == 1):
+			text = `<tr>
+						<td>${courses[0]["subject"]} ${$.trim(courses[0]["catalog"])}</td>
+						<td>${courses[0]["title"]}</td>
+						<td>${courses[0]["cred"]}</td></tr>`;
+			$("#recommended-course-table").append(text);
+			break;
+	
+		default:
+			$("#recommended-course-table").html("");
+			$("#plan .dash_header").html("<h3>No Recommendations</h3>");
+			break;
+	}
+
+}
