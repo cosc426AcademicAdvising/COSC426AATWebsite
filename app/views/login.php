@@ -35,8 +35,13 @@
 					$_SESSION['valid'] = true;
 					$_SESSION['username'] = $stud['s_id'];
 					$_SESSION['token'] = api_get_paseto($_POST['s_id'], $_POST['password']);
-					$url='dashboard';
-					echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+					$complete_firstTime = count($student['course_taken']);
+					if($complete_firstTime < 1)
+						header("Location: firsttime");
+					else{
+						$url='dashboard';
+						echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+					}
 				}else {
 					$msg='Wrong username or password!';
 				}
