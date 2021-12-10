@@ -1,0 +1,68 @@
+#message-container{
+    position: fixed;
+    right: 2%;
+	margin-top: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flashed-message {
+	height: 60px;
+	outline: 2px solid black;
+	border-radius: 8px;
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+    vertical-align: middle;
+}
+
+.flashed-message p {
+    /* margin-top:auto; */
+    /* margin-bottom:auto; */
+    vertical-align: middle;
+}
+
+.flashed-message span {
+    float: right;
+    cursor: pointer;
+}
+
+.error{
+    background-color: red;
+}
+
+.success{
+    background-color: rgb(77, 233, 77);
+}
+
+.info {
+    background-color: dodgerblue;
+}
+
+.warning {
+    background-color: gold;
+    color: black;
+}
+
+.fadeout {
+    animation: fade-out 6s ease 1s forwards;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

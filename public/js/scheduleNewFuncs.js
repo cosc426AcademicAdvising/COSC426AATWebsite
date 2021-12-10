@@ -58,7 +58,8 @@ function scheduleAddCourse(course, course_for, isRec) {
 			if (forBackup.value == "No") {
 				// check that enrolled credits is not greater than 19
 				if(parseInt($('#creditenrolled').val()) + credit >= 20) {
-					alert("Enrolled credit limit exceeded! Course will be added to backup");
+					//alert("Enrolled credit limit exceeded! Course will be added to backup");
+					message('info', '<b>Alert:</b><br/> Enrolled credit limit exceeded!<br/> Course will be added as a backup');
 					//	display backup table if adding first time
 					if ($('#schedule-backupcoursetable tbody').children().length == 1) {
 						$('#schedule-backupcoursetable').toggle();
@@ -83,7 +84,7 @@ function scheduleAddCourse(course, course_for, isRec) {
 				$('#schedule-backupcoursetable').append(text);
 			}
 		} else {
-			alert("Cannot add the same course twice!");
+			message('warning', '<b>Alert:</b><br/> Cannot add the same course twice!');
 		}
 
 		$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
@@ -92,8 +93,7 @@ function scheduleAddCourse(course, course_for, isRec) {
 		$('#forBackup').prop('selectedIndex', 0);
 	}
 	else {
-		//error message empty input
-		alert("empty field!");
+		message('error', '<b>Alert:</b><br/> empty field!');
 	}
 }
 
