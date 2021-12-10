@@ -80,7 +80,7 @@
 			// 	echo "email sent!";
 			// 	echo "<script>console.log('Success: Submit PPW - email sent.')</script>";
 			// }
-			header("Location: dashboard");
+			header("Location: dashboard?success=2");
 		}
 		?>
 

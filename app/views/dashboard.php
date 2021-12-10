@@ -12,6 +12,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<link rel="stylesheet" href="public/css/dashboard.css">
+	<link rel="stylesheet" href="public/css/flashmessage.css">
 
 	<?php
 	ob_start();
@@ -86,6 +87,21 @@
 
 	<div id="content" style="overflow: auto">
 		<div class="container" id="container">
+
+			<!-- for messages to user -->
+			<section id="message-container"></section>
+			<script src="public/js/flashmessage.js"></script>
+
+			<?php
+			if (isset($_GET['success'])){
+				if($_GET['success'] == '1'){
+					echo "<script>message('success', '<b>Alert:</b><br/> Your draft has been saved!');</script>";
+				}
+				elseif($_GET['success'] == '2'){
+					echo "<script>message('success', '<b>Alert:</b><br/> Your new schedule has been submitted!');</script>";
+				}
+			}
+			?>
 
 			<div class="schedule" id="schedule">
 
