@@ -45,6 +45,10 @@
 				} else {
 					$fyp = getFourYearByMajor($student['major'][0]['title']);
 				}
+				if($fyp == null){
+					echo "<h2 style='text-align: center; margin: auto; grid-column-start: 1; grid-column-end: 3;'>No Plan Found For Selected Major.  Consult With Your Advisor For Guidance.</h2>";
+					echo "<div style='visibility: hidden;'>";
+				}
 			?>
 			
 			<div class="enc">
@@ -404,6 +408,11 @@
 				</div>
 			</div>
 			</div>
+			<?php
+				if($fyp == null){
+					echo "</div>";
+				}
+			?>
 		</div>
 </div> <!-- flexbox div ends -->
 
