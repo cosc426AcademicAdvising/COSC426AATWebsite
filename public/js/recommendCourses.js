@@ -99,22 +99,26 @@ function recommend_courses(isForNewSchedule)
 						var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
 						scheduleAddCourse(course, "MAJOR", true);
 					}
+					message('info', '<b>Alert:</b><br/> See recommendations below!');
 					break;
 				case (recommended_courses.length >= 3):
 					for (let i = 0; i < 3; i++) {
 						var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
 						scheduleAddCourse(course, "MAJOR", true);
 					}
+					message('info', '<b>Alert:</b><br/> See recommendations below!');
 					break;
 				case (recommended_courses.length >= 2):
 					for (let i = 0; i < 2; i++) {
 						var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
 						scheduleAddCourse(course, "MAJOR", true);
 					}
+					message('info', '<b>Alert:</b><br/> See recommendations below!');
 					break;
 				case (recommended_courses.length == 1):
 					var course = recommended_courses[0]["subject"] + " " + $.trim(recommended_courses[0]["catalog"]) + seperator + recommended_courses[0]["title"] + seperator + recommended_courses[0]["cred"];
 					scheduleAddCourse(course, "MAJOR", true);
+					message('info', '<b>Alert:</b><br/> See recommendation below!');
 					break;
 				case (recommended_courses.length == 0):
 					break;

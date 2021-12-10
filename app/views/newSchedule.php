@@ -12,6 +12,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<link rel="stylesheet" href="public/css/scheduleNew.css">
+	<link rel="stylesheet" href="public/css/flashmessage.css">
 
 	<?php
 	ob_start();
@@ -52,6 +53,7 @@
 </head>
 
 <body>
+
 	<datalist id="available_courses"></datalist>
 	<datalist id="recommended_courses"></datalist>
 
@@ -87,6 +89,10 @@
 
 	<div id="content" style="overflow: scroll;">
 		<div class="container">
+			<!-- for messages to user -->
+			<section id="message-container"></section>
+			<script src="public/js/flashmessage.js"></script>
+
 			<div class="schedule-new">
 				<form action="javascript:submitPlan()" id="programplanningworksheet">
 					<div class="std_form">
@@ -274,9 +280,10 @@
 
 		// if draft was not saved recommend courses
 		if (is_draft_present != 1) {
-			recommend_courses(true)
+			recommend_courses(true);
 		} else {
 			fill_with_draft();
+			message('success', '<b>Alert:</b><br/> Previous draft loaded!');
 		}
 	</script>
 

@@ -58,7 +58,8 @@ function scheduleAddCourse(course, course_for, isRec) {
 			if (forBackup.value == "No") {
 				// check that enrolled credits is not greater than 19
 				if(parseInt($('#creditenrolled').val()) + credit >= 20) {
-					alert("Enrolled credit limit exceeded! Course will be added to backup");
+					//alert("Enrolled credit limit exceeded! Course will be added to backup");
+					message('info', '<b>Alert:</b><br/> Enrolled credit limit exceeded!<br/> Course will be added as a backup');
 					//	display backup table if adding first time
 					if ($('#schedule-backupcoursetable tbody').children().length == 1) {
 						$('#schedule-backupcoursetable').toggle();
@@ -83,7 +84,7 @@ function scheduleAddCourse(course, course_for, isRec) {
 				$('#schedule-backupcoursetable').append(text);
 			}
 		} else {
-			alert("Cannot add the same course twice!");
+			message('warning', '<b>Alert:</b><br/> Cannot add the same course twice!');
 		}
 
 		$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
@@ -92,8 +93,7 @@ function scheduleAddCourse(course, course_for, isRec) {
 		$('#forBackup').prop('selectedIndex', 0);
 	}
 	else {
-		//error message empty input
-		alert("empty field!");
+		message('error', '<b>Alert:</b><br/> empty field!');
 	}
 }
 
@@ -270,4 +270,76 @@ function saveStudent_firstTime() {
 	$form.append("<input type='submit' id='clickme' name='first_time' value='" + JSON.stringify(draftObj) +"'>")
 	$('body').append($form);
 	$('#clickme').click();
+}
+
+// function to display recommended courses for dashboard
+function add_recommended(courses) {
+	var text = "";
+	switch (true) {
+		case (courses.length >= 4):
+			for (let i = 0; i < 4; i++){
+				if(i%2 != 0){
+					text = `<tr>
+						<td style="border-left: none; background-color: #c9c9c9;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="background-color: #c9c9c9;">${courses[i]["title"]}</td>
+						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
+				} else{
+					text = `<tr>
+						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td>${courses[i]["title"]}</td>
+						<td>${courses[i]["cred"]}</td></tr>`;
+				}
+				$("#recommended-course-table").append(text);
+			}
+			break;
+
+		case (courses.length >= 3):
+			for (let i = 0; i < 3; i++) {
+				if (i % 2 != 0) {
+					text = `<tr>
+						<td style="border-left: none; background-color: #c9c9c9;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="background-color: #c9c9c9;">${courses[i]["title"]}</td>
+						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
+				} else {
+					text = `<tr>
+						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td>${courses[i]["title"]}</td>
+						<td>${courses[i]["cred"]}</td></tr>`;
+				}
+				$("#recommended-course-table").append(text);
+			}
+			break;
+		
+		case (courses.length >= 2):
+			for (let i = 0; i < 4; i++) {
+				if (i % 2 != 0) {
+					text = `<tr>
+						<td style="border-left: none; background-color: #c9c9c9;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="background-color: #c9c9c9;">${courses[i]["title"]}</td>
+						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
+				} else {
+					text = `<tr>
+						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td>${courses[i]["title"]}</td>
+						<td>${courses[i]["cred"]}</td></tr>`;
+				}
+				$("#recommended-course-table").append(text);
+			}
+
+			break;
+		
+		case (courses.length == 1):
+			text = `<tr>
+						<td>${courses[0]["subject"]} ${$.trim(courses[0]["catalog"])}</td>
+						<td>${courses[0]["title"]}</td>
+						<td>${courses[0]["cred"]}</td></tr>`;
+			$("#recommended-course-table").append(text);
+			break;
+	
+		default:
+			$("#recommended-course-table").html("");
+			$("#plan .dash_header").html("<h3>No Recommendations</h3>");
+			break;
+	}
+
 }

@@ -59,7 +59,7 @@
 		 if ($result === FALSE) { 
 		 	/* Handle error */
 		 } elseif ($result == 1) {
-		 	header("Location: dashboard");
+		 	header("Location: dashboard?success=1");
 		 }
 		?>
 
