@@ -35,7 +35,7 @@
 					$_SESSION['valid'] = true;
 					$_SESSION['username'] = $stud['s_id'];
 					$_SESSION['token'] = api_get_paseto($_POST['s_id'], $_POST['password']);
-					$complete_firstTime = count($student['course_taken']);
+					$complete_firstTime = count($stud['course_taken']);
 					if($complete_firstTime < 1)
 						header("Location: firsttime");
 					else{
