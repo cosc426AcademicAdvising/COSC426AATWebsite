@@ -122,12 +122,12 @@
 						<table class="schedule_table">
 
 							<?php
-								if(isset($_POST['major']))
-									$plan = getFourYearbyMajor($_POST['major']);
-								if($plan != "")
-									displayFourYearSemester($plan, $semester_plan);
-								else
-									echo "<h3>No Four Year Plan Found For".$_POST['major']."</h3>";
+								// if(isset($_POST['major']))
+								// 	$plan = getFourYearbyMajor($_POST['major']);
+								// if($plan != "")
+								// 	displayFourYearSemester($plan, $semester_plan);
+								// else
+									echo "<h3>No Four Year Plan Found For</h3>";
 							?>
 						</table>
 
