@@ -29,15 +29,17 @@
 						<h3>Main Courses</h3>
 					</div>
 					<div class='table_area'>
-						<table class='taking_table'>
-							<thead>
-								<tr>
-									<th>Course Number</th>
-									<th>Title</th>
-									<th>Credits</th>
-								</tr>
-							</thead>
-							<?php
+						<?php
+							if(count($student['taking_course'])){
+								echo "<table class='taking_table'>";
+									echo '<thead>';
+										echo '<tr>';
+											echo '<th>Course Number</th>';
+											echo '<th>Title</th>';
+											echo '<th>Credits</th>';
+										echo '</tr>';
+									echo '</thead>';
+
 								for ($i=0;$i<count($student["taking_course"]);$i++){
 									$style_sub = "";
 									$style_tit = "";
@@ -53,8 +55,12 @@
 									echo "<td id='right' style='$style_cred'>".$student["taking_course"][$i]['cred'].'</td>';
 									echo '</tr>';
 								}
-							?>
-						</table>
+								echo '</table>';
+							}	
+							else {
+								echo '<h3> No Preferred Courses Found </h3>';
+							}
+						?>
 					</div>
 				</div>
 				<div class='backup' id='backup'>
@@ -62,32 +68,38 @@
 						<h3>Backup Courses</h3>
 					</div>
 					<div class='table_area'>
-						<table class='taking_table'>
-							<thead>
-								<tr>
-									<th>Course Number</th>
-									<th>Title</th>
-									<th>Credits</th>
-								</tr>
-							</thead>
-							<?php
-								for ($i=0;$i<count($student["backup_course"]);$i++){
-									$style_sub = "";
-									$style_tit = "";
-									$style_cred = "";
-									if( $i % 2 != 0) {
-										$style_sub = 'border-left: none; background-color: #c9c9c9;';
-										$style_tit = 'background-color: #c9c9c9;';
-										$style_cred = 'border-right: none; background-color: #c9c9c9;';
+						<?php
+							if(count($student['backup_course'])){
+								echo '<table class="taking_table">';
+									echo '<thead>';
+										echo '<tr>';
+											echo '<th>Course Number</th>';
+											echo '<th>Title</th>';
+											echo '<th>Credits</th>';
+										echo '</tr>';
+									echo '</thead>';
+								
+									for ($i=0;$i<count($student["backup_course"]);$i++){
+										$style_sub = "";
+										$style_tit = "";
+										$style_cred = "";
+										if( $i % 2 != 0) {
+											$style_sub = 'border-left: none; background-color: #c9c9c9;';
+											$style_tit = 'background-color: #c9c9c9;';
+											$style_cred = 'border-right: none; background-color: #c9c9c9;';
+										}
+										echo "<tr>";
+										echo "<td id='left' style='$style_sub'>".$student["backup_course"][$i]['subject'].' '.$student["backup_course"][$i]['catalog'].'</td>';
+										echo "<td style='$style_tit'.'padding-top: 10px;'>".$student["backup_course"][$i]['title'].'</td>';
+										echo "<td id='right' style='$style_cred'>".$student["backup_course"][$i]['cred'].'</td>';
+										echo '</tr>';
 									}
-									echo "<tr>";
-									echo "<td id='left' style='$style_sub'>".$student["backup_course"][$i]['subject'].' '.$student["backup_course"][$i]['catalog'].'</td>';
-									echo "<td style='$style_tit'.'padding-top: 10px;'>".$student["backup_course"][$i]['title'].'</td>';
-									echo "<td id='right' style='$style_cred'>".$student["backup_course"][$i]['cred'].'</td>';
-									echo '</tr>';
-								}
-							?>
-						</table>
+									echo '</table>';
+							}	
+							else {
+								echo '<h3> No Backup Courses Found </h3>';
+							}						
+						?>
 					</div>
 				</div>
 			</div>

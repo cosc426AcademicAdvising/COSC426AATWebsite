@@ -16,9 +16,50 @@
 		ob_start();
 		session_start();
 		$student = getStudent($_SESSION['username']);
+		$sem = $student['course_taken'][0];
+		$cnt = count($sem);
+		$total_credits = 0;
+		for($i=1;$i<$cnt+1;$i++){
+			$field = "semester_".$i;
+			$courses = $sem[$field];
+			$cnt_course = count($courses);
+			for($j=0;$j<$cnt_course;$j++){
+				$total_credits = $total_credits + intval($courses[$j]['credits']);
+			}
+		}
+		$year = "";
+		$semester = "";
+		if($total_credits < 30){
+			$year = "Freshman";
+			if($total_credits < 15)
+				$semester = "1";
+			else
+				$semester = "2";
+		}
+		else if($total_credits < 60){
+			$year = "Sophmore";
+			if($total_credits < 45)
+				$semester = "3";
+			else
+				$semester = "4";
+		}
+		else if($total_credits < 90){
+			$year = "Junior";
+			if($total_credits < 75)
+				$semester = "5";
+			else
+				$semester = "6";
+		}
+		else {
+			$year = "Senior";
+			if($total_credits < 105)
+				$semester = "7";
+			else
+				$semester = "8";
+		}
 		$plan = getFourYearbyMajor($student['major'][0]['title']);
 		$semester_plan = "semester_".$student['semester'];
-		$progress = $student['credits'];
+		$progress = $total_credits;
 		$progress_percent = intval(100 * ($progress / 120));
 		$progress_percent_str = strval($progress_percent)."%";
 		$progress_width = 'width: '.$progress_percent.'%;';
@@ -81,12 +122,12 @@
 						<table class="schedule_table">
 
 							<?php
-								if(isset($_POST['major']))
-									$plan = getFourYearbyMajor($_POST['major']);
-								if($plan != "")
-									displayFourYearSemester($plan, $semester_plan);
-								else
-									echo "<h3>No Four Year Plan Found For".$_POST['major']."</h3>";
+								// if(isset($_POST['major']))
+								// 	$plan = getFourYearbyMajor($_POST['major']);
+								// if($plan != "")
+								// 	displayFourYearSemester($plan, $semester_plan);
+								// else
+									echo "<h3>No Four Year Plan Found For</h3>";
 							?>
 						</table>
 
@@ -178,7 +219,7 @@
 										<h4> Current Year</h4>
 									</div>
 									<div class='row_odd_value' id='row_odd_value'>
-										<?php echo "<h4>".$student['year']."</h4>"; ?>
+										<?php echo "<h4>".$year."</h4>"; ?>
 									</div>
 								</div>
 
@@ -187,7 +228,7 @@
 										<h4> Current Semester</h4>
 									</div>
 									<div class='row_even_value' id='row_even_value'>
-										<?php echo "<h4>".$student['semester']."</h4>"; ?>
+										<?php echo "<h4>".$semester."</h4>"; ?>
 									</div>
 								</div>
 								<?php
@@ -209,7 +250,7 @@
 										<h4> Total Credits</h4>
 									</div>
 									<div class='row_even_value' id='row_even_value' style='border-bottom: none'>
-										<?php echo "<h4>".$student['credits']."</h4>"; ?>
+										<?php echo "<h4>".$total_credits."</h4>"; ?>
 									</div>
 								</div>
 
@@ -227,7 +268,7 @@
 										<h4> Advisor Email</h4>
 									</div>
 									<div class='row_odd_value' id='row_odd_value'>
-										<?php echo "<h4>".$student['advisor_mail']."</h4>"; ?>
+										<?php echo "<h4>advisor@email.com</h4>"; ?>
 									</div>
 								</div>
 
@@ -236,7 +277,7 @@
 										<h4> Enrollment Date</h4>
 									</div>
 									<div class='row_even_value' id='row_even_value'>
-										<?php echo "<h4>".$student['enrll']."</h4>"; ?>
+										<?php echo "<h4>Must Submit Program Planning First</h4>"; ?>
 									</div>
 								</div>
 
@@ -245,7 +286,7 @@
 										<h4> Registering For</h4>
 									</div>
 									<div class='row_odd_value' id='row_odd_value' style='border-bottom: none'>
-										<?php echo "<h4>".$student['registering_for']."</h4>"; ?>
+										<?php echo "<h4>Spring</h4>"; ?>
 									</div>
 								</div>
 						</div>

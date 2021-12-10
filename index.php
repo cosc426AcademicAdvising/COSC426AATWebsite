@@ -36,6 +36,7 @@ $route->add('/coursehistory', 'courseHistory');
 $route->add('/contact', 'info');
 $route->add('/newuser', 'newUser');
 $route->add('/firsttime', 'firstTimeForm');
+$route->add('/submitfirsttime', 'submitFirstTime');
 
 // forms action
 $route->add('/savedraft', 'savedraft');

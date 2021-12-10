@@ -28,7 +28,8 @@
 		$msg = '';
 		if (isset($_POST['login'])){
 			$stud = getStudent($_POST['username']);
-			$hash = $stud['passHash'];
+			$hashpass = getHashPassword($stud['s_id']);
+			$hash = $hashpass['password'];
 			if (!empty($_POST['username']) && !empty($_POST['password'])) {
 				if (password_verify($_POST['password'], $hash)) {
 					$_SESSION['valid'] = true;

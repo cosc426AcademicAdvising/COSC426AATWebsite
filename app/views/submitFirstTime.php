@@ -45,10 +45,8 @@
 			$context  = stream_context_create($options);
 			$result = file_get_contents($url, false, $context);
 			if ($result === FALSE) { /* Handle error */ }
-
-			if($result == 1){
+			else
 				header("Location: dashboard");
-			}
 		?>
 
 		</div>

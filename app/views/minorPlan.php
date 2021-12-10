@@ -49,6 +49,10 @@
 				} else {
 					$minPlan = getMinorPlan($student['minor'][0]['title']);
 				}
+				if($minPlan == null){
+					echo "<h2 style='text-align: center; margin: auto; grid-column-start: 1; grid-column-end: 3;'>No Plan Found For Selected Minor.  Consult With Your Advisor For Guidance.</h2>";
+					echo "<div style='visibility: hidden;'>";
+				}
 			?>
 			<div id='table_area' class='table_area' style="grid-row-start: 2; grid-row-end: 3;">
 				<div id='course_header' class='course_header' >
@@ -211,6 +215,11 @@
 			}
 			?>
 		</div>
+		<?php
+			if($fyp == null){
+				echo "</div>";
+			}
+		?>
 		<div>
 <script>
 	function sortTable(n) {
