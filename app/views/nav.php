@@ -1,5 +1,5 @@
 	<header>
-		<img style="height: 75px; padding: 10px; margin: auto; display: block;" src="public/img/web_header_3.png"/>
+		<img style="height: 75px; padding: 10px; margin: auto; display: block;" src="public/img/web_header.png"/>
 	</header>
 	<?php
 	if (empty($_SESSION)) {
