@@ -1,5 +1,5 @@
 	<header>
-		<h2>Salisbury University</h2>
+		<img style="height: 75px; padding: 10px; margin: auto; display: block;" src="public/img/web_header_3.png"/>
 	</header>
 	<?php
 	if (empty($_SESSION)) {
