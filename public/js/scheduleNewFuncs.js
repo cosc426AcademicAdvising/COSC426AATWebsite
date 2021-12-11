@@ -285,9 +285,9 @@ function add_recommended(courses) {
 						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
 				} else{
 					text = `<tr>
-						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="border-left: none;" >${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
 						<td>${courses[i]["title"]}</td>
-						<td>${courses[i]["cred"]}</td></tr>`;
+						<td style="border-right: none;">${courses[i]["cred"]}</td></tr>`;
 				}
 				$("#recommended-course-table").append(text);
 			}
@@ -302,9 +302,9 @@ function add_recommended(courses) {
 						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
 				} else {
 					text = `<tr>
-						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="border-left: none;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
 						<td>${courses[i]["title"]}</td>
-						<td>${courses[i]["cred"]}</td></tr>`;
+						<td style="border-right: none;">${courses[i]["cred"]}</td></tr>`;
 				}
 				$("#recommended-course-table").append(text);
 			}
@@ -319,9 +319,9 @@ function add_recommended(courses) {
 						<td style="border-right: none; background-color: #c9c9c9;">${courses[i]["cred"]}</td></tr>`;
 				} else {
 					text = `<tr>
-						<td>${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
+						<td style="border-left: none;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
 						<td>${courses[i]["title"]}</td>
-						<td>${courses[i]["cred"]}</td></tr>`;
+						<td style="border-right: none;">${courses[i]["cred"]}</td></tr>`;
 				}
 				$("#recommended-course-table").append(text);
 			}
@@ -330,9 +330,9 @@ function add_recommended(courses) {
 		
 		case (courses.length == 1):
 			text = `<tr>
-						<td>${courses[0]["subject"]} ${$.trim(courses[0]["catalog"])}</td>
+						<td style="border-left: none;">${courses[0]["subject"]} ${$.trim(courses[0]["catalog"])}</td>
 						<td>${courses[0]["title"]}</td>
-						<td>${courses[0]["cred"]}</td></tr>`;
+						<td style="border-right: none;">${courses[0]["cred"]}</td></tr>`;
 			$("#recommended-course-table").append(text);
 			break;
 	
