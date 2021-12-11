@@ -86,6 +86,8 @@
 </head>
 
 <body>
+	<datalist id="recommended_courses"></datalist>
+	
 	<?php
 	include 'nav.php';
 	?>

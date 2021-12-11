@@ -4,6 +4,7 @@ function recommend_courses(isForNewSchedule)
 {
 	// combined_four_year_plans defined in resources/FourYearFunctions.php -> combinedFourYear()
 
+	// take courses obj and put them in a list of obj
 	var four_year_courses = [];
 	for (let i = 1; i <= 8; i++) {
 		// extract semester keys from each major(s)
@@ -14,6 +15,10 @@ function recommend_courses(isForNewSchedule)
 				four_year_courses.push(obj);
 			}
 		}
+		
+		// major 1 is always added so if major count == 2 add 2nd major
+		// if major count == 3 add 2nd and 3rd major
+
 		// major 2
 		if (combined_four_year_plans.length == 2 && combined_four_year_plans[1] != null) {
 			for (obj of combined_four_year_plans[1][key]) {
@@ -54,40 +59,26 @@ function recommend_courses(isForNewSchedule)
 		return Object.keys(obj).length == 4 && obj['catalog'] != '' && obj['catalog'] != 'XXX' && obj['catalog'][2] != 'X';
 	});
 
-	// convert to string for easier comparison
-	var string_fy = [];
-	for (obj of four_year_courses) {
-		string_fy.push(JSON.stringify(obj));
-	}
-	var string_taken = [];
-	for (obj of courses_taken) {
-		string_taken.push(JSON.stringify(obj));
-	}
+	// console.log(four_year_courses);
+	// console.log(courses_taken);
 
-	// remove dups
-	string_fy = string_fy.filter(function (item, pos, self) {
-		return self.indexOf(item) == pos;
+	// find difference four_year_courses - courses_taken
+	var recommended_courses = four_year_courses.filter(function (obj) {
+		return !courses_taken.some(function (obj2) {
+			return obj.subject == obj2.subject && obj.catalog == obj2.catalog;
+		});
 	});
-
-	// find difference: fy - taken
-	var string_rec = [];
-	string_rec = string_fy.filter(function (x) {
-		if (!string_taken.includes(x)) {
-			return x;
-		}
-	});
-
-	// convert back to object
-	var recommended_courses = [];
-	for (obj of string_rec) {
-		recommended_courses.push(JSON.parse(obj));
-	}
-
 
 	// remove extra char for courses like HIST 103b
 	recommended_courses.forEach(obj => obj['catalog'] = obj['catalog'].slice(0, 3));
 
 	// TODO feature for courses like HIST 10X
+
+	// add to html datalist
+	var text = "";
+	var seperator = Array(4).fill(' ').join(''); //4 blank space
+	recommended_courses.forEach(obj => text += `<option value="${obj.subject} ${obj.catalog} ${seperator} ${obj.title} ${seperator} ${obj.cred}">`)
+	$('#recommended_courses').html(text);
 
 	if (isForNewSchedule == true) {
 			switch( true ) {
