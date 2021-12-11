@@ -13,6 +13,7 @@
 
 	<link rel="stylesheet" href="public/css/dashboard.css">
 	<link rel="stylesheet" href="public/css/flashmessage.css">
+	<link rel="icon" type="image/ico" href="public/img/favicon.ico">
 
 	<?php
 	ob_start();
@@ -23,9 +24,9 @@
 	$total_credits = 0;
 	for ($i = 1; $i < $cnt + 1; $i++) {
 		$field = "semester_" . $i;
-		if($i == 9)
+		if ($i == 9)
 			$field = "semester_winter";
-		if($i == 10)
+		if ($i == 10)
 			$field = "semester_summer";
 		$courses = $sem[$field];
 		$cnt_course = count($courses);
@@ -85,6 +86,8 @@
 </head>
 
 <body>
+	<datalist id="recommended_courses"></datalist>
+	
 	<?php
 	include 'nav.php';
 	?>
@@ -97,11 +100,10 @@
 			<script src="public/js/flashmessage.js"></script>
 
 			<?php
-			if (isset($_GET['success'])){
-				if($_GET['success'] == '1'){
+			if (isset($_GET['success'])) {
+				if ($_GET['success'] == '1') {
 					echo "<script>message('success', '<b>Alert:</b><br/> Your draft has been saved!');</script>";
-				}
-				elseif($_GET['success'] == '2'){
+				} elseif ($_GET['success'] == '2') {
 					echo "<script>message('success', '<b>Alert:</b><br/> Your new schedule has been submitted!');</script>";
 				}
 			}
@@ -308,7 +310,7 @@
 								<h4> Registering For</h4>
 							</div>
 							<div class='row_odd_value' id='row_odd_value' style='border-bottom: none'>
-								<?php echo "<h4>".$student['enrll']."</h4>"; ?>
+								<?php echo "<h4>" . $student['enrll'] . "</h4>"; ?>
 							</div>
 						</div>
 					</div>

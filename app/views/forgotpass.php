@@ -13,6 +13,7 @@ session_start();
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<link rel="stylesheet" href="public/css/login.css">
+	<link rel="icon" type="image/ico" href="public/img/favicon.ico">
 </head>
 
 <body>

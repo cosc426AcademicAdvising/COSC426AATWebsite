@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Academic Planar</title>
 	<meta charset="UTF-8">
@@ -11,52 +12,56 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<?php
-		ob_start();
-		session_start();
+	ob_start();
+	session_start();
 	?>
 </head>
 
 <body>
 	<?php
-		include 'nav.php';
+	include 'nav.php';
 	?>
 
-		<div id="content">
+	<div id="content">
 
 		<?php
-			$text = "";
-			$url = "";
-			if(isset($_POST['first_time'])){
-				$text = $_POST['first_time'];
-				$url = 'https://cosc426restapi.herokuapp.com/api/Student/firstTime/';
-				// $url = 'http://localhost:5000/api/Student/firstTime/';
-			}
-			global $token;
-			
-			$data = array('form' => $text);
-			// use key 'http' even if you send the request to https://...
-			$options = array(
-				'http' => array(
-					'header'  => "Content-type: application/json",
-					'method'  => 'POST',
-					'content' => json_encode($data)
-				)
-			);
-			$context  = stream_context_create($options);
-			$result = file_get_contents($url, false, $context);
-			if ($result === FALSE) { /* Handle error */ }
-			else
-				header("Location: dashboard");
+		$text = "";
+		$url = "";
+		if (isset($_POST['first_time'])) {
+			$text = $_POST['first_time'];
+			$url = 'https://cosc426restapi.herokuapp.com/api/Student/firstTime/';
+			// $url = 'http://localhost:5000/api/Student/firstTime/';
+		}
+		global $token;
+
+		$data = array('form' => $text);
+		// use key 'http' even if you send the request to https://...
+		$options = array(
+			'http' => array(
+				'header'  => "Content-type: application/json",
+				'method'  => 'POST',
+				'content' => json_encode($data)
+			)
+		);
+		$context  = stream_context_create($options);
+		$result = file_get_contents($url, false, $context);
+		if ($result === FALSE) { /* Handle error */
+		} else
+			header("Location: dashboard");
 		?>
 
-		</div>
-</div> <!-- flexbox div ends -->
+	</div>
+	</div> <!-- flexbox div ends -->
 
 
-<script>
-	$('nav ul .schedule-show').toggleClass("sch");
-	$('nav ul .first').toggleClass("rotate");
-	$('.schedule-view-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
-</script>
+	<script>
+		$('nav ul .schedule-show').toggleClass("sch");
+		$('nav ul .first').toggleClass("rotate");
+		$('.schedule-view-btn').css({
+			"color": "#8a0000",
+			"border-left-color": "#8a0000"
+		});
+	</script>
 </body>
+
 </html>

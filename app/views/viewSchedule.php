@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>View Schedule</title>
 	<meta charset="UTF-8">
@@ -10,107 +11,110 @@
 	<link rel="stylesheet" href="public/css/nav.css">
 	<link rel="stylesheet" href="public/css/scheduleView.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link rel="icon" type="image/ico" href="public/img/favicon.ico">
 
 	<?php
-		ob_start();
-		session_start();
+	ob_start();
+	session_start();
 	?>
 </head>
 
 <body>
 	<?php
-		include 'nav.php';
-		$student = getStudent($_SESSION['username']);
+	include 'nav.php';
+	$student = getStudent($_SESSION['username']);
 	?>
-		<div id="content">
-			<div class="container">
-				<div class='taking' id='taking'>
-					<div class='taking_header'>
-						<h3>Main Courses</h3>
-					</div>
-					<div class='table_area'>
-						<?php
-							if(count($student['taking_course'])){
-								echo "<table class='taking_table'>";
-									echo '<thead>';
-										echo '<tr>';
-											echo '<th>Course Number</th>';
-											echo '<th>Title</th>';
-											echo '<th>Credits</th>';
-										echo '</tr>';
-									echo '</thead>';
-
-								for ($i=0;$i<count($student["taking_course"]);$i++){
-									$style_sub = "";
-									$style_tit = "";
-									$style_cred = "";
-									if( $i % 2 != 0) {
-										$style_sub = 'border-left: none; background-color: #c9c9c9;';
-										$style_tit = 'background-color: #c9c9c9;';
-										$style_cred = 'border-right: none; background-color: #c9c9c9;';
-									}
-									echo "<tr>";
-									echo "<td id='left' style='$style_sub'>".$student["taking_course"][$i]['subject'].' '.$student["taking_course"][$i]['catalog'].'</td>';
-									echo "<td style='$style_tit'>".$student["taking_course"][$i]['title'].'</td>';
-									echo "<td id='right' style='$style_cred'>".$student["taking_course"][$i]['cred'].'</td>';
-									echo '</tr>';
-								}
-								echo '</table>';
-							}	
-							else {
-								echo '<h3> No Preferred Courses Found </h3>';
-							}
-						?>
-					</div>
+	<div id="content">
+		<div class="container">
+			<div class='taking' id='taking'>
+				<div class='taking_header'>
+					<h3>Main Courses</h3>
 				</div>
-				<div class='backup' id='backup'>
-					<div class='taking_header'>
-						<h3>Backup Courses</h3>
-					</div>
-					<div class='table_area'>
-						<?php
-							if(count($student['backup_course'])){
-								echo '<table class="taking_table">';
-									echo '<thead>';
-										echo '<tr>';
-											echo '<th>Course Number</th>';
-											echo '<th>Title</th>';
-											echo '<th>Credits</th>';
-										echo '</tr>';
-									echo '</thead>';
-								
-									for ($i=0;$i<count($student["backup_course"]);$i++){
-										$style_sub = "";
-										$style_tit = "";
-										$style_cred = "";
-										if( $i % 2 != 0) {
-											$style_sub = 'border-left: none; background-color: #c9c9c9;';
-											$style_tit = 'background-color: #c9c9c9;';
-											$style_cred = 'border-right: none; background-color: #c9c9c9;';
-										}
-										echo "<tr>";
-										echo "<td id='left' style='$style_sub'>".$student["backup_course"][$i]['subject'].' '.$student["backup_course"][$i]['catalog'].'</td>';
-										echo "<td style='$style_tit'.'padding-top: 10px;'>".$student["backup_course"][$i]['title'].'</td>';
-										echo "<td id='right' style='$style_cred'>".$student["backup_course"][$i]['cred'].'</td>';
-										echo '</tr>';
-									}
-									echo '</table>';
-							}	
-							else {
-								echo '<h3> No Backup Courses Found </h3>';
-							}						
-						?>
-					</div>
+				<div class='table_area'>
+					<?php
+					if (count($student['taking_course'])) {
+						echo "<table class='taking_table'>";
+						echo '<thead>';
+						echo '<tr>';
+						echo '<th>Course Number</th>';
+						echo '<th>Title</th>';
+						echo '<th>Credits</th>';
+						echo '</tr>';
+						echo '</thead>';
+
+						for ($i = 0; $i < count($student["taking_course"]); $i++) {
+							$style_sub = "";
+							$style_tit = "";
+							$style_cred = "";
+							if ($i % 2 != 0) {
+								$style_sub = 'border-left: none; background-color: #c9c9c9;';
+								$style_tit = 'background-color: #c9c9c9;';
+								$style_cred = 'border-right: none; background-color: #c9c9c9;';
+							}
+							echo "<tr>";
+							echo "<td id='left' style='$style_sub'>" . $student["taking_course"][$i]['subject'] . ' ' . $student["taking_course"][$i]['catalog'] . '</td>';
+							echo "<td style='$style_tit'>" . $student["taking_course"][$i]['title'] . '</td>';
+							echo "<td id='right' style='$style_cred'>" . $student["taking_course"][$i]['cred'] . '</td>';
+							echo '</tr>';
+						}
+						echo '</table>';
+					} else {
+						echo '<h3> No Preferred Courses Found </h3>';
+					}
+					?>
 				</div>
 			</div>
+			<div class='backup' id='backup'>
+				<div class='taking_header'>
+					<h3>Backup Courses</h3>
+				</div>
+				<div class='table_area'>
+					<?php
+					if (count($student['backup_course'])) {
+						echo '<table class="taking_table">';
+						echo '<thead>';
+						echo '<tr>';
+						echo '<th>Course Number</th>';
+						echo '<th>Title</th>';
+						echo '<th>Credits</th>';
+						echo '</tr>';
+						echo '</thead>';
+
+						for ($i = 0; $i < count($student["backup_course"]); $i++) {
+							$style_sub = "";
+							$style_tit = "";
+							$style_cred = "";
+							if ($i % 2 != 0) {
+								$style_sub = 'border-left: none; background-color: #c9c9c9;';
+								$style_tit = 'background-color: #c9c9c9;';
+								$style_cred = 'border-right: none; background-color: #c9c9c9;';
+							}
+							echo "<tr>";
+							echo "<td id='left' style='$style_sub'>" . $student["backup_course"][$i]['subject'] . ' ' . $student["backup_course"][$i]['catalog'] . '</td>';
+							echo "<td style='$style_tit'.'padding-top: 10px;'>" . $student["backup_course"][$i]['title'] . '</td>';
+							echo "<td id='right' style='$style_cred'>" . $student["backup_course"][$i]['cred'] . '</td>';
+							echo '</tr>';
+						}
+						echo '</table>';
+					} else {
+						echo '<h3> No Backup Courses Found </h3>';
+					}
+					?>
+				</div>
 			</div>
 		</div>
-</div> <!-- flexbox div ends -->
+	</div>
+	</div>
+	</div> <!-- flexbox div ends -->
 
-<script>
-	$('nav ul .schedule-show').toggleClass("sch");
-	$('nav ul .first').toggleClass("rotate");
-	$('.schedule-view-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
-</script>
+	<script>
+		$('nav ul .schedule-show').toggleClass("sch");
+		$('nav ul .first').toggleClass("rotate");
+		$('.schedule-view-btn').css({
+			"color": "#8a0000",
+			"border-left-color": "#8a0000"
+		});
+	</script>
 </body>
+
 </html>
