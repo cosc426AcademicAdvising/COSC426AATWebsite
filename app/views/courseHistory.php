@@ -14,8 +14,6 @@
 	<?php
 		ob_start();
 		session_start();
-		// require 'vendor/autoload.php';
-		// include_once 'funcs/StudentFunctions.php';
 		$student = getStudent($_SESSION['username']);
 	?>
 
@@ -117,11 +115,11 @@
 	</script>
 </div> <!-- flexbox div ends -->
 
-<!-- <script>
+<script>
 	$('nav ul .progress-show').toggleClass("prog");
 	$('nav ul .second').toggleClass("rotate");
 	$('.course-hist-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
-</script> -->
+</script>
 
 </body>
 </html>

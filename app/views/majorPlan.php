@@ -416,10 +416,10 @@
 		</div>
 </div> <!-- flexbox div ends -->
 
-<!-- <script>
+<script>
 	$('nav ul .progress-show').toggleClass("prog");
 	$('nav ul .second').toggleClass("rotate");
 	$('.fyp-btn').css({"color":"#8a0000","border-left-color":"#8a0000"});
-</script> -->
+</script>
 </body>
 </html>
