@@ -79,7 +79,7 @@
 
 		var text = "";
 		var seperator = Array(4).fill(' ').join(''); //4 blank space
-		available_courses.forEach(val => text += '<option value="' + val["Subject"] + " " + $.trim(val["Catalog"]) + seperator + val["Long Title"] + seperator + val["Allowd Unt"] + '">');
+		available_courses.forEach(obj => text += `<option value="${obj['Subject']} ${$.trim(obj["Catalog"])}${seperator}${obj["Long Title"]}${seperator}${obj["Allowd Unt"]}">`);
 		$('#available_courses').html(text);
 	</script>
 
@@ -286,8 +286,6 @@
 			message('success', '<b>Alert:</b><br/> Previous draft loaded!');
 		}
 	</script>
-
-
 
 </body>
 

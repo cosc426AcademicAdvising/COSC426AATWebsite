@@ -311,7 +311,7 @@ function add_recommended(courses) {
 			break;
 		
 		case (courses.length >= 2):
-			for (let i = 0; i < 4; i++) {
+			for (let i = 0; i < 2; i++) {
 				if (i % 2 != 0) {
 					text = `<tr>
 						<td style="border-left: none; background-color: #c9c9c9;">${courses[i]["subject"]} ${$.trim(courses[i]["catalog"])}</td>
