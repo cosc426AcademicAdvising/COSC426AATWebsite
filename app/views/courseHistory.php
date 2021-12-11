@@ -60,9 +60,9 @@
 								// 	$style_cred = 'border-right: none; background-color: #c9c9c9;';
 								// }
 								echo "<tr>";
-								echo "<td id='left' class='data' style='$style_sub'>".$student['course_taken'][0]['semester_'.$n][$i]['subject'].' '.$student['course_taken'][0]['semester_'.$n][$i]['catalog'].'</td>';
-								echo "<td class='data' style='$style_sub'>".$student['course_taken'][0]['semester_'.$n][$i]['title'].'</td>';
-								echo "<td id='right' class='data' style='$style_sub'>".$student['course_taken'][0]['semester_'.$n][$i]['credits'].'</td>';
+								echo "<td id='left' class='data' style='$style_sub'>".$student['course_taken'][0][$field][$i]['subject'].' '.$student['course_taken'][0][$field][$i]['catalog'].'</td>';
+								echo "<td class='data' style='$style_sub'>".$student['course_taken'][0][$field][$i]['title'].'</td>';
+								echo "<td id='right' class='data' style='$style_sub'>".$student['course_taken'][0][$field][$i]['credits'].'</td>';
 								echo '</tr>';
 								$cnter = $cnter + 1;
 							}
