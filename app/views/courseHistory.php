@@ -43,7 +43,14 @@
 					<?php
 						$cnter = 0;
 						for($n=1;$n<=count($student['course_taken'][0]);$n++){
-							for($i=0;$i<count($student['course_taken'][0]['semester_'.$n]);$i++){
+							$field = "";
+							if($n == 9)
+								$field = 'semester_winter';
+							if($n == 10)
+								$field = 'semester_summer';
+							else
+								$field = 'semester_'.$n;
+							for($i=0;$i<count($student['course_taken'][0][$field]);$i++){
 								$style_sub = "";
 								$style_tit = "";
 								$style_cred = "";
