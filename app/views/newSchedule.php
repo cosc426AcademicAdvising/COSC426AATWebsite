@@ -13,6 +13,7 @@
 
 	<link rel="stylesheet" href="public/css/scheduleNew.css">
 	<link rel="stylesheet" href="public/css/flashmessage.css">
+	<link rel="icon" type="image/ico" href="public/img/favicon.ico">
 
 	<?php
 	ob_start();
@@ -48,7 +49,6 @@
 	combinedFourYear($majors);
 	echo '<script> var student_id = ' . json_encode($student['s_id'])  . '; </script>';
 	echo '<script> var student_course_hist = ' . json_encode($student['course_taken'])  . '; </script>';
-	echo '<script> var current_semester_number = ' . json_encode(intval($student['semester']))  . '; </script>';
 	?>
 </head>
 
