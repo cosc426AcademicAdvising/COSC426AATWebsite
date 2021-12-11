@@ -46,7 +46,7 @@
 							$field = "";
 							if($n == 9)
 								$field = 'semester_winter';
-							if($n == 10)
+							else if($n == 10)
 								$field = 'semester_summer';
 							else
 								$field = 'semester_'.$n;
