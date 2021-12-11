@@ -308,7 +308,7 @@
 								<h4> Registering For</h4>
 							</div>
 							<div class='row_odd_value' id='row_odd_value' style='border-bottom: none'>
-								<?php echo "<h4>Spring</h4>"; ?>
+								<?php echo "<h4>".$student['enrll']."</h4>"; ?>
 							</div>
 						</div>
 					</div>
