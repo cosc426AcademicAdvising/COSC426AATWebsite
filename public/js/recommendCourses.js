@@ -4,12 +4,8 @@ function recommend_courses(isForNewSchedule)
 {
 	// combined_four_year_plans defined in resources/FourYearFunctions.php -> combinedFourYear()
 
-	// current_semester_number defined in scheduleNew.php in php tag
-	// we want to recommend classes from semester 0 to semester ahead of current
-	var semester_count = (current_semester_number + 1 <= 8) ? current_semester_number + 1 : current_semester_number;
-
 	var four_year_courses = [];
-	for (let i = 1; i <= semester_count; i++) {
+	for (let i = 1; i <= 8; i++) {
 		// extract semester keys from each major(s)
 		var key = 'semester_' + i;
 		// major 1
@@ -87,6 +83,7 @@ function recommend_courses(isForNewSchedule)
 		recommended_courses.push(JSON.parse(obj));
 	}
 
+
 	// remove extra char for courses like HIST 103b
 	recommended_courses.forEach(obj => obj['catalog'] = obj['catalog'].slice(0, 3));
 
@@ -94,13 +91,6 @@ function recommend_courses(isForNewSchedule)
 
 	if (isForNewSchedule == true) {
 			switch( true ) {
-				case (recommended_courses.length >= 4):
-					for (let i = 0; i < 4; i++) {
-						var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
-						scheduleAddCourse(course, "MAJOR", true);
-					}
-					message('info', '<b>Alert:</b><br/> See recommendations below!');
-					break;
 				case (recommended_courses.length >= 3):
 					for (let i = 0; i < 3; i++) {
 						var course = recommended_courses[i]["subject"] + " " + $.trim(recommended_courses[i]["catalog"]) + seperator + recommended_courses[i]["title"] + seperator + recommended_courses[i]["cred"];
