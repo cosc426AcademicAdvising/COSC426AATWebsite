@@ -31,7 +31,7 @@
 
 <body>
 	<header>
-		<img style="height: 75px; padding: 10px; margin: auto; display: block;" src="web_header.png"/>
+		<img style="height: 75px; padding: 10px; margin: auto; display: block;" src="public/img/web_header.png"/>
 	</header>
 
 	<datalist id="available_courses"></datalist>
