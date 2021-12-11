@@ -21,7 +21,12 @@
 	<?php
 		// redict user to dashboard if session still present
 		if (!empty($_SESSION)) {
-			header("Location: dashboard");
+			$stud = getStudent($_SESSION['username']);
+			$complete_firstTime = count($stud['course_taken']);
+			if($complete_firstTime < 1)
+				header("Location: firsttime");
+			else
+				header("Location: dashboard");
 		}
 		// require 'vendor/autoload.php';
 		// include_once 'funcs/StudentFunctions.php';
