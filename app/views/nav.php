@@ -38,10 +38,10 @@
 					</ul>
 				</li>
 				<li><a href="contact" class="contact-info-btn">
-						<ion-icon name="call-outline"></ion-icon>&nbsp;Contact info
+						<ion-icon name="call-outline"></ion-icon>&nbsp;Contact Info
 					</a></li>
 				<li><a href="signout">
-						<ion-icon name="log-out-outline"></ion-icon>&nbsp;Sign Out
+						<ion-icon name="log-out-outline"></ion-icon>&nbsp;Log Out
 					</a></li>
 			</ul>
 		</nav>
