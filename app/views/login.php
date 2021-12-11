@@ -15,7 +15,7 @@
 
 <body>
 	<header>
-		<h2>Salisbury University</h2>
+		<img style="height: 75px; padding: 10px; margin: auto; display: block;" src="web_header.png"/>
 	</header>
 
 	<?php

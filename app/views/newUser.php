@@ -5,7 +5,7 @@
 	session_start();
 ?>
 <head>
-	<title>Academic Planar</title>
+	<title>Sign Up</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -85,7 +85,7 @@
 	</script>
 
     <header>
-		<h2>Salisbury University</h2>
+        <img style="height: 75px; padding: 10px; margin: auto; display: block;" src="web_header.png"/>
 	</header>
     <form action="newuser" method="post">
     <div class="container">
