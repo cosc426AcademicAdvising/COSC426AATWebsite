@@ -69,8 +69,8 @@
             <p style="margin-top: 5px;">Please enter all courses you have completed at Salisbury University</p>
             <p style="margin-top: 5px; margin-bottom: 15px;">This will help your advisors determine which courses are best for you</p>
         </div>
-			<div class="schedule-new" style="background: #f0eeea;">
-				<form action="" id="programplanningworksheet">
+			<div class="schedule-new" style="background: #f0eeea; border-radius: 8px;">
+				<form action="" id="programplanningworksheet" style="outline: none;">
 					<div id="coursesearchsection" style="margin:20px auto 40px auto; width:60%; border-bottom: solid 1px; ">
 						<div style="display:inline-block; padding: 15px;">
 							<label for="course" style="margin: auto;">Search for a course <br> <font size="2">enter a subject, course number, title or credit amount</font></label><br>
