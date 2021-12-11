@@ -32,12 +32,14 @@
                     $student_minor = [];
                     if(isset($_POST['minor']))
                          $student_minor = $_POST['minor'];
-
+                    
+                    
                     $hash=password_hash($_POST['psw'], PASSWORD_BCRYPT);
-                    $vals=array('s_id'=>$s_id, 'name'=>$name, 'passHash'=>$hash, 'major'=>$student_major, 'minor'=>$student_minor);
+                    $enrll = $_POST['season'];
                     $_SESSION['valid'] = true;
 					$_SESSION['username'] = $s_id;
-                    $res = createStudent($s_id, $hash, $name, $student_major, $student_minor);
+
+                    $res = createStudent($s_id, $hash, $name, $student_major, $student_minor, $enrll);
                     header("Location: firsttime");
 
                 } else {
@@ -85,28 +87,39 @@
 	</script>
 
     <header>
-        <img style="height: 75px; padding: 10px; margin: auto; display: block;" src="public/img/web_header.png"/>
+		<h2>Salisbury University</h2>
 	</header>
-    <form action="newuser" method="post">
+    <form action="" method="post">
     <div class="container">
         <div class="title">
             <h1>Register</h1>
             <p>Please fill in this form to create an account.</p>
         </div>
-        <div class="input_field" style="grid-row-start: 2; grid-row-end: 3">
-            <input type="text" placeholder="Enter First and Last Name" name="name" id="name" required>
+        <div class="input_field" style="grid-row-start: 2; grid-row-end: 3; grid-column-start: 1; grid-column-end: 2;">
+            <input class="std_in" type="text" placeholder="Enter First and Last Name" name="name" id="name" required>
         </div>
-        <div class="input_field" style="grid-row-start: 3; grid-row-end: 4">
-            <input type="text" placeholder="Enter Student ID" name="s_id" id="s_id" required>
+        <div class="input_field" style="grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3;">
+            <input class="std_in" type="text" placeholder="Enter Student ID" name="s_id" id="s_id" required>
         </div>
-        <br>
-        <div class="input_field" style="grid-row-start: 4; grid-row-end: 5"> 
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <div class="input_field" style="grid-row-start: 3; grid-row-end: 4; grid-column-start: 1; grid-column-end: 2;"> 
+            <input class="std_in" type="password" placeholder="Enter Password" name="psw" id="psw" required>
         </div>
-        <br>
-        <div class="input_field" style="grid-row-start: 5; grid-row-end: 6">
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+        <div class="input_field" style="grid-row-start: 3; grid-row-end: 4; grid-column-start: 2; grid-column-end: 3;">
+            <input class="std_in" type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
         </div>
+        <div class="input_field" style="grid-row-start: 4; grid-row-end: 5; grid-column-start: 1; grid-column-end: 3;">
+            <label style="margin-right: 25px;">Registering for<span class="required">*</span></label>
+            <input type="radio" name="season" value="Fall" style="margin-left: 10px;" required>
+            <label for="Fall">Fall </label>
+            <input type="radio" name="season" value="Winter" style="margin-left: 10px;" required>
+            <label for="Winter">Winter </label>
+            <input type="radio" name="season" value="Spring" style="margin-left: 10px;" required>
+            <label for="Spring">Spring </label>
+            <input type="radio" name="season" value="Summer" style="margin-left: 10px;" required>
+            <label for="Summer">Summer </label>
+        </div>
+    </div>
+    <div class="contain">
         <div class="enc_major">
             <div class="major">
                 <label for="major">Search for a Major <br>
@@ -116,7 +129,7 @@
                 <button type="button" class="add_major" onclick='addMajor()'>Add</button>
             </div>
             <div class="m_vals">
-                <table id="major_tbl">
+                <table class="std_tbl" id="major_tbl">
                     <thead>
                         <tr>
                             <th>Majors</th>
@@ -129,6 +142,7 @@
                 </table>
             </div>
         </div>
+    
         <div class="enc_minor">
             <div class="minor">
                 <label for="minor">Search for a Minor <br>
@@ -139,7 +153,7 @@
                 <button type="button"  class="add_minor" onclick='addMinor()'>Add</button>
             </div>
             <div class="m_vals">
-                <table id="minor_tbl">
+                <table class="std_tbl" id="minor_tbl">
                     <thead>
                         <tr>
                             <th>Minors</th>
@@ -152,10 +166,11 @@
                 </table>
             </div>
         </div>
+    </div>
         <div class="submit_btn">
             <button type="submit" class="registerbtn">Register</button>
         </div>
-    </div>
+    
     </form>
     <form>
     <div class="signin">

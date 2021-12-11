@@ -23,21 +23,34 @@
     height: auto;
     margin: 35px auto auto auto;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(.5fr, 1fr);
     overflow: auto;
     grid-gap: 15px;
 }
-
+.contain {
+  background: var(--offWhite);
+  padding: 25px;
+  width: 50%;
+  height: auto;
+  margin: 0 auto auto auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  overflow: auto;
+  grid-gap: 15px;
+}
 .title {
     padding: 10px;
     margin: 10px auto auto auto;
-    width: 40%;
+    width: 100%;
     height: 100%;
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+    border-bottom: solid;
+    border-color: var(--primary);
 }
 
 .input_field {
@@ -47,17 +60,22 @@
     margin: 10px auto auto 0px;
     grid-column-start: 1;
     grid-column-end: 2;
+    
+}
+
+.std_in {
+  background: var(--tertiary);
+  width: 75%;
+  margin: 25px 0 22px 0px;
 }
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 40%;
   padding: 15px;
-  margin: 5px 0 22px 0px;
   display: inline-block;
   border: none;
   border-radius: 8px;
-  background: var(--tertiary);
+  
 }
 
 input[type=text]:focus, input[type=password]:focus {
@@ -86,13 +104,11 @@ hr {
 }
 
 .submit_btn {
-  width: 100%;
-  grid-row-start: 8; 
-  grid-row-end: 9; 
-  grid-column-start: 1;
-  grid-column-end: 2;
-  border-top: solid;
+  background-color: var(--offWhite);
+  padding: 10px;
   padding-top: 15px;
+  width: 50%;
+  margin: auto;
 }
 
 .registerbtn:hover {
@@ -110,6 +126,7 @@ a {
   padding: 10px;
   border-top: solid 1px;
   border-radius: 0 0 8px 8px;
+  border-color: var(--primary);
   text-align: center;
   width: 50%;
   margin: auto;
@@ -150,18 +167,20 @@ header h2 {
 }
 .enc_major {
   border-top: solid;
+  border-color: var(--primary);
   padding: 40px;
-  grid-row-start: 6;
-  grid-row-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr;
 }
 .enc_minor {
-  border-top: solid;
+  border-bottom: solid;
+  border-color: var(--primary);
   padding: 40px;
-  grid-row-start: 7;
-  grid-row-end: 8;
+  grid-row-start: 2;
+  grid-row-end: 3;
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr;
@@ -170,4 +189,20 @@ header h2 {
   grid-column-start: 2;
   grid-column-end: 3;
   margin: 0 auto auto auto;
+}
+.std_tbl {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.majmin_tbl {
+  background-color: var(--offWhite);
+  width: auto;
+  margin: auto;
+  text-align: center;
+}
+.close {
+  color: red;
+  font-size: 28px;
+  font-weight: bold;
+  margin: auto;
 }
