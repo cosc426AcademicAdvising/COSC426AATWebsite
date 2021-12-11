@@ -86,6 +86,8 @@
 							<option value="6">6</option>
 							<option value="7">7</option>
 							<option value="8">8</option>
+							<option value="Winter">Winter</option>
+							<option value="Summer">Summer</option>
 						</select>
 						<button type='button' onclick="scheduleAddCourse_FirstTimeForm(coursesearch.value, sem.value)">Add</button>
 					</div>

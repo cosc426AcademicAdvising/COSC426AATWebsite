@@ -23,6 +23,10 @@
 	$total_credits = 0;
 	for ($i = 1; $i < $cnt + 1; $i++) {
 		$field = "semester_" . $i;
+		if($i == 9)
+			$field = "semester_winter";
+		if($i == 10)
+			$field = "semester_summer";
 		$courses = $sem[$field];
 		$cnt_course = count($courses);
 		for ($j = 0; $j < $cnt_course; $j++) {
