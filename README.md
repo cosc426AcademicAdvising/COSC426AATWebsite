@@ -36,7 +36,7 @@ https://cosc426website.herokuapp.com
 - jQuery v3.4.1
 - CSS
 - [RestAPI](https://github.com/quincden/COSC425AATRestAPI)
-- [Heroku](https://cosc426website.herokuapp.com/)
+- [Heroku](https://www.heroku.com/home)
 
 ### Dependencies
 - rmccue/requests v1.8.1 see [composer.lock](composer.lock)
