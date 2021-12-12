@@ -10,7 +10,7 @@
 function getMinorPlan($min){
     global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/MinPlan/Plan/'.$min;
-    $response = Requests::get($url, array('auth-token' => $token));
+    $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $plan = json_decode($response->body, true);
     return $plan;
 }
