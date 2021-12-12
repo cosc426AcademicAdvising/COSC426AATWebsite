@@ -47,7 +47,7 @@
 		$result = file_get_contents($url, false, $context);
 		if ($result === FALSE) { /* Handle error */
 		} else
-			header("Location: dashboard");
+			header("Location: ./");
 		?>
 
 	</div>
