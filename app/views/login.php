@@ -28,7 +28,7 @@ session_start();
 		if ($complete_firstTime < 1)
 			header("Location: firsttime");
 		}
-	else
+	else if(!empty($_SESSION['token']))
 		header("Location: dashboard");
 	
 	// require 'vendor/autoload.php';
