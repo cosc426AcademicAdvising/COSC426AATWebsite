@@ -73,7 +73,7 @@ function deleteDraft($sid) {
 function getHashPassword($sid) {
   global $token;
   $url =  'https://cosc426restapi.herokuapp.com/api/Student/hashpass/'.$sid;
-  $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
+  $response = Requests::get($url);
   $hash = json_decode($response->body, true);
   return $hash;
 }
