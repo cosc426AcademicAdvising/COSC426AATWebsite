@@ -28,7 +28,7 @@ function newPass($sid, $hsh){
 }
 
 function api_get_paseto($sid, $pass){
-  $arr = array('id' => intval($_POST['s_id']), 'password' => $_POST['psw']);
+  $arr = array('id' => intval($sid), 'password' => $pass);
   $send = json_encode($arr);
   $header = array('Content-Type' => 'application/json');
   $url = "https://cosc426restapi.herokuapp.com/api/user/login";
