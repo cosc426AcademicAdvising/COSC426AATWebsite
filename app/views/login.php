@@ -34,14 +34,14 @@ session_start();
 	// include_once 'funcs/StudentFunctions.php';
 	$msg = '';
 	if (isset($_POST['login'])) {
-		$stud = getStudent($_POST['username']);
-		$hashpass = getHashPassword($stud['s_id']);
+		$hashpass = getHashPassword($_POST['username']);
 		$hash = $hashpass['password'];
 		if (!empty($_POST['username']) && !empty($_POST['password'])) {
 			if (password_verify($_POST['password'], $hash)) {
 				$_SESSION['valid'] = true;
 				$_SESSION['username'] = $stud['s_id'];
 				$_SESSION['token'] = api_get_paseto($_POST['s_id'], $_POST['password']);
+				$stud = getStudent($_POST['username']);
 				$complete_firstTime = count($stud['course_taken']);
 				if ($complete_firstTime < 1)
 					header("Location: firsttime");
