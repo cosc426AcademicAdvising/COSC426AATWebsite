@@ -260,7 +260,6 @@ function saveStudent_firstTime() {
 			courseTable.push(tabledata[i].innerText.split("\t").slice(0, 4));
 			// slice (0,4) to exclude the remove button in each row
 			var cred = tabledata[i].innerText.split("\t").slice(2, 3);
-			console.log(cred);
 			total_credits += parseInt(cred);
 		}
 	}
@@ -278,7 +277,7 @@ function saveStudent_firstTime() {
 		else
 			semester = "4";
 	}
-	else if($total_credits < 90){
+	else if(total_credits < 90){
 		year = "Junior";
 		if(total_credits < 75)
 			semester = "5";
@@ -287,7 +286,7 @@ function saveStudent_firstTime() {
 	}
 	else {
 		year = "Senior";
-		if($total_credits < 105)
+		if(total_credits < 105)
 			semester = "7";
 		else
 			semester = "8";
