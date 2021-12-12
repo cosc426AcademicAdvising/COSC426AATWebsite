@@ -34,9 +34,9 @@ session_start();
 	// include_once 'funcs/StudentFunctions.php';
 	$msg = '';
 	if (isset($_POST['login'])) {
-		$hashpass = getHashPassword($_POST['username']);
-		$hash = $hashpass['password'];
 		if (!empty($_POST['username']) && !empty($_POST['password'])) {
+			$hashpass = getHashPassword($_POST['username']);
+			$hash = $hashpass['password'];
 			if (password_verify($_POST['password'], $hash)) {
 				$_SESSION['valid'] = true;
 				$_SESSION['username'] = $stud['s_id'];
