@@ -10,7 +10,7 @@
 function getPolicybyMajor($maj){
     global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/FourYear/Policy/'.$maj;
-    $response = Requests::get($url, array('auth-token' => $token));
+    $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $student = json_decode($response->body, true);
     return $student;
 }
@@ -20,7 +20,7 @@ function getPolicybyMajor($maj){
 function getFourYearbyMajor($maj){
     global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/FourYear/MajorPlan/'.$maj;
-    $response = Requests::get($url, array('auth-token' => $token));
+    $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $plan = json_decode($response->body, true);
     return $plan;
 }
@@ -30,7 +30,7 @@ function getFourYearbyMajor($maj){
 function getFourYearbyMajorRegex($maj){
     global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/FourYear/MajorPLan/Regex/'.$maj;
-    $response = Requests::get($url, array('auth-token' => $token));
+    $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $plan = json_decode($response->body, true);
     return $plan;
 }
