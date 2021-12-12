@@ -3,7 +3,6 @@
 require_once 'vendor/autoload.php';
 require_once 'app/resources/getToken.php';
 
-$token = getToken();
 
 include_once 'app/resources/CourseFunctions.php';
 include_once 'app/resources/DepartmentFunctions.php';

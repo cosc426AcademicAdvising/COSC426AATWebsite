@@ -10,7 +10,7 @@
 function getSchools(){
     global $token;
     //  First parameter is the address of API, second parameter is any necesarry headers packed into an array
-    $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/School', array('auth-token' => $token));
+    $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/School', array('auth-token' => $_SESSION['token']));
     // Decode into json object the response
     $schools = json_decode($response->body, true);
     // Return list
@@ -20,7 +20,7 @@ function getSchools(){
 // Get all majors
 function getMajors(){
     global $token;
-    $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/Major', array('auth-token' => $token));
+    $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/Major', array('auth-token' => $_SESSION['token']));
     $major = json_decode($response->body, true);
     return $major;
 }
@@ -28,7 +28,7 @@ function getMajors(){
 // Get all minors
 function getMinors(){
     global $token;
-    $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/Minor', array('auth-token' => $token));
+    $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/Minor', array('auth-token' => $_SESSION['token']));
     $major = json_decode($response->body, true);
     return $major;
 }
@@ -38,7 +38,7 @@ function getMinors(){
 function getMajorsbySchool($school){
     global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/Department/Major/'.$school;
-    $response = Requests::get($url, array('auth-token' => $token));
+    $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $major = json_decode($response->body, true);
     return $major;
 }
@@ -48,7 +48,7 @@ function getMajorsbySchool($school){
 function getMinorsbySchool($school){
     global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/Department/Minor/'.$school;
-    $response = Requests::get($url, array('auth-token' => $token));
+    $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $minor = json_decode($response->body, true);
     return $minor;
 }

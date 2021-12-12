@@ -250,18 +250,52 @@ function scheduleAddCourse_FirstTimeForm(course, course_for) {
 
 function saveStudent_firstTime() {
 	var courseTable = [];
-
+	var total_credits = 0;
+	var year = "";
+	var semester = "";
 	var tabledata = $("#schedule-coursetable tbody").children().slice(1);	//slice(1) to remove table header row
 	if( tabledata.length > 0 ) {
 		for( let i=0; i<tabledata.length;i++ ) {
 			courseTable.push(tabledata[i].innerText.split("\t").slice(0, 4));
 			// slice (0,4) to exclude the remove button in each row
+			var cred = tabledata[i].innerText.split("\t").slice(2, 3);
+			total_credits += parseInt(cred);
 		}
 	}
-
+	if(total_credits < 30){
+		year = "Freshman";
+		if(total_credits < 15)
+			semester = "1";
+		else
+			semester = "2";
+	}
+	else if(total_credits < 60){
+		year = "Sophmore";
+		if(total_credits < 45)
+			semester = "3";
+		else
+			semester = "4";
+	}
+	else if(total_credits < 90){
+		year = "Junior";
+		if(total_credits < 75)
+			semester = "5";
+		else
+			semester = "6";
+	}
+	else {
+		year = "Senior";
+		if(total_credits < 105)
+			semester = "7";
+		else
+			semester = "8";
+	}
 	var draftObj = {
 		s_id:studentid.value,
-		taking_course:courseTable
+		taking_course:courseTable,
+		credits:total_credits,
+		semester:semester,
+		year:year
 	}
 	
 	// create temporary form to send draft object

@@ -243,7 +243,7 @@
 								<h4> Current Year</h4>
 							</div>
 							<div class='row_odd_value' id='row_odd_value'>
-								<?php echo "<h4>" . $year . "</h4>"; ?>
+								<?php echo "<h4>" . $student['year'] . "</h4>"; ?>
 							</div>
 						</div>
 
@@ -252,7 +252,7 @@
 								<h4> Current Semester</h4>
 							</div>
 							<div class='row_even_value' id='row_even_value'>
-								<?php echo "<h4>" . $semester . "</h4>"; ?>
+								<?php echo "<h4>" . $student['semester'] . "</h4>"; ?>
 							</div>
 						</div>
 						<?php
@@ -274,7 +274,7 @@
 								<h4> Total Credits</h4>
 							</div>
 							<div class='row_even_value' id='row_even_value' style='border-bottom: none'>
-								<?php echo "<h4>" . $total_credits . "</h4>"; ?>
+								<?php echo "<h4>" . $student['credits'] . "</h4>"; ?>
 							</div>
 						</div>
 
@@ -301,7 +301,12 @@
 								<h4> Enrollment Date</h4>
 							</div>
 							<div class='row_even_value' id='row_even_value'>
-								<?php echo "<h4>Must Submit Program Planning First</h4>"; ?>
+								<?php 
+									if($student['enrll'] == "")
+										echo "<h4>Must Submit Program Planning First</h4>"; 
+									else
+										echo "<h4>".$student['enrll']."</h4>"; 
+								?>
 							</div>
 						</div>
 
@@ -310,7 +315,7 @@
 								<h4> Registering For</h4>
 							</div>
 							<div class='row_odd_value' id='row_odd_value' style='border-bottom: none'>
-								<?php echo "<h4>" . $student['enrll'] . "</h4>"; ?>
+								<?php echo "<h4>" . $student['registering_for'] . "</h4>"; ?>
 							</div>
 						</div>
 					</div>

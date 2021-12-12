@@ -21,27 +21,27 @@ session_start();
 	</header>
 
 	<?php
-	// redict user to dashboard if session still present
-	if (!empty($_SESSION)) {
-		$stud = getStudent($_SESSION['username']);
-		$complete_firstTime = count($stud['course_taken']);
-		if ($complete_firstTime < 1)
-			header("Location: firsttime");
-		else
-			header("Location: dashboard");
-	}
+	// // redict user to dashboard if session still present
+	// if (!empty($_SESSION) && !empty($_SESSION['token'])) {
+	// 	$stud = getStudent($_SESSION['username']);
+	// 	$complete_firstTime = count($stud['course_taken']);
+	// 	if ($complete_firstTime < 1)
+	// 		header("Location: firsttime");
+	// 	else
+	// 		header("Location: dashboard");
+	// }
 	// require 'vendor/autoload.php';
 	// include_once 'funcs/StudentFunctions.php';
 	$msg = '';
 	if (isset($_POST['login'])) {
-		$stud = getStudent($_POST['username']);
-		$hashpass = getHashPassword($stud['s_id']);
-		$hash = $hashpass['password'];
 		if (!empty($_POST['username']) && !empty($_POST['password'])) {
+			$hashpass = getHashPassword($_POST['username']);
+			$hash = $hashpass['password'];
 			if (password_verify($_POST['password'], $hash)) {
 				$_SESSION['valid'] = true;
-				$_SESSION['username'] = $stud['s_id'];
-				$_SESSION['token'] = api_get_paseto($_POST['s_id'], $_POST['password']);
+				$_SESSION['username'] = $_POST['username'];
+				$_SESSION['token'] = api_get_paseto($_POST['username'], $_POST['password']);
+				$stud = getStudent($_POST['username']);
 				$complete_firstTime = count($stud['course_taken']);
 				if ($complete_firstTime < 1)
 					header("Location: firsttime");

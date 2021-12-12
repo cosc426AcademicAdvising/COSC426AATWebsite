@@ -9,17 +9,15 @@
 // echo $val['name'];
 // echo $val['course_taken][0]['semester_1][0]['subject]
 function getStudent($sid){
-  global $token;
   $url = 'https://cosc426restapi.herokuapp.com/api/Student/'.$sid;
-  $response = Requests::get($url, array('auth-token' => $token));
+  $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
   $student = json_decode($response->body, true);
   return $student;
 }
 
 function newPass($sid, $hsh){
-  global $token;
   $url = "https://cosc426restapi.herokuapp.com/api/Update/NewPass";
-  $headers = array('Content-Type' => 'application/json','auth-token' => $token);
+  $headers = array('Content-Type' => 'application/json');
   $arr = array("s_id"=>$sid, "passHash"=>$hsh);
   $send = json_encode($arr);
   echo $send;
@@ -28,7 +26,7 @@ function newPass($sid, $hsh){
 }
 
 function api_get_paseto($sid, $pass){
-  $arr = array('id' => intval($_POST['s_id']), 'password' => $_POST['psw']);
+  $arr = array('id' => intval($sid), 'password' => $pass);
   $send = json_encode($arr);
   $header = array('Content-Type' => 'application/json');
   $url = "https://cosc426restapi.herokuapp.com/api/user/login";
@@ -37,7 +35,6 @@ function api_get_paseto($sid, $pass){
 }
 
 function createStudent($sid, $hsh, $name, $major, $minor, $enrll){
-  global $token;
   $url = "https://cosc426restapi.herokuapp.com/api/Student/new/".$sid;
   $headers = array('Content-Type' => 'application/json');
   $arr = array("s_id"=>$sid, "name"=>$name, "passHash"=>$hsh, "major"=>$major, "minor"=>$minor, "enrll"=>$enrll);
@@ -48,32 +45,28 @@ function createStudent($sid, $hsh, $name, $major, $minor, $enrll){
 }
 // returns 1 if draft is present otherwise 0
 function isDraftPresent($sid) {
-  global $token;
   $url = 'https://cosc426restapi.herokuapp.com/api/Draft/draftExists/'.$sid;
-  $response = Requests::get($url, array('auth-token' => $token));
+  $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
   $draft_status = json_decode($response->body, true);
   return $draft_status;
 }
 
 function getDraft($sid) {
-  global $token;
   $url = 'https://cosc426restapi.herokuapp.com/api/Draft/getDraft/'.$sid;
-  $response = Requests::get($url, array('auth-token' => $token));
+  $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
   $draft = json_decode($response->body, true);
   return $draft;
 }
 
 function deleteDraft($sid) {
-  global $token;
   $url = 'https://cosc426restapi.herokuapp.com/api/Draft/Delete/'.$sid;
-  $response = Requests::post($url, array('auth-token' => $token));
+  $response = Requests::post($url, array('auth-token' => $_SESSION['token']));
   return $response;
 }
 
 function getHashPassword($sid) {
-  global $token;
   $url =  'https://cosc426restapi.herokuapp.com/api/Student/hashpass/'.$sid;
-  $response = Requests::get($url, array('auth-token' => $token));
+  $response = Requests::get($url);
   $hash = json_decode($response->body, true);
   return $hash;
 }
