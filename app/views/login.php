@@ -42,7 +42,7 @@ session_start();
 			if (password_verify($_POST['password'], $hash)) {
 				$_SESSION['valid'] = true;
 				$_SESSION['username'] = $_POST['username'];
-				$_SESSION['token'] = api_get_paseto($_POST['username'], $hash);
+				$_SESSION['token'] = api_get_paseto($_POST['username'], $_POST['password']);
 				$stud = getStudent($_POST['username']);
 				$complete_firstTime = count($stud['course_taken']);
 				if ($complete_firstTime < 1)
