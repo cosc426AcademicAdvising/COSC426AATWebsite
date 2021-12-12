@@ -156,7 +156,6 @@ function saveDraft() {
 
 function submitPlan() {
 
-	console.log("Reached")
 	var courseTable = [];
 	var backupCourseTable = [];
 

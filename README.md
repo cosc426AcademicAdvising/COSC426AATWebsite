@@ -1,6 +1,8 @@
 # Academic Planar
 
-A web application that allows students to register for courses, view their progress towards graduation, view their major & minor plans/requirements, lookup advising information and more...
+A web application that allows students to register for courses, view their progress towards graduation, view their major & minor plans/requirements, lookup advising information and more...<br/>
+
+https://cosc426website.herokuapp.com
 
 ## Features
 - [ ] Authentication
@@ -48,7 +50,7 @@ All relative code that help define the website interface are located in `app/vie
 
 The CSS and JS code for the files in the view folder can be found in `public/<css or js>/*`. Each css file is named after the view file it styles. <br />
 
-An important thing to note is that `index.php` is always ran first before any other page. This is because of the rewrite rule in the `.htaccess` file. Without it the program will not be able to work.
+An important thing to note is that `index.php` is always ran first before any other page. This is because of the rewrite rule in the `.htaccess` file. Without it, the program will not work.
 
 ## Future Goals
 - Move to a Flask Framework
