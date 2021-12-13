@@ -8,7 +8,6 @@
 // Get all distinct shcools
 //echo $val[0]
 function getSchools(){
-    global $token;
     //  First parameter is the address of API, second parameter is any necesarry headers packed into an array
     $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/School', array('auth-token' => $_SESSION['token']));
     // Decode into json object the response
@@ -19,7 +18,6 @@ function getSchools(){
 
 // Get all majors
 function getMajors(){
-    global $token;
     $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/Major', array('auth-token' => $_SESSION['token']));
     $major = json_decode($response->body, true);
     return $major;
@@ -27,7 +25,6 @@ function getMajors(){
 
 // Get all minors
 function getMinors(){
-    global $token;
     $response = Requests::get('https://cosc426restapi.herokuapp.com/api/Department/Minor', array('auth-token' => $_SESSION['token']));
     $major = json_decode($response->body, true);
     return $major;
@@ -36,7 +33,6 @@ function getMinors(){
 // Get all Majors under a school
 // echo $val[0]['Acad Plan'];
 function getMajorsbySchool($school){
-    global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/Department/Major/'.$school;
     $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $major = json_decode($response->body, true);
@@ -46,7 +42,6 @@ function getMajorsbySchool($school){
 // Get all minors under a school
 // echo $val[0]['Acad Plan'];
 function getMinorsbySchool($school){
-    global $token;
     $url = 'https://cosc426restapi.herokuapp.com/api/Department/Minor/'.$school;
     $response = Requests::get($url, array('auth-token' => $_SESSION['token']));
     $minor = json_decode($response->body, true);
