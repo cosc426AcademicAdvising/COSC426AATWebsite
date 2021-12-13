@@ -3,6 +3,11 @@ function addMajor() {
     var maj = $("#majorsearch").val();
     var cnt = $("#major_tbl tr").length;
     var duplicate = false;
+
+    if (maj === "") {
+        message('error', '<b>Alert:</b><br/> empty field!');
+        return;
+    }
     
     if(cnt > 2)
         for (let i = 2; i < cnt; i++) {
@@ -19,11 +24,14 @@ function addMajor() {
             $("#majorsearch").val('');
         }
         else {
-            alert("Cannot add same major twice.");
+            // alert("Cannot add same major twice.");
+            message('warning', '<b>Alert:</b><br/> Cannot add the same major twice.');
         }
     }
     else {
-        alert("Cannot have more than 3 majors.");
+        // alert("Cannot have more than 3 majors.");
+        message('warning', '<b>Alert:</b><br/> Cannot have more than 3 majors.');
+        
     }
   }
 
@@ -32,6 +40,11 @@ function addMajor() {
     var min = $("#minorsearch").val();
     var cnt = $("#minor_tbl tr").length;
     var duplicate = false;
+
+      if (min === "") {
+          message('error', '<b>Alert:</b><br/> empty field!');
+          return;
+      }
     
     if(cnt > 2)
         for (let i = 2; i < cnt; i++) {
@@ -47,11 +60,13 @@ function addMajor() {
             $("#minorsearch").val('');
         }
         else {
-            alert("Cannot add same minor twice.");
+            // alert("Cannot add same minor twice.");
+            message('warning', '<b>Alert:</b><br/> Cannot add the same minor twice.');
         }
     }
     else {
-        alert("Cannot have more than 3 minors.");
+        // alert("Cannot have more than 3 minors.");
+        message('warning', '<b>Alert:</b><br/> Cannot have more than 3 minors.');
     }
   }
 

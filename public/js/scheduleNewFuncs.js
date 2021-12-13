@@ -235,7 +235,9 @@ function scheduleAddCourse_FirstTimeForm(course, course_for) {
 			// update enrolled credits
 			$('#creditenrolled').val(parseInt($('#creditenrolled').val()) + credit);
 		} else {
-			alert("Cannot add the same course twice!");
+			// alert("Cannot add the same course twice!");
+			message('warning', '<b>Alert:</b><br/> Cannot add the same course twice!');
+			
 		}
 
 		$('#coursesearchsection :input[type="checkbox"]').prop('checked', false);
@@ -244,7 +246,8 @@ function scheduleAddCourse_FirstTimeForm(course, course_for) {
 	}
 	else {
 		//error message empty input
-		alert("empty field!");
+		// alert("empty field!");
+		message('error', '<b>Alert:</b><br/> empty field!');
 	}
 }
 

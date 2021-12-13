@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" href="public/css/newUser.css">
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="public/css/flashmessage.css">
     <link rel="icon" type="image/ico" href="public/img/favicon.ico">
 
     <?php
@@ -91,6 +92,10 @@ session_start();
     </header>
     <form action="" method="post">
         <div class="container">
+            <!-- for messages to user -->
+            <section id="message-container"></section>
+            <script src="public/js/flashmessage.js"></script>
+
             <div class="title">
                 <h1>Register</h1>
                 <p>Please fill in this form to create an account.</p>

@@ -1,5 +1,5 @@
 RewriteEngine on
-#RewriteBase /COSC426AATWebsite/
+# RewriteBase /COSC426AATWebsite/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

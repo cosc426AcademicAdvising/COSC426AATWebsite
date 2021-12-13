@@ -12,6 +12,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<link rel="stylesheet" href="public/css/scheduleNew.css">
+	<link rel="stylesheet" href="public/css/flashmessage.css">
 	<link rel="icon" type="image/ico" href="public/img/favicon.ico">
 
 	<?php
@@ -65,9 +66,13 @@
 		$('#available_courses').html(text);
 	</script>
 
-
+	<!-- for messages to user -->
+	<section id="message-container"></section>
+	<script src="public/js/flashmessage.js"></script>
 
 	<div id="content" style="overflow: auto; width: 80%; margin: auto; border: none;">
+
+
 		<div class="welcome">
 			<?php echo "<h1> Welcome To The Academic Planner</h1>"; ?>
 		</div>
@@ -123,12 +128,12 @@
 	</div>
 	</div> <!-- flexbox div ends -->
 	<script>
-		$('nav ul .schedule-show').toggleClass("sch");
-		$('nav ul .first').toggleClass("rotate");
-		$('.schedule-new-btn').css({
-			"color": "#8a0000",
-			"border-left-color": "#8a0000"
-		});
+		// $('nav ul .schedule-show').toggleClass("sch");
+		// $('nav ul .first').toggleClass("rotate");
+		// $('.schedule-new-btn').css({
+		// 	"color": "#8a0000",
+		// 	"border-left-color": "#8a0000"
+		// });
 	</script>
 
 	<!-- table and buttons functionalities -->
